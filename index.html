@@ -1,22 +1,94 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>coming soon...</title>
-		<style>
-			body {
-				font-family: monospace;
-				text-align: center;
-				padding: auto;
-				font-size: 3vh;
-			}
-		</style>
+<html lang="en"><head>
+		<link rel="stylesheet" href="style.css">
 	</head>
-
 	<body>
-		<h1>Coming Soon</h1>
-		<img src="https://vignette.wikia.nocookie.net/spongebob/images/2/22/My_Pretty_Seahorse_19.jpg/revision/latest/scale-to-width-down/340?cb=20111015224125">
-		<p>Under construction.</p>
-		<p>Stay tuned yak guys!</p>
-	</body>
-</html>
+		<header>
+			<navbar id="navbar">
+				<a class="nav-link" href="#welcome-section">About</a>
+				<a class="nav-link" href="#projects">Works</a>
+				<a class="nav-link" href="#contact">Contact</a>
+			</navbar>
+		</header>
 
+        <div class="container">
+
+            <!-- profile section jadi 1 hal full buat fcc -->
+            <section id="welcome-section">
+                <img id="saya" src="al0pgrad.svg">
+                <h1>- Alifia Rahmah -</h1>
+                <p>Ya, ini saya.</p>
+                <div class="contact">
+                    <a href="https://github.com/alifiarahmah" target="_blank">
+                        <img class="contact-logo" src="GitHub-Mark-Light-64px.png" />
+					</a>
+                    <a id="profile-link" href="https://freecodecamp.com/alifiarahmah" target="_blank">
+                        <img class="contact-logo" src="https://d33wubrfki0l68.cloudfront.net/2f7693e1933ac514c960f51ceae72c91c6716eb2/b2efd/img/fcc_primary_small.svg">
+                    </a>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h1>My Works:</h1>
+                <div class="project-list">
+
+                    <div class="project-tile">
+                        <img class="project-image" src="random-quote-generator.png" />
+                        <h2>Random Quote Generator</h2>
+                        <p>A custom Google Chrome extension to show some random productivity quotes.</p>
+                        <a href="https://github.com/alifiarahmah/random-quote-generator/archive/master.zip">
+                            <button class="project-link">
+                                Download
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="project-tile">
+                        <img class="project-image" src="linebot.jpg" />
+                        <h2>AR-Bot v1.0b</h2>
+                        <p>
+                            A cringy Indonesian Messaging API a.k.a. chatbot just for fun.
+                        </p>
+                        <a href="https://lin.ee/tWcoUZP" target="_blank">
+                            <button class="project-link">
+                                Add Friend on LINE
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="project-tile">
+                        <img class="project-image" src="redtile.png" />
+                        <h2>Red Tile</h2>
+                        <p>Can you make the tile all red?</p>
+                        <a href="https://jsfiddle.net/alifiarahmah/k3Lchzmt" target="_blank">
+                            <button class="project-link">
+                                View
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="project-tile">
+                        <img class="project-image" src="calc.png" />
+                        <h2>Calculator</h2>
+                        <p>A javascript calculator.</p>
+                        <a href="https://jsfiddle.net/alifiarahmah/k3Lchzmt" target="_blank">
+                            <button class="project-link">
+                                View
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <p>
+                This personal homepage was made without any frameworks plz help I'm noob
+            </p>
+        </footer>
+
+
+    </body>
+</html>
