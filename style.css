@@ -55,7 +55,6 @@ navbar {
 }
 
 .dropdown-button {
-    display: none;
     color: white;
     text-decoration: none;
     cursor: pointer;
@@ -65,9 +64,10 @@ navbar {
     display: inline-flex;
     text-align: right;
     font-size: 10vh;
+    display: none;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 768px){
     .nav-link {
         display: none;
     }
