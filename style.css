@@ -35,12 +35,12 @@ navbar {
 }
 
 .nav-link {
+    display: inline-flex;
     color: white;
     text-decoration: none;
     cursor: pointer;
     margin-right: 20px;
     vertical-align: middle;
-    display: inline-flex;
     text-align: right;
     border: 2px solid black;
     padding: 4px 4px 4px 4px;
@@ -58,7 +58,7 @@ navbar {
     color: white;
     text-decoration: none;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 5vw;
     padding: 5px 5px 5px 5px;
     vertical-align: middle;
     text-align: right;
@@ -66,12 +66,12 @@ navbar {
     display: none;
 }
 
-@media only screen and (max-width: 768px){
+@media (max-width: 768px){
     .nav-link {
         display: none;
     }
     .dropdown-button{
-        display: flex;
+        display: inline-flex;
     }
 }
 
