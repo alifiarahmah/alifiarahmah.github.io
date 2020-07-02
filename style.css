@@ -47,21 +47,33 @@ navbar {
 }
 
 .nav-link:hover {
-    border: 2px solid white;
+    color: yellow;
 }
 
 .nav-link:active {
     transform: scale(0.8);
 }
 
-.dropdown-button {
-    display: none;
+@media only screen and (max-width: 768px){
+    .nav-link {
+        display: none;
+    }
+    .dropdown-button{
+        display: inline-flex;
+    }
 }
 
-@media screen only (max-width: 600px){
-    .dropdown-button{
-        display: block;
-    }
+.dropdown-button {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 5px 5px 5px 5px;
+    vertical-align: middle;
+    display: inline-flex;
+    text-align: right;
+    font-size: 10vh;
+    display: none;
 }
 
 /*eof header*/
@@ -105,23 +117,21 @@ section {
     margin-bottom: 10px;
 }
 
-.contact {
+#contact {
     align-items: center;
-    margin-top: 20px;
+    vertical-align:middle;
+    margin-top: 10px;
+    justify-content: space-between;
+    max-width: 90%;
 }
 
-.contact a {
+#contact a {
     text-decoration: none;
-    color: inherit;
-}
-.contact a:visited {
-    text-decoration: none;
-    color: inherit;
 }
 
 .contact-logo {
     flex-wrap: nowrap;
-    width: 25px;
+    height: 25px;
 }
 
 /*bag project*/
