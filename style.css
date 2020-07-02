@@ -10,11 +10,13 @@ html {
 body{
     height: 100vh;
     width: 100vw;
+    height: 100vh;
     font-family: monospace;
     background-color: #000000;
     font-size: 3vh;
     color: #FFFFFF;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 @media (max-width: 375px){
@@ -31,14 +33,14 @@ body{
 header{
     background-color: inherit;
     display: flex;
-    position: fixed;
     justify-content: flex-end;
-    top: 0%;
+    top: 0;
     left: 0%;
     width: 100vw;
     height: 30px;
     min-height: 10vh;
     align-items: center;
+    position: fixed;
 }
 
 navbar {
@@ -79,6 +81,9 @@ navbar {
 }
 
 @media only screen and (max-width: 768px){
+    header{
+        position: fixed;
+    }
     .nav-link {
         display: none;
     }
@@ -123,18 +128,15 @@ section {
 
 #saya {
     display: block;
-    max-width: 200px;
-    max-height: 200px;
-    width: auto;
-    height: auto;
+
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 #contact {
     align-items: center;
     vertical-align:middle;
-    margin-top: 10px;
+    margin-top: 2vw;
     justify-content: space-between;
     max-width: 90%;
 }
@@ -145,10 +147,29 @@ section {
 
 .contact-logo {
     flex-wrap: nowrap;
-    height: 25px;
+    height: 5vmin;
+}
+
+@media only screen and (max-width: 375px){
+    #saya {
+        min-height: 40vw;
+        min-width: 40vw;
+        max-width: 60vw;
+        max-height: 60vw;
+        width: auto;
+        height: auto;
+        margin-bottom: 2vw;
+    }
+    #welcome-section p {
+        margin: 4vw 0 4vw 0;
+    }
 }
 
 /*bag project*/
+
+section#projects h1 {
+    padding: 2vw 0 2vw 0;
+}
 
 .project-list {
     display: flex;
@@ -166,7 +187,7 @@ section {
     height: 50vh;*/
     text-align: center;
     border: 2px solid white;
-    margin: 2px 2px 2px 2px;
+    margin: 2vw 2px 2vw 2px;
     padding: 10px 10px 10px 10px;
 }
 
@@ -221,9 +242,9 @@ section {
     .project-tile {
         width: 90vw;
     }
-    #saya {
-        display: none;
-    }
+    /*#saya {
+        background: url(al0pgrad_64px.png) no-repeat;
+    }*/
 }
 
 @media only screen and (max-width: 875px){
@@ -243,6 +264,6 @@ footer {
 
 @media only screen and (max-width: 875px){
     footer p {
-        font-size: 2vmin;
+        font-size: 4vmin;
     }
 }
