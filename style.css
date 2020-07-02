@@ -221,6 +221,9 @@ section {
     .project-tile {
         width: 90vw;
     }
+    #saya {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 875px){
