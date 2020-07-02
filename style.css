@@ -238,17 +238,11 @@ section#projects h1 {
         text-align: center;
     }
     .project-tile {
-        width: 90vw;
+        width: 60vw;
     }
     /*#saya {
         background: url(al0pgrad_64px.png) no-repeat;
     }*/
-}
-
-@media only screen and (max-width: 875px){
-    .project-tile {
-        width: 60vw;
-    }
 }
 
 /*  eof project */
