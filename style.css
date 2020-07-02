@@ -121,8 +121,11 @@ section {
 }
 
 #saya {
-    width: 50%;
+    display: block;
     max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
     border-radius: 50%;
     margin-bottom: 10px;
 }
@@ -230,5 +233,12 @@ section {
 /*footer*/
 footer {
     text-align: center;
+    color: gray;
     font-size: 10px;
+}
+
+@media only screen and (max-width: 875px){
+    footer p {
+        font-size: 2vmin;
+    }
 }
