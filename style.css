@@ -54,15 +54,6 @@ navbar {
     transform: scale(0.8);
 }
 
-@media only screen and (max-width: 768px){
-    .nav-link {
-        display: none;
-    }
-    .dropdown-button{
-        display: inline-flex;
-    }
-}
-
 .dropdown-button {
     color: white;
     text-decoration: none;
@@ -76,7 +67,16 @@ navbar {
     display: none;
 }
 
-/*eof header*/
+@media only screen and (max-width: 768px){
+    .nav-link {
+        display: none;
+    }
+    .dropdown-button{
+        display: flex;
+    }
+}
+
+/*eof HEADER*/
 
 /*container*/
 
