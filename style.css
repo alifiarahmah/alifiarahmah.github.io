@@ -201,7 +201,7 @@ section#projects h1 {
     margin: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
     border: 2px solid white;
     background-color: inherit;
     text-decoration: none;
@@ -231,7 +231,8 @@ section#projects h1 {
 }
 
 .project-link img {
-    height: 0.8em;
+    height: 0.9rem;
+    align-self: center;
     width: auto;
 }
 
