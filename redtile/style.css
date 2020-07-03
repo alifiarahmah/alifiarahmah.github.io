@@ -1,0 +1,12 @@
+.button{
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+}
+.button:hover{
+    opacity: 0.5 !important;
+}
+.button:active{
+    background-color: white !important;
+    transition-duration: 0.5s !important;
+}
