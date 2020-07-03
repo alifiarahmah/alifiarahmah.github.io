@@ -197,14 +197,16 @@ section#projects h1 {
 }
 
 .project-link {
-    background-color: inherit;
-    text-decoration: none;
+    flex-direction: row;
     margin: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
+    justify-content: center;
+    align-items: baseline;
     border: 2px solid white;
+    background-color: inherit;
+    text-decoration: none;
     color: white;
     font-family: inherit;
-    flex-wrap: wrap;
     border-radius: 0%;
     font-size: inherit;
     cursor: pointer;
@@ -228,8 +230,9 @@ section#projects h1 {
     border: 2px solid white;
 }
 
-.img{
-    display: block;
+.project-link img {
+    height: 0.8em;
+    width: auto;
 }
 
 @media only screen and (max-width: 1024px){
