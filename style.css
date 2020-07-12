@@ -1,51 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    justify-content: center;
-    text-align: center;
-    background-color: #8ACBCB;
-
-    font-family: sans-serif;
-    font-weight: bold;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 3vh;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
-header {
-    position: fixed;
-    top: 10%;
-    width: 100%;
-}
+@media only screen and (max-width: 375px) {
+    h1 {
+        font-size: 6vmin;
+    }
 
-div {
-    height: 90vh;
-    justify-content: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-
-img {
-    display: flex;
-    height: 50vh;
-    top: 20%;
-    display: flex;
-    position: fixed;
-    animation-name: naikturun;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes naikturun {
-    50% {
-        top: 30%;
+    p {
+        font-size: 5vmin;
     }
 }
 
-footer {
+/*header*/
+header {
+    background-color: #141418;
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 10vh;
+    align-items: center;
     position: fixed;
-    bottom: 10%;
-    width: 100%;
+}
+
+navbar {
+    display: flex;
+    vertical-align: middle;
+    padding-right: 20px;
+}
+
+.nav-link {
+    color: white;
+    border: 0.5vmin solid #141418;
+    border-radius: 5%;
+    padding: 1vmin 2vmin 1vmin 2vmin;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 20px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.nav-link:hover {
+    border: 0.5vmin solid white;
+    background-color: white;
+    color: inherit;
+}
+
+.nav-link:active {
+    transform: scale(0.8);
+}
+
+.dropdown-button {
+    color: white;
+    font-size: 2rem;
+    padding: 1vmin 2vmin 1vmin 2vmin;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 20px;
+    vertical-align: middle;
+    text-align: right;
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        position: fixed;
+    }
+
+    .nav-link {
+        display: none;
+    }
+
+    .dropdown-button {
+        display: inline-flex;
+    }
+}
+
+/* dd */
+.dropdown {
+    display: none;
+    position: relative;
+    z-index: 1;
+    background-color: yellow;
+}
+
+.dd-link {
+    display: block;
+}
+
+/* eof dd */
+/*eof HEADER*/
+/*container*/
+.container {
     text-align: center;
+}
+
+section {
+    width: 100vw;
+    padding: 2vw 2vw 2vw 2vw;
+}
+
+/* welcome-section*/
+#welcome-section {
+    background-color: rgb(33, 39, 64);
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bio {
+    margin-left: 3em;
+}
+
+.bio h1 {
+    color: #d1b000;
+}
+
+.bio p {
+    color: white;
+}
+
+#saya {
+    display: block;
+    border-radius: 50%;
+    height: 40vh;
+}
+
+@media only screen and (max-width: 375px) {
+    #welcome-section {
+        flex-direction: column;
+    }
+
+    #saya {
+        min-height: 40vw;
+        min-width: 40vw;
+        max-width: 60vw;
+        max-height: 60vw;
+        width: auto;
+        height: auto;
+        margin-bottom: 2vw;
+    }
+
+    #welcome-section p {
+        margin: 4vw 0 4vw 0;
+    }
+}
+
+/*bag project*/
+section#projects {
+    background-color: #10003d;
+    color: white;
+}
+
+section#projects h1 {
+    padding: 2vw 0 2vw 0;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap; /*update selanjutnya ganti nowrap*/
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.project-tile {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color: white;
+    border: 0vw solid white;
+    border-radius: 2vmax;
+    /*height: 45vh;*/
+    width: 20vw;
+    margin: 1vmin 2vmin 1vmin 2vmin;
+    text-align: center;
+    justify-content: center;
+}
+
+.project-image {
+    width: 100%;
+    max-height: 50rem;
+    overflow: hidden;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.project-title {
+    margin: 1vh 1vw 1vh 1vw;
+    flex-grow: 0;
+}
+
+.project-desc {
+    flex-grow: 1;
+    margin: 1vh 1vw 1vh 1vw;
+    max-height: 50%;
+}
+
+.project-link {
+    flex-grow: 0;
+    background-color: #212740;
+    text-decoration: none;
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+    width: 70%;
+    border: 0.5vw solid #212740;
+    border-radius: 5px;
+    flex-direction: row;
+    padding: 1vmin 0 1vmin 0;
+    margin-bottom: 1vh;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.project-link:hover {
+    opacity: 0.7;
+}
+
+.project-link:active {
+    transform: scale(0.8);
+}
+
+.project-link img {
+    height: 0.9rem;
+    margin-right: 0.1rem;
+    align-self: center;
+    width: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+    .project-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .project-tile {
+        width: 60vw;
+    }
+
+    /*#saya {
+        background: url(al0pgrad_64px.png) no-repeat;
+    }*/
+}
+
+/*  eof project */
+/*footer*/
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #141418;
+}
+
+footer h1{
+    color: white;
+    font-size: 1.5em;
+    padding: 2vw 0 1vw 0;
+}
+
+#contact {
+    align-items: center;
+    vertical-align: middle;
+    max-width: 90%;
+}
+
+#contact a {
+    text-decoration: none;
+    color: white;
+    padding: 1vmin 1vmax 1vmin 1vmax;
+}
+
+.contact-logo {
+    flex-wrap: nowrap;
+    height: 1rem;
+}
+
+footer p{
+    margin: 1vw 0 1vw 0;
+
+}
+
+@media only screen and (max-width: 875px) {
+    footer p {
+        font-size: 3vmin;
+        padding: 1vmin 3vmin 1vmin 3vmin;
+    }
 }
