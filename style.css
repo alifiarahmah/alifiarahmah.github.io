@@ -1,3 +1,11 @@
+:root {
+    --main-bg-darkblue: #09254A;
+    --main-bg-lightorange: #F89820;
+    --main-bg-yellow: #FEDB27;
+    --main-bg-gray: #E7E7E7;
+    --main-bg-darkgray: #141418;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,19 +24,27 @@ body {
     box-sizing: border-box;
 }
 
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+}
+
 @media only screen and (max-width: 375px) {
     h1 {
         font-size: 6vmin;
     }
 
-    p {
+    h2 {
         font-size: 5vmin;
+    }
+
+    p {
+        font-size: 4vmin;
     }
 }
 
 /*header*/
 header {
-    background-color: #141418;
     display: flex;
     justify-content: flex-end;
     top: 0;
@@ -36,7 +52,7 @@ header {
     width: 100vw;
     min-height: 10vh;
     align-items: center;
-    position: fixed;
+    position: absolute;
 }
 
 navbar {
@@ -46,8 +62,8 @@ navbar {
 }
 
 .nav-link {
-    color: white;
-    border: 0.5vmin solid #141418;
+    color: var(--main-bg-darkblue);
+    border: 0.5vmin solid transparent;
     border-radius: 5%;
     padding: 1vmin 2vmin 1vmin 2vmin;
     display: inline-flex;
@@ -59,9 +75,9 @@ navbar {
 }
 
 .nav-link:hover {
-    border: 0.5vmin solid white;
-    background-color: white;
-    color: inherit;
+    border: 0.5vmin solid var(--main-bg-darkblue);
+    background-color: var(--main-bg-darkblue);
+    color: white;
 }
 
 .nav-link:active {
@@ -69,8 +85,7 @@ navbar {
 }
 
 .dropdown-button {
-    color: white;
-    font-size: 2rem;
+    font-size: 7vh;
     padding: 1vmin 2vmin 1vmin 2vmin;
     display: inline-flex;
     text-decoration: none;
@@ -85,13 +100,17 @@ navbar {
     header {
         position: fixed;
     }
-
+    navbar{
+        margin: 1vw;
+    }
     .nav-link {
         display: none;
+        margin: 0;
     }
 
     .dropdown-button {
         display: inline-flex;
+        margin-right: 0;
     }
 }
 
@@ -119,15 +138,17 @@ section {
     padding: 2vw 2vw 2vw 2vw;
 }
 
-/* welcome-section*/
+/* WELCOME-SECTION */
 #welcome-section {
-    background-color: rgb(33, 39, 64);
+    background-image: url("img/wp.svg");
+    background-size: cover;
+    background-position: top;
     display: flex;
     flex-direction: row;
     height: 100vh;
+    width: 100vw;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 .bio {
@@ -135,32 +156,40 @@ section {
 }
 
 .bio h1 {
-    color: #d1b000;
+    color: var(--main-bg-lightorange);
+    font-size: 2em;
+    text-transform: uppercase;
 }
 
 .bio p {
-    color: white;
+    color: black;
 }
 
 #saya {
     display: block;
     border-radius: 50%;
     height: 40vh;
+    align-self: center;
+    max-width: 290px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 768px) {
+    .bio {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+
     #welcome-section {
+        background-image: url("img/wp_mobile.svg");
         flex-direction: column;
+        padding: 0;
     }
 
     #saya {
-        min-height: 40vw;
-        min-width: 40vw;
-        max-width: 60vw;
-        max-height: 60vw;
+        max-width: 40vw;
         width: auto;
         height: auto;
-        margin-bottom: 2vw;
     }
 
     #welcome-section p {
@@ -170,7 +199,7 @@ section {
 
 /*bag project*/
 section#projects {
-    background-color: #10003d;
+    background-color: var(--main-bg-darkblue);
     color: white;
 }
 
@@ -180,7 +209,8 @@ section#projects h1 {
 
 .project-list {
     display: flex;
-    flex-wrap: wrap; /*update selanjutnya ganti nowrap*/
+    flex-wrap: wrap;
+    /*update selanjutnya ganti nowrap*/
     flex-direction: row;
     width: 100%;
     justify-content: center;
@@ -202,10 +232,12 @@ section#projects h1 {
 
 .project-image {
     width: 100%;
+    height: 10vw;
     max-height: 50rem;
     overflow: hidden;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
+    object-fit: cover;
 }
 
 .project-title {
@@ -214,34 +246,36 @@ section#projects h1 {
 }
 
 .project-desc {
+    display: block;
     flex-grow: 1;
     margin: 1vh 1vw 1vh 1vw;
     max-height: 50%;
+    line-height: inherit;
 }
 
 .project-link {
     flex-grow: 0;
-    background-color: #212740;
+    background-color: var(--main-bg-lightorange);
     text-decoration: none;
     color: white;
     font-family: inherit;
     font-size: inherit;
     width: 70%;
-    border: 0.5vw solid #212740;
-    border-radius: 5px;
+    border: 0.5vw solid var(--main-bg-lightorange);
+    border-radius: 5vmax;
     flex-direction: row;
     padding: 1vmin 0 1vmin 0;
-    margin-bottom: 1vh;
+    margin: 1vh;
     align-self: flex-end;
     cursor: pointer;
 }
 
 .project-link:hover {
-    opacity: 0.7;
+    transform: scale(0.8);
 }
 
 .project-link:active {
-    transform: scale(0.8);
+    opacity: 0.7;
 }
 
 .project-link img {
@@ -259,27 +293,32 @@ section#projects h1 {
     }
 
     .project-tile {
-        width: 60vw;
+        width: 70vw;
     }
 
-    /*#saya {
-        background: url(al0pgrad_64px.png) no-repeat;
-    }*/
+    .project-image {
+        display: none;
+    }
+    .project-link {
+        border-radius: 3vmax;
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
 }
 
 /*  eof project */
 /*footer*/
 footer {
+    width: 100vw !important;
+    margin: 0 0 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #141418;
 }
 
-footer h1{
+footer h1 {
     color: white;
-    font-size: 1.5em;
     padding: 2vw 0 1vw 0;
 }
 
@@ -289,10 +328,17 @@ footer h1{
     max-width: 90%;
 }
 
-#contact a {
-    text-decoration: none;
-    color: white;
+.contact-link {
     padding: 1vmin 1vmax 1vmin 1vmax;
+}
+
+.contact-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-link a:hover {
+    color: yellow;
 }
 
 .contact-logo {
@@ -300,14 +346,14 @@ footer h1{
     height: 1rem;
 }
 
-footer p{
+footer p {
     margin: 1vw 0 1vw 0;
-
 }
 
 @media only screen and (max-width: 875px) {
-    footer p {
-        font-size: 3vmin;
-        padding: 1vmin 3vmin 1vmin 3vmin;
+    #contact {
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
     }
 }
