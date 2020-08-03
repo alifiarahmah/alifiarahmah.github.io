@@ -1,166 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <title>-maintenance-</title>
+    <link rel="icon" href="favicon.png" />
+    <meta name="keywords" content="Alifia Rahmah, alifiarahmah, GitHub Pages" />
     <meta name="author" content="Alifia Rahmah" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="description" content="alifiarahmah's personal webpage" />
+    <meta name="description" content="Hello! This is hamharaifila's basecamp." />
 
+    <style>
+        body {
+            justify-content: center;
+            text-align: center;
+            background-color: #8ACBCB;
 
-    <title>hamharaifila's basecamp</title>
+            font-family: sans-serif;
+            font-weight: bold;
+        }
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        header {
+            position: fixed;
+            top: 10%;
+            width: 100%;
+        }
+
+        div {
+            height: 90vh;
+            justify-content: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            display: flex;
+            height: 50vh;
+            top: 20%;
+            display: flex;
+            position: fixed;
+            animation-name: naikturun;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes naikturun {
+            50% {
+                top: 30%;
+            }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10%;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
 </head>
 
 <body>
-
-    <!-- HEADER - NAVBAR -->
     <header>
-        <navbar id="navbar">
-            <a class="nav-link" href="#welcome-section">About</a>
-            <a class="nav-link" href="#projects">Works</a>
-            <a class="nav-link" href="https://alifiarahmah.wordpress.com" target="_blank">Blog
-                <!--img src="img/sign.png" style="height: 1rem; align-self: center; padding-left: 1vmin;"-->
-            </a>
-            <a class="nav-link" href="#contact">Contact</a>
-            <span class="dropdown-button" onclick="ddToggle()">≡</span-->
-        </navbar>
+        Websitenya lagi diberesin ya, berantakan ehe.
+        <br />
+        Kapan2 balik lagi yaks
     </header>
-
-    <!-- DROPDOWN -->
-    <div id="dropdown" class="dropdown">
-        <a class="dd-link" href="#welcome-section">About</a>
-        <a class="dd-link" href="#projects">Works</a>
-        <a class="dd-link" href="#contact">Contact</a>
+    <div>
+        <img src="img/turtle.svg" />
     </div>
-
-    <div class="container">
-
-        <!-- SECTION 1: WELCOME SECTION -->
-        <section id="welcome-section">
-            <picture>
-                <source media="(min-width: 1000px)" srcset="img/al0pgrad.svg" />
-                <!--source media="(min-width: 768px)" srcset="img/al0pgrad.png" /-->
-                <img id="saya" src="img/al0pgrad_128px.png" />
-            </picture>
-            <div class="bio">
-                <h1>Alifia Rahmah</h1>
-                <p>Freshman on training.<br />
-                    Distro hopper. Internet surfer. Novice coder. <br />Sometimes a bad joker.
-                </p>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h1>My Works</h1>
-            <p>Some of my works I made just for fun.</p>
-            <div class="project-list">
-
-                <!-- PROJECT 1 -->
-                <div class="project-tile">
-                    <img class="project-image" src="img/random-quote-generator.png" />
-                    <h2 class="project-title">Random Quote Generator</h2>
-                    <p class="project-desc">A custom Google Chrome extension to show random quotes.</p>
-                    <a href="https://github.com/alifiarahmah/random-quote-generator/" target="_blank">
-                        <button class="project-link">
-                            View Source Code
-                        </button>
-                    </a>
-                </div>
-
-                <!-- PROJECT 2 -->
-                <div class="project-tile">
-                    <img class="project-image" src="img/linebot.jpg" />
-                    <h2 class="project-title">AR-Bot v1.0b</h2>
-                    <p class="project-desc">A cringy Indonesian LINE Messaging API a.k.a. chatbot just for fun.</p>
-                    <a href="https://lin.ee/tWcoUZP" target="_blank">
-                        <button class="project-link">
-                            <!-- MAKE SURE TO READ THE GUIDELINES -->
-                            <img src="img/LINE_icon.png" height="20px" />
-                            Add Friend
-                        </button>
-                    </a>
-                </div>
-
-                <!-- PROJECT 3 -->
-                <div class="project-tile">
-                    <img class="project-image" src="img/redtile.png" />
-                    <h2 class="project-title">Red Tile</h2>
-                    <p class="project-desc">A modified famous puzzle. Can you make the tile all red?</p>
-                    <a href="redtile/index.html" target="_blank">
-                        <button class="project-link">
-                            Play
-                        </button>
-                    </a>
-                </div>
-
-                <!-- PROJECT 4 -->
-                <!--div class="project-tile">
-                    <img class="project-image" src="img/calc.png" />                    <h2 class="project-title">Calculator</h2>
-                    <p class="project-desc">A prototype javascript calculator.
-                        <br />
-                        <span style="color: #696969;">(Work on Progress)</span>
-                    </p>
-                    <a href="https://jsfiddle.net/alifiarahmah/8s4e60jc/" target="_blank">
-                        <button class="project-link">
-                            View Source Code
-                        </button>
-                    </a>
-                </div-->
-
-                <!-- PROJECT 5 -->
-                <div class="project-tile">
-                    <img class="project-image" src="img/lovecalc.png" />
-                    <h2 class="project-title">Love Calculator</h2>
-                    <p class="project-desc">A prank love calculator using JavaScript random function implementation just for fun.</p>
-                    <a href="lovecalc/index.html" target="_blank">
-                        <button class="project-link">
-                            Play
-                        </button>
-                    </a>
-                </div>
-            </div> <!-- eof project list -->
-        </section>
-
-    </div>
-
-    <footer>
-        <h1>Contact</h1>
-        <div id="contact">
-            <span class="contact-link">
-                <img class="contact-logo" src="img/GitHub-Mark-Light-64px.png" />
-                <a href="https://github.com/alifiarahmah" target="_blank">
-                    GitHub
-                </a>
-            </span>
-            <!-- a id="profile-link" href="https://freecodecamp.com/alifiarahmah" target="_blank">
-                <img class="contact-logo" src="https://d33wubrfki0l68.cloudfront.net/2f7693e1933ac514c960f51ceae72c91c6716eb2/b2efd/img/fcc_primary_small.svg">
-                FreeCodeCamp
-            </a-->
-            <span class="contact-link">
-                <img class="contact-logo" src="img/Twitter_Social_Icon_Circle_White.png">
-                <a href="https://twitter.com/lfrhmh" target="_blank">Twitter</a>
-            </span>
-            <span class="contact-link">
-                <img class="contact-logo" src="img/ig_logo.png">
-                <a href="https://twitter.com/hamharaifila" target="_blank">Instagram</a>
-            </span>
-            <span class="contact-link">
-                <img class="contact-logo" src="img/mail.png">
-                <a href="mailto:alifiarahmah03@gmail.com" target="_blank">E-mail</a>
-            </span>
-        </div>
-        <p>
-            <!-- Bro pls bro tolong bro bikin ginian tuh mumet but somehow I enjoyed it. -->
-        </p>
-    </footer>
-
-    <script src="main.js"></script>
-
+    <footer>Stay tuned!</footer>
 </body>
 
 </html>
