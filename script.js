@@ -1,9 +1,7 @@
-function showSection(x){
-	if(document.getElementById(x).style.display == "none"){
-		document.getElementById(x).style.display = "block";
+function toggleSection(x){
+	if(document.getElementById(x).classList.contains("active")){
+		document.getElementById(x).classList.remove("active");
 	} else{
-		document.getElementById(x).style.display = "none";
+		document.getElementById(x).classList.add("active");
 	}
 }
-
-document.getElementById("about-section").addEventListener('click', toggleSection("about-section"));
