@@ -234,6 +234,7 @@ section#projects h1 {
     flex-direction: row;
     width: 100%;
     justify-content: center;
+    margin-top: 2vw;
 }
 
 .project-tile {
