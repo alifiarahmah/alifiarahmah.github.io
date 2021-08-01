@@ -1,0 +1,68 @@
+body {
+		background-image: url("https://static.vecteezy.com/system/resources/previews/000/344/247/non_2x/red-heart-seamless-pattern-vector-background-love.jpg");
+		justify-content: center;
+}
+
+.cinta {
+	font-size: 50px;
+	margin: 0 0 0 0;
+	color: red;
+	text-align: center;
+}
+
+#content {
+	height: 100%;
+	width: 60%;
+	margin: auto;
+	background-color: white;
+	opacity: 0.8;
+	overflow: auto;
+	padding: 20px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+h2 {
+	color: red;
+	text-align: center;
+}
+
+td {
+	text-align: center;
+	font-family: Impact, Charcoal, sans-serif;
+}
+
+input {
+	width: 25vw;
+}
+
+#startbutton {
+	margin: 0 auto;
+	display: block;
+	background-color: #ff007f;
+	height: 30px;
+	width: 75px;
+	text-align: center;
+	padding: 5px 0;
+	color: white;
+	font-family: sans-serif;
+}
+
+#progress {
+  width: 100%;
+  background-color: grey;
+}
+
+#bar {
+  width: 1%;
+  height: 30px;
+  background-color: pink;
+  text-align: center;
+  color: red;
+}
+
+#hasil {
+	text-align: center;
+	font-family: sans-serif;
+}
