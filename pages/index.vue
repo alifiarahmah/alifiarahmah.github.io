@@ -2,7 +2,7 @@
   <section class="min-h-screen w-screen bg-alipblue">
     
     <Navbar/>
-    
+
     <div class="p-8 flex flex-col justify-center items-center">
       <h1 class="flex pt-24 text-alipwhite py-5 text-center text-6xl sm:text-7xl">alifiarahmah</h1>
       <p class="flex text-alipwhite text-center text-xl sm:text-2xl">Your average Informatics Engineering student.</p>
@@ -21,6 +21,8 @@
         >
       </form>
     </div>
+
+    <Footer/>
 
   </section>
 </template>

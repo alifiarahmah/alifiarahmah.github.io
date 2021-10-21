@@ -5,16 +5,16 @@
 				<div class="flex-1 flex items-center justify-center">
 					<div class="flex-shrink-0 flex items-center">
 						<div class="hover:border-b-2 hover:border-white">
-							<a class="uppercase text-bold px-5 h-full" href="#">Home</a>
+							<a class="uppercase text-bold px-5 h-full" href="/">Home</a>
 						</div>
 						<div class="hover:border-b-2 hover:border-white">
-							<a class="uppercase text-bold px-5 h-full" href="#">About</a>
+							<a class="uppercase text-bold px-5 h-full" href="/about">About</a>
 						</div>
 						<div class="hover:border-b-2">
-							<a class="uppercase text-bold px-5 h-full" href="#">Projects</a>
+							<a class="uppercase text-bold px-5 h-full" href="/projects">Projects</a>
 						</div>
 						<div>
-							<a class="uppercase text-bold px-5 h-full" href="#">Blog</a>
+							<a class="uppercase text-bold px-5 h-full" href="/blog">Blog</a>
 						</div>
 					</div>
 				</div>

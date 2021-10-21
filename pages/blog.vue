@@ -3,8 +3,10 @@
 		
 		<Navbar/>
 		
-		<div class="p-8 flex flex-col justify-center items-center">
-
+		<div class="p-52 flex flex-col justify-center items-center">
+			<p class="text-alipwhite text-xl">
+				Coming Soon	
+			</p>
 		</div>
 
 		<Footer/>
