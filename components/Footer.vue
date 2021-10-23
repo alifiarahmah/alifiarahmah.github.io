@@ -1,5 +1,5 @@
 <template>
-	<footer class="fixed flex flex-row w-screen bottom-0 p-5">
+	<footer class="absolute bg-alipblue flex flex-row w-screen bottom-0 p-5 h-1/12">
     <div class="w-1/2 text-md text-alipwhite">
       ©2021
     </div>
