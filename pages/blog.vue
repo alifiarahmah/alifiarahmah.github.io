@@ -9,7 +9,5 @@
 			</p>
 		</div>
 
-		<Footer/>
-
 	</section>
 </template>
