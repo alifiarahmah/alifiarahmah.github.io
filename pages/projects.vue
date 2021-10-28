@@ -22,7 +22,7 @@
 							<a v-if="project.link!=null" :href="project.link" class="block px-3 p-2 mt-2 mx-2 border-2 rounded-full text-alipwhite text-center font-bold hover:bg-alipwhite hover:text-alipblue" target="_blank">
 								View
 							</a>
-							<a v-if="project.download!=null" href="" class="block px-3 p-2 mt-2 mx-2 border-2 rounded-full text-alipwhite text-center font-bold hover:bg-alipwhite hover:text-alipblue">
+							<a v-if="project.download!=null":href="project.download" class="block px-3 p-2 mt-2 mx-2 border-2 rounded-full text-alipwhite text-center font-bold hover:bg-alipwhite hover:text-alipblue" target="_blank">
 								Download
 							</a>
 						</div>
