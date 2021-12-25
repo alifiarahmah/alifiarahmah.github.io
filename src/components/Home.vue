@@ -1,5 +1,5 @@
 <template>
-	<h1>Under Construction...?</h1>
+	<h1>Under Construction...? Hehe</h1>
 </template>
 
 <script>
