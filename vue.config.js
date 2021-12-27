@@ -1,3 +1,6 @@
 module.exports = {
-	publicPath: '/'
+	publicPath: '/',
+	transpileDependencies: [
+		/\bvue-awesome\b/
+	]
 }

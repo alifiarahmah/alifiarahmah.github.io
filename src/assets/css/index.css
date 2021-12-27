@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+	h1 {
+		@apply text-5xl;
+		@apply font-bold;
+		@apply mt-8;
+		@apply mb-5;
+	}
+	h2 {
+		@apply text-4xl;
+		@apply font-bold;
+		@apply mt-4;
+		@apply mb-2;
+	}
+	h3 {
+		@apply text-2xl;
+		@apply font-bold;
+		@apply mt-4;
+		@apply mb-2;
+	}
+	p {
+		@apply text-2xl;
+		@apply my-4;
+	}
+	section {
+		@apply min-h-full;
+		@apply py-16;
+		@apply text-left;
+		@apply mx-16;
+		@apply md:mx-16;
+		@apply lg:w-3/5;
+		@apply lg:mx-auto;
+	}
+}
