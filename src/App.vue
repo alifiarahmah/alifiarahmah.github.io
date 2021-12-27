@@ -1,12 +1,16 @@
 <template>
   <!-- Navbar -->
-  <nav id="nav">
+  <nav id="nav" class="w-full">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/projects">Projects</router-link>
   </nav>
 
-  <router-view/>
+  <div class="w-full mx-auto">
+    <div class="">
+      <router-view/>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -43,16 +47,5 @@
 
 #nav a.router-link-exact-active {
   font-weight: bold;
-}
-
-h1 {
-  font-size: 4rem;
-  font-weight: bold;
-}
-
-p {
-  font-size: 1.25rem;
-  line-height: 2rem;
-  margin: 2vh 0;
 }
 </style>
