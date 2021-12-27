@@ -1,0 +1,83 @@
+[
+	{
+		"name": "OpenSearch",
+		"tags": ["Web", "Competition", "Next.js"],
+		"description": "A collaboration platform for open-source projects. Opportunity Category Runner-Up of Garuda Hacks 2.0",
+		"link": [
+			{
+				"type": "web",
+				"url": "https://open-search-eight.vercel.app/"
+			}
+		],
+		"repotype": "github",
+		"repo": "https://github.com/GarudaHacksMafiaTeam/OpenSearch"
+	},
+	{
+		"name": "Call-A-Borators",
+		"tags": ["Mobile", "Competition", "Flutter"],
+		"description": "A collaborating tool for searching partners to build team for projects. Honorable Mention in Mile Zero Project Competition.",
+		"link": [
+			{
+				"type": "web",
+				"url": "https://wonderful-smoke-08182120f.azurestaticapps.net/"
+			},
+			{
+				"type": "mobile",
+				"url": "https://github.com/alifiarahmah/callaborators/raw/main/build/app/outputs/flutter-apk/app-release.apk"
+			}
+		],
+		"repotype": "github",
+		"repo": "https://github.com/alifiarahmah/callaborators"
+	},
+	{
+		"name": "EduFun",
+		"tags": ["Mobile", "Competition", "Flutter"],
+		"description": "Educational game platform with HOTS questions. Finalist of HackBiz 2021.", 
+		"link": [
+			{
+				"type": "web",
+				"url": "https://calm-tree-0d7e21900.azurestaticapps.net/#/"
+			},
+			{
+				"type": "mobile",
+				"url": "https://github.com/alifiarahmah/edufun/raw/master/build/app/outputs/flutter-apk/app-release.apk"
+			}
+		],
+		"repotype": "github",
+		"repo": "https://github.com/alifiarahmah/edufun"
+	},
+	{
+		"name": "Mobilita Package Delivery",
+		"tags": ["Desktop", "Class Projects", "C"],
+		"description": "A CLI-based package delivery simulation game with implementation of various Abstract Data Types for IF2110 Class Project.",
+		"repotype": "github",
+		"repo": "https://github.com/alifiarahmah/Mobilita-Package-Delivery"
+	},
+	{
+		"name": "HarvestProlog",
+		"tags": ["Desktop", "Class Projects", "Prolog"],
+		"description": "A farming simulation game made with Prolog for IF2121 Class Project.",
+		"repotype": "github",
+		"repo": "https://github.com/alifiarahmah/HarvestProlog"
+	},
+	{
+		"name": "Binjai Compressor",
+		"tags": ["Web", "Class Projects", "Flask"],
+		"description": "A website application for image compression made with Flask for IF2123 Class Project.",
+		"repotype": "github",
+		"repo": "https://github.com/rifqi2320/Image-Compression-but-its-a-meme"
+	},
+	{
+		"name": "Matrix Calculator",
+		"tags": ["Desktop", "Class Projects", "Java"],
+		"description": "A GUI-based implementation of linear algebra operations on matrices for IF2123 Class Project.",
+		"link": [
+			{
+				"type": "desktop",
+				"url": "https://github.com/dawetmaster/Algeo01-20086/raw/main/jar/Algeo01-20086.jar"
+			}
+		],
+		"repotype": "github",
+		"repo": "https://github.com/dawetmaster/Algeo01-20086"
+	}
+]
