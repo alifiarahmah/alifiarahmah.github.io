@@ -1,0 +1,27 @@
+[
+	{
+		"name": "Programming",
+		"list": [
+			"Python, C, C++, Dart"
+		]
+	},
+	{
+		"name": "Web Development",
+		"list": [
+			"Front-end: HTML, CSS,  SASS, Javascript, Typescript, React, Vue, Bootstrap, Tailwind, Material UI, Materialize",
+			"Back-end: CodeIgniter, Flask"
+		]
+	},
+	{
+		"name": "Cross-Platform Development",
+		"list": [
+			"Flutter"
+		]
+	},
+	{
+		"name": "UI/UX Design",
+		"list": [
+			"Figma"
+		]
+	}
+]
