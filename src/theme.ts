@@ -20,10 +20,8 @@ export const theme = extendTheme({
 		},
 		Text: {
 			baseStyle: {
-				my: 1
-			},
-			defaultProps: {
-				size: "2xl"
+				my: 1,
+				fontSize: { base: "lg", lg: "xl" }
 			}
 		},
 	}

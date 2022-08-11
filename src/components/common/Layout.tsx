@@ -19,7 +19,7 @@ export default function Layout({
 	return (
 		<>
 			<Navbar />
-			<Container maxW="container.lg" mt={20}>
+			<Container maxW="container.lg" py={10}>
 				{children}
 			</Container>
 		</>
