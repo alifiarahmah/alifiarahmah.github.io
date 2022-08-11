@@ -1,12 +1,12 @@
 import { Flex, Heading, HStack, Image, Text } from '@chakra-ui/react';
-import Layout from '../components/common/Layout';
+import Layout from '../components/common/page-layout';
 import {
 	AiOutlineMail,
 	AiOutlineInstagram,
 	AiOutlineGithub,
 	AiFillLinkedin
 } from 'react-icons/ai';
-import IconButton from '../components/common/IconButton';
+import IconButton from '../components/common/icon-button';
 
 export default function Home() {
 	return (

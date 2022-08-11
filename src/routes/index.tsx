@@ -1,7 +1,8 @@
-import About from '../pages/About';
-import Blogs from '../pages/Blogs';
-import Home from '../pages/Home';
-import Projects from '../pages/Projects';
+import About from '../pages/about';
+import Blogs from '../pages/blogs';
+import Home from '../pages';
+import Projects from '../pages/projects';
+import React from 'react';
 
 export const routes = [
 	{

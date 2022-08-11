@@ -1,4 +1,4 @@
-import Layout from '../components/common/Layout';
+import Layout from '../components/common/page-layout';
 import ReactMarkdown from 'react-markdown';
 import { useEffect, useState } from 'react';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
@@ -17,10 +17,10 @@ export default function About() {
 	}, []);
 
 	return (
-		<Layout>
+		<Layout title="About Me">
 			<ReactMarkdown
 				components={ChakraUIRenderer({
-					img: (props) => (
+					img: (props: any) => (
 						<Box display="inline-block">
 							<img {...props} />
 						</Box>

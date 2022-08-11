@@ -11,7 +11,7 @@ import {
 	useDisclosure,
 	useColorMode
 } from '@chakra-ui/react';
-import Navbutton from './Navbutton';
+import Navbutton from './nav-button';
 import { routes } from '../../../routes';
 import { MdMenu } from 'react-icons/md';
 import { BsFillMoonFill } from 'react-icons/bs';
