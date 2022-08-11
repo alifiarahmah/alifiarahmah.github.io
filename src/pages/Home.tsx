@@ -1,12 +1,12 @@
-import { Flex, Heading, HStack, Image, Text } from "@chakra-ui/react";
-import Layout from "../components/common/Layout";
+import { Flex, Heading, HStack, Image, Text } from '@chakra-ui/react';
+import Layout from '../components/common/Layout';
 import {
 	AiOutlineMail,
 	AiOutlineInstagram,
 	AiOutlineGithub,
-	AiFillLinkedin,
-} from "react-icons/ai";
-import IconButton from "../components/common/IconButton";
+	AiFillLinkedin
+} from 'react-icons/ai';
+import IconButton from '../components/common/IconButton';
 
 export default function Home() {
 	return (
@@ -16,13 +16,13 @@ export default function Home() {
 					src="https://avatars.githubusercontent.com/u/28982967"
 					alt=""
 					borderRadius="full"
-					w={{ base: "50%", lg: "70%" }}
+					w={{ base: '50%', lg: '70%' }}
 					maxW="200px"
 				/>
 				<Heading textAlign="center" mt={10}>
 					Alifia Rahmah
 				</Heading>
-				<Text textAlign="center" fontSize={{ base: "lg", lg: "2xl" }}>
+				<Text textAlign="center" fontSize={{ base: 'lg', lg: '2xl' }}>
 					Undergraduate Informatics Student with interest in Software
 					Engineering. <br />
 					Currently learning web development, UI/UX, and mobile development.

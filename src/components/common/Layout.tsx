@@ -1,6 +1,6 @@
-import { Container } from "@chakra-ui/react";
-import React from "react";
-import Navbar from "./Navbar";
+import { Container } from '@chakra-ui/react';
+import React from 'react';
+import Navbar from './Navbar';
 
 export interface LayoutProps {
 	children: React.ReactNode;
@@ -13,9 +13,8 @@ export default function Layout({
 	children,
 	px,
 	nonavbar,
-	nofooter,
+	nofooter
 }: LayoutProps) {
-
 	return (
 		<>
 			<Navbar />

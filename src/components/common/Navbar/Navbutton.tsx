@@ -1,5 +1,5 @@
-import { Button, useColorModeValue } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Button, useColorModeValue } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 export interface NavbuttonProps {
 	label: string;
@@ -7,13 +7,13 @@ export interface NavbuttonProps {
 }
 
 export default function Navbutton({ label, path }: NavbuttonProps) {
-	const hoverColor = useColorModeValue("white", "black");
-	const hoverBg = useColorModeValue("black", "gray.100");
+	const hoverColor = useColorModeValue('white', 'black');
+	const hoverBg = useColorModeValue('black', 'gray.100');
 
 	return (
 		<Link to={path}>
 			<Button
-				width={{ base: "full", lg: "auto" }}
+				width={{ base: 'full', lg: 'auto' }}
 				py={{ base: 5, lg: 10 }}
 				size="lg"
 				background="transparent"
@@ -22,7 +22,7 @@ export default function Navbutton({ label, path }: NavbuttonProps) {
 				borderRadius="none"
 				_hover={{
 					backgroundColor: hoverBg,
-					color: hoverColor,
+					color: hoverColor
 				}}
 			>
 				{label}

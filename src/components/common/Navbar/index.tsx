@@ -9,12 +9,12 @@ import {
 	IconButton,
 	Flex,
 	useDisclosure,
-	useColorMode,
-} from "@chakra-ui/react";
-import Navbutton from "./Navbutton";
-import { routes } from "../../../routes";
-import { MdMenu } from "react-icons/md";
-import { BsFillMoonFill } from "react-icons/bs";
+	useColorMode
+} from '@chakra-ui/react';
+import Navbutton from './Navbutton';
+import { routes } from '../../../routes';
+import { MdMenu } from 'react-icons/md';
+import { BsFillMoonFill } from 'react-icons/bs';
 
 export default function Navbar() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -23,13 +23,13 @@ export default function Navbar() {
 	return (
 		<>
 			<Flex
-				justifyContent={{ base: "flex-end", lg: "center" }}
+				justifyContent={{ base: 'flex-end', lg: 'center' }}
 				alignItems="center"
 				width="100%"
 				position="relative"
-				my={{ base: 5, lg: "auto" }}
+				my={{ base: 5, lg: 'auto' }}
 			>
-				<Box display={{ base: "none", lg: "block" }}>
+				<Box display={{ base: 'none', lg: 'block' }}>
 					{routes.map((r) => (
 						<Navbutton key={r.path} path={r.path} label={r.label} />
 					))}
@@ -40,14 +40,14 @@ export default function Navbar() {
 					onClick={toggleColorMode}
 					aria-label="Toggle Dark Mode"
 					icon={<BsFillMoonFill size="1.5rem" />}
-					position={{ base: "static", lg: "absolute" }}
+					position={{ base: 'static', lg: 'absolute' }}
 					right={0}
 				/>
 				<IconButton
 					variant="unstyled"
 					size="lg"
 					onClick={onOpen}
-					display={{ base: "flex", lg: "none" }}
+					display={{ base: 'flex', lg: 'none' }}
 					aria-label="Menu"
 					icon={<MdMenu size="2rem" />}
 				/>

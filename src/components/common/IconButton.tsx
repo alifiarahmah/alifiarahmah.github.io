@@ -1,4 +1,4 @@
-import { IconButton as ChakraIconButton } from "@chakra-ui/react";
+import { IconButton as ChakraIconButton } from '@chakra-ui/react';
 
 export interface IconButtonProps {
 	icon: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
@@ -13,9 +13,9 @@ const Icon = ({ icon, path, label, onClick, display }: IconButtonProps) => {
 		<ChakraIconButton
 			variant="unstyled"
 			size="lg"
-			aria-label={label ?? ""}
+			aria-label={label ?? ''}
 			icon={icon}
-			display={display ?? "flex"}
+			display={display ?? 'flex'}
 		/>
 	);
 };
@@ -25,7 +25,7 @@ export default function IconButton({
 	path,
 	label,
 	onClick,
-	display,
+	display
 }: IconButtonProps) {
 	if (path) {
 		return (
