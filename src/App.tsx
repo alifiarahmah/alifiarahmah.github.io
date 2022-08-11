@@ -4,7 +4,7 @@ function App() {
 
   return (
     <div>
-      Test
+      Testing React deploy to GitHub Pages
     </div>
   )
 }
