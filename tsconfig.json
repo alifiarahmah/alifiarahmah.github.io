@@ -22,9 +22,7 @@
     "incremental": true
   },
   "include": [
-    "src",
-    "src/pages",
-    "src/components"
+    "\"src/**/*.{ts,tsx,js}\""
   ],
   "references": [
     {

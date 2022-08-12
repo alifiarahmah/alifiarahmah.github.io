@@ -1,13 +1,27 @@
-import { extendTheme, StyleFunctionProps } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
+import { extendTheme } from '@chakra-ui/react';
 
 export const theme = extendTheme({
-	body: {
-		bg: (props: StyleFunctionProps) => mode('gray.100', 'whiteAlpha.100')(props)
-	},
 	fonts: {
 		body: "'Ubuntu', system-ui, sans-serif",
 		heading: "'Ubuntu', system-ui, sans-serif"
+	},
+	styles: {
+		global: {
+			h1: {
+				fontSize: '3xl',
+				fontWeight: 'bold'
+			},
+			h2: {
+				fontSize: '2xl',
+				fontWeight: 'bold'
+			},
+			h3: {
+				fontSize: 'lg'
+			},
+			h4: {
+				fontSize: 'md'
+			}
+		}
 	},
 	components: {
 		Heading: {
@@ -15,7 +29,7 @@ export const theme = extendTheme({
 				my: 5
 			},
 			defaultProps: {
-				size: { base: 'xl', lg: '2xl' }
+				size: { base: 'xl', lg: 'xl' }
 			}
 		},
 		Text: {

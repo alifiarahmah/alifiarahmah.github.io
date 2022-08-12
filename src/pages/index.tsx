@@ -1,4 +1,4 @@
-import { Flex, Heading, HStack, Image, Text } from '@chakra-ui/react';
+import { Code, Flex, Heading, HStack, Image, Text } from '@chakra-ui/react';
 import Layout from '../components/common/page-layout';
 import {
 	AiOutlineMail,

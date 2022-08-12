@@ -5,6 +5,7 @@ import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import axios from 'axios';
 import { Box } from '@chakra-ui/react';
 import React from 'react';
+import { markdownThemeConfig } from '../theme/markdown';
 
 export default function About() {
 	const [content, setContent] = useState('');
@@ -20,13 +21,8 @@ export default function About() {
 	return (
 		<Layout title="About Me">
 			<ReactMarkdown
-				components={ChakraUIRenderer({
-					img: (props: any) => (
-						<Box display="inline-block">
-							<img {...props} />
-						</Box>
-					)
-				})}
+				/* tslint:disable-next-line */
+				components={ChakraUIRenderer(markdownThemeConfig)}
 				children={content}
 				skipHtml
 			/>

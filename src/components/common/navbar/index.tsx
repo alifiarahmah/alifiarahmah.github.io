@@ -15,6 +15,7 @@ import Navbutton from './nav-button';
 import { routes } from '../../../routes';
 import { MdMenu } from 'react-icons/md';
 import { BsFillMoonFill } from 'react-icons/bs';
+import React from 'react';
 
 export default function Navbar() {
 	const { isOpen, onOpen, onClose } = useDisclosure();

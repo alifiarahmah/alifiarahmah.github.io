@@ -1,5 +1,6 @@
 import { Button, useColorModeValue } from '@chakra-ui/react';
 import Link from 'next/link';
+import React from 'react';
 
 export interface NavbuttonProps {
 	label: string;

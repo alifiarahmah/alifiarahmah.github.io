@@ -7,7 +7,7 @@ import React from 'react';
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<ChakraProvider theme={theme}>
-			<NextNProgress />
+			<NextNProgress options={{ showSpinner: false }} />
 			<Component {...pageProps} />
 		</ChakraProvider>
 	);
