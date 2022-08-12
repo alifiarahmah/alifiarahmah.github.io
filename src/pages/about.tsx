@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import axios from 'axios';
 import { Box } from '@chakra-ui/react';
+import React from 'react';
 
 export default function About() {
 	const [content, setContent] = useState('');

@@ -7,6 +7,7 @@ import {
 	AiFillLinkedin
 } from 'react-icons/ai';
 import IconButton from '../components/common/icon-button';
+import React from 'react';
 
 export default function Home() {
 	return (
