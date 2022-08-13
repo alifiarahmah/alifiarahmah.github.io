@@ -1,5 +1,5 @@
 import About from '../pages/about';
-import Blogs from '../pages/blogs';
+import Blogs from '../pages/blog';
 import Home from '../pages';
 import Projects from '../pages/projects';
 import React from 'react';
@@ -21,7 +21,7 @@ export const routes = [
 		component: <Projects />
 	},
 	{
-		path: '/blogs',
+		path: '/blog',
 		label: 'Blogs',
 		component: <Blogs />
 	}
