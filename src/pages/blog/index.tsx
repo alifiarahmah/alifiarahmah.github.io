@@ -17,7 +17,7 @@ export default function Blogs({ allPosts }: Props) {
 			</Heading>
 			{allPosts?.map((post) => (
 				<Box key={post.slug} my={10}>
-					<NextLink href={`blogs/post/${post.slug}`} passHref>
+					<NextLink href={`blog/post/${post.slug}`} passHref>
 						<Link>
 							<Heading as="h3">{post.title}</Heading>
 						</Link>
