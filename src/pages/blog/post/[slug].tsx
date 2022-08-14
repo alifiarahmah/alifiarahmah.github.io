@@ -24,23 +24,21 @@ export default function Post({ post, morePosts, preview }: Props) {
 	}
 	return (
 		<Layout title={`${post.title} - Blog`}>
-			<Container maxW="container.lg">
-				{router.isFallback ? (
-					<div>Loading…</div>
-				) : (
-					<>
-						<article className="mb-32">
-							<Heading>{post.title}</Heading>
-							<ReactMarkdown
-								components={ChakraUIRenderer(markdownThemeConfig)}
-								remarkPlugins={[remarkGfm]}
-								children={post.content}
-								skipHtml
-							/>
-						</article>
-					</>
-				)}
-			</Container>
+			{router.isFallback ? (
+				<div>Loading…</div>
+			) : (
+				<>
+					<article className="mb-32">
+						<Heading>{post.title}</Heading>
+						<ReactMarkdown
+							components={ChakraUIRenderer(markdownThemeConfig)}
+							remarkPlugins={[remarkGfm]}
+							children={post.content}
+							skipHtml
+						/>
+					</article>
+				</>
+			)}
 		</Layout>
 	);
 }

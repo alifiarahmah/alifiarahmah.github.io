@@ -12,19 +12,19 @@ type Props = {
 export default function Blogs({ allPosts }: Props) {
 	return (
 		<Layout title="Blogs">
-			<Heading as="h1" mb={20} textAlign="center">
-				Blogs
-			</Heading>
-			{allPosts?.map((post) => (
-				<Box key={post.slug} my={10}>
-					<NextLink href={`blog/post/${post.slug}`} passHref>
-						<Link>
-							<Heading as="h3">{post.title}</Heading>
-						</Link>
-					</NextLink>
-					<Text>{post.excerpt}</Text>
-				</Box>
-			))}
+				<Heading as="h1" mb={20} textAlign="center">
+					Blogs
+				</Heading>
+				{allPosts?.map((post) => (
+					<Box key={post.slug} my={10}>
+						<NextLink href={`blog/post/${post.slug}`} passHref>
+							<Link>
+								<Heading as="h3">{post.title}</Heading>
+							</Link>
+						</NextLink>
+						<Text>{post.excerpt}</Text>
+					</Box>
+				))}
 		</Layout>
 	);
 }
