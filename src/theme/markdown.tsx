@@ -18,7 +18,13 @@ export const markdownThemeConfig: any = {
 				whiteSpace="pre"
 				my={3}
 				p={5}
-				sx={{ tabSize: 2 }}
+				overflowX="scroll"
+				sx={{
+					tabSize: 2,
+					'&::-webkit-scrollbar': {
+						display: "none",
+					},
+				}}
 			>
 				{children}
 			</Code>
