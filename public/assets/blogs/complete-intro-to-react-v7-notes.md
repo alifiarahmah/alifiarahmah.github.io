@@ -7,13 +7,6 @@ slug: 'complete-intro-to-react-v7-notes'
 
 This is the note I take as I watch this course 
 [Complete Intro to React, v7 - FrontendMasters](https://frontendmasters.com/courses/complete-react-v7/)
-
-Table of Contents:
-- [Vanilla React](#vanilla-react)
-- [JS Tools](#JS-tools)
-- [Core React Concepts](#core-react-concepts)
-- [React Capabilities](#react-capabilities)
-
 ## Vanilla React
 
 React can be used purely by importing the react script in HTML.

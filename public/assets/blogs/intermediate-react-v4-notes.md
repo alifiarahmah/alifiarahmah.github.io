@@ -8,14 +8,6 @@ slug: 'intermediate-react-v4-notes'
 This is the note I take as I watch this course 
 [Intermediate React, v4 | FrontendMasters](https://frontendmasters.com/courses/intermediate-react-v4/)
 
-## Table of Contents
-
-1. [Hooks in Depth](#hooks-in-depth)
-2. [TailwindCSS](#tailwindcss)
-3. [Code Splitting](#code-splitting)
-4. [TypeScript](#typescript)
-5. [Redux](#redux)
-
 ## Hooks in Depth
 
 ### `useState`
