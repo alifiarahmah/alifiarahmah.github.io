@@ -30,18 +30,22 @@ export default function Home() {
 				</Text>
 				<HStack gap={5} my={5}>
 					<IconButton
+						aria-label="email"
 						icon={<AiOutlineMail size="2.5rem" />}
 						path="mailto:alifiarahmah@outlook.com"
 					/>
 					<IconButton
+						aria-label="instagram"
 						icon={<AiOutlineInstagram size="2.5rem" />}
 						path="https://instagram.com/hamharaifila"
 					/>
 					<IconButton
+						aria-label="github"
 						icon={<AiOutlineGithub size="2.5rem" />}
 						path="https://github.com/alifiarahmah"
 					/>
 					<IconButton
+						aria-label="linkedin"
 						icon={<AiFillLinkedin size="2.5rem" />}
 						path="https://linkedin.com/in/alifiarahmah"
 					/>

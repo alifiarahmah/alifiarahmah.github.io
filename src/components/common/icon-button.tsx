@@ -1,7 +1,8 @@
-import { IconButton as ChakraIconButton } from '@chakra-ui/react';
+import { IconButton as ChakraIconButton, propNames } from '@chakra-ui/react';
 import React from 'react';
 
-export interface IconButtonProps {
+export interface IconButtonProps
+	extends React.ComponentProps<typeof ChakraIconButton> {
 	icon: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 	label?: string;
 	path?: string;
@@ -9,7 +10,7 @@ export interface IconButtonProps {
 	display?: string | object;
 }
 
-const Icon = ({ icon, path, label, onClick, display }: IconButtonProps) => {
+const Icon = ({ icon, label, display }: IconButtonProps) => {
 	return (
 		<ChakraIconButton
 			variant="unstyled"
@@ -26,17 +27,23 @@ export default function IconButton({
 	path,
 	label,
 	onClick,
-	display
+	display,
+	...props
 }: IconButtonProps) {
 	if (path) {
 		return (
 			<a href={path} target="_blank">
-				<Icon icon={icon} label={label} display={display} />
+				<Icon icon={icon} label={label} display={display} {...props} />
 			</a>
 		);
 	} else {
 		return (
-			<Icon icon={icon} label={label} display={display} onClick={onClick} />
+			<Icon
+				icon={icon}
+				aria-label={label}
+				display={display}
+				onClick={onClick}
+			/>
 		);
 	}
 }
