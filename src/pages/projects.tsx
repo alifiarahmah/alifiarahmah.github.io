@@ -1,11 +1,9 @@
 import {
 	Box,
-	Flex,
 	GridItem,
 	Heading,
 	HStack,
 	SimpleGrid,
-	Skeleton,
 	SkeletonText,
 	Tag,
 	Text,
@@ -50,9 +48,7 @@ export default function Projects() {
 	useEffect(() => {
 		axios(config)
 			.then(function (response) {
-				console.log(response.data.documents);
 				setProjects(response.data.documents);
-				console.log(projects.toString());
 			})
 			.finally(() => {
 				setIsLoading(false);

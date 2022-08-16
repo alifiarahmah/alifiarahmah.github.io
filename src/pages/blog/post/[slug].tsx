@@ -1,15 +1,15 @@
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
-import React from 'react';
-import { getAllPosts, getPostBySlug } from '../../../lib/blog';
-import ReactMarkdown from 'react-markdown';
+import { Heading, Text } from '@chakra-ui/react';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
-import { IPost } from '../../../types';
-import Layout from '../../../components/common/page-layout';
-import { Container, Heading, Text } from '@chakra-ui/react';
-import { markdownThemeConfig } from '../../../theme/markdown';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import Layout from '../../../components/common/page-layout';
+import { getAllPosts, getPostBySlug } from '../../../lib/blog';
+import { markdownThemeConfig } from '../../../theme/markdown';
+import { IPost } from '../../../types';
 
 type Props = {
 	post: IPost;

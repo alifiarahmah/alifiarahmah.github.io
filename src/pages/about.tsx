@@ -1,10 +1,8 @@
-import Layout from '../components/common/page-layout';
-import ReactMarkdown from 'react-markdown';
-import { useEffect, useState } from 'react';
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import axios from 'axios';
-import { Box } from '@chakra-ui/react';
-import React from 'react';
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
+import React, { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import Layout from '../components/common/page-layout';
 import { markdownThemeConfig } from '../theme/markdown';
 
 export default function About() {

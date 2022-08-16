@@ -6,17 +6,17 @@ import {
 	DrawerContent,
 	DrawerHeader,
 	DrawerOverlay,
-	IconButton,
 	Flex,
-	useDisclosure,
+	IconButton,
 	useColorMode,
-	useColorModeValue
+	useColorModeValue,
+	useDisclosure
 } from '@chakra-ui/react';
-import Navbutton from './nav-button';
-import { routes } from '../../../routes';
-import { MdMenu } from 'react-icons/md';
-import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 import React from 'react';
+import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
+import { MdMenu } from 'react-icons/md';
+import { routes } from '../../../routes';
+import Navbutton from './nav-button';
 
 export default function Navbar() {
 	const { isOpen, onOpen, onClose } = useDisclosure();

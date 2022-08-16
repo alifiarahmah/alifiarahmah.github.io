@@ -1,6 +1,5 @@
 import { Box, Code, Heading } from '@chakra-ui/react';
 import React from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 export const markdownThemeConfig: any = {
 	code: ({ inline, children }: any) => {
@@ -22,8 +21,8 @@ export const markdownThemeConfig: any = {
 				sx={{
 					tabSize: 2,
 					'&::-webkit-scrollbar': {
-						display: "none",
-					},
+						display: 'none'
+					}
 				}}
 			>
 				{children}
