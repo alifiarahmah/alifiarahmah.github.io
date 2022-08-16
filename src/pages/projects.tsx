@@ -13,6 +13,7 @@ import {
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {
+	AiFillFileText,
 	AiOutlineDownload,
 	AiOutlineGithub,
 	AiOutlineLink
@@ -122,6 +123,8 @@ export default function Projects() {
 													) : link.type === 'mobile' ||
 													  link.type === 'desktop' ? (
 														<AiOutlineDownload size="1.5rem" />
+													) : link.type === 'docs' ? (
+														<AiFillFileText size="1.5rem" />
 													) : (
 														<AiOutlineLink size="1.5rem" />
 													)
