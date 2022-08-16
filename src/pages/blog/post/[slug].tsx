@@ -7,7 +7,7 @@ import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 import { IPost } from '../../../types';
 import Layout from '../../../components/common/page-layout';
-import { Container, Heading } from '@chakra-ui/react';
+import { Container, Heading, Text } from '@chakra-ui/react';
 import { markdownThemeConfig } from '../../../theme/markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -30,6 +30,9 @@ export default function Post({ post, morePosts, preview }: Props) {
 				<>
 					<article className="mb-32">
 						<Heading>{post.title}</Heading>
+						<Text mb={10} color="gray">
+							Created at {post.date}
+						</Text>
 						<ReactMarkdown
 							components={ChakraUIRenderer(markdownThemeConfig)}
 							remarkPlugins={[remarkGfm]}
@@ -44,15 +47,7 @@ export default function Post({ post, morePosts, preview }: Props) {
 }
 
 export async function getStaticProps({ params }: Params) {
-	const post = getPostBySlug(params.slug, [
-		'title',
-		'date',
-		'slug',
-		'author',
-		'content',
-		'ogImage',
-		'coverImage'
-	]);
+	const post = getPostBySlug(params.slug, ['title', 'date', 'slug', 'content']);
 
 	return {
 		props: {
