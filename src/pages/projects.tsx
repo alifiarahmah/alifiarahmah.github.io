@@ -29,7 +29,8 @@ export default function Projects() {
 	var data = JSON.stringify({
 		collection: 'project',
 		database: 'test',
-		dataSource: 'Cluster0'
+		dataSource: 'Cluster0',
+		sort: { date: -1 }
 	});
 	var config = {
 		method: 'post',
