@@ -8,7 +8,8 @@ import {
 	Skeleton,
 	SkeletonText,
 	Tag,
-	Text
+	Text,
+	useColorModeValue
 } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -24,6 +25,8 @@ import Layout from '../components/common/page-layout';
 import { IProject } from '../types';
 
 export default function Projects() {
+	// Here's the signature
+	const colorValue = useColorModeValue('black', 'black.200');
 	const [projects, setProjects] = useState<Array<IProject>>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -68,7 +71,7 @@ export default function Projects() {
 							<GridItem
 								key={i}
 								borderWidth="3px"
-								borderColor="black"
+								borderColor={colorValue}
 								p={3}
 								display="flex"
 								flexDirection="column"
@@ -81,7 +84,7 @@ export default function Projects() {
 							<GridItem
 								key={project._id}
 								borderWidth="3px"
-								borderColor="black"
+								borderColor={colorValue}
 								p={3}
 								display="flex"
 								flexDirection="column"
