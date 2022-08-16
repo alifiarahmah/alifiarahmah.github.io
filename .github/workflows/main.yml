@@ -1,11 +1,9 @@
-name: Deploy Next Application
+name: Deploy Next Application to Github Pages
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -22,17 +20,20 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: pnpm/action-setup@v2.2.2
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm ci, build and test
+          version: 6.0.2
+      - name: pnpm ci, build and test
         run: |
-          npm ci
-          npm run build && npm run export 
+          pnpm i
+          pnpm run build && pnpm run export 
           touch out/.nojekyll
-      - name: deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./out
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
+          BRANCH: gh-pages
+          FOLDER: out
