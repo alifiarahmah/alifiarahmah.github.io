@@ -9,17 +9,22 @@ import {
 	IconButton,
 	Flex,
 	useDisclosure,
-	useColorMode
+	useColorMode,
+	useColorModeValue
 } from '@chakra-ui/react';
 import Navbutton from './nav-button';
 import { routes } from '../../../routes';
 import { MdMenu } from 'react-icons/md';
-import { BsFillMoonFill } from 'react-icons/bs';
+import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 import React from 'react';
 
 export default function Navbar() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const { toggleColorMode } = useColorMode();
+	const darkModeIcon = useColorModeValue(
+		<BsFillMoonFill size="1.5rem" />,
+		<BsFillSunFill size="1.5rem" />
+	);
 
 	return (
 		<>
@@ -40,7 +45,7 @@ export default function Navbar() {
 					size="lg"
 					onClick={toggleColorMode}
 					aria-label="Toggle Dark Mode"
-					icon={<BsFillMoonFill size="1.5rem" />}
+					icon={darkModeIcon}
 					position={{ base: 'static', lg: 'absolute' }}
 					right={0}
 				/>
