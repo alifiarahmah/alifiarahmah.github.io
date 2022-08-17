@@ -39,7 +39,7 @@ export default function Projects() {
 		url: `${process.env.NEXT_PUBLIC_API_URL}/action/find`,
 		headers: {
 			'Content-Type': 'application/json',
-			// 'Access-Control-Request-Headers': '*',
+			'Access-Control-Request-Headers': '*',
 			'api-key': process.env.NEXT_PUBLIC_API_KEY
 		},
 		data: data
