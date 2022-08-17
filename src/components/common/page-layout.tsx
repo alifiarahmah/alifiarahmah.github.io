@@ -1,6 +1,7 @@
 import { Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import React from 'react';
+import Footer from './footer';
 import Navbar from './navbar';
 
 export interface LayoutProps {
@@ -32,6 +33,7 @@ export default function Layout({
 			<Container maxW="container.lg" w={{ base: '90%', lg: 'auto' }} py={10}>
 				{children}
 			</Container>
+			<Footer />
 		</>
 	);
 }
