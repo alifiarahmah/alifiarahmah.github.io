@@ -4,6 +4,7 @@ import {
 	Heading,
 	HStack,
 	SimpleGrid,
+	SkeletonCircle,
 	SkeletonText,
 	Tag,
 	Text,
@@ -72,8 +73,20 @@ export default function Projects() {
 								display="flex"
 								flexDirection="column"
 								justifyContent="space-between"
+								h="250px"
 							>
-								<SkeletonText noOfLines={5} height="250px" />
+								<Box>
+									<SkeletonText noOfLines={1} />
+								</Box>
+								<SkeletonText noOfLines={5} />
+								<Box mt={3}>
+									<SkeletonText noOfLines={1} my={3} />
+									<HStack gap={0} justifyContent="flex-end" mt={2}>
+										{Array.from({ length: 3 }, (_, i) => (
+											<SkeletonCircle key={i} />
+										))}
+									</HStack>
+								</Box>
 							</GridItem>
 					  ))
 					: projects.map((project) => (
