@@ -93,3 +93,176 @@ Create new file in `.vscode/settings.json`
 Add `.vscode` and `.eslintcache` to `.gitignore`.
 
 If we working on VSCode, we can install ESLint plugin in VSCode. And then allow ESLint to run. If there's red underline mark on code, it means ESLint found error. If we check the error, we can see the error message and sometimes we can quick fix it.
+
+### Configure Prettier in VSCode
+
+In `.vscode/settings.json` (or `settings.json`)
+
+```json
+{
+	"editor.defaultFormatter": "prettier",
+	"editor.formatOnSave": true
+}
+```
+
+## Screen Query Methods
+
+The format is `command[All]ByQueryType`
+
+`command`:
+- `get`: expect element to be in DOM
+- `query`: expect element not to be in DOM
+- `find`: expect element to appar async
+
+`All`:
+Expect more than one match. If you want to expect only one match, exclude it.
+
+`ByQueryType`:
+- `ByRole`: expect element with role
+- `ByAltText`: expect element with alt text (for images)
+- `ByText`: expect element with text
+- Form elments:
+	- `ByPlaceholderText`: expect element with placeholder text
+  - `ByLabelText`: expect element with label text
+	- `ByDisplayValue`: expect element with display value
+
+More references on screen query on the docs
+
+## Simulating Server Response with Mock Service Worker
+
+In testing the network stuffs like fetching data from server, we need to simulate the server response. We can use mock service worker to simulate the server response.
+
+### Setup
+
+```
+npm install msw
+```
+
+Create file `mocks/handlers.js`.
+
+```js
+import { rest } from 'msw';
+
+export const handlers = [
+	rest.get(..., (req, res, ctx) => {
+		return res(ctx.json([
+			{ ... },
+			{ ... },
+			{ ... },
+		]));
+	}),
+]
+```
+
+Create file `mocks/server.js`
+
+```js
+import { setupServer } from 'msw/node';
+import { handlers } from './handlers';
+
+export const server = setupServer(...handlers);
+```
+
+### Test with Mock Service Worker
+
+```jsx
+import { render, screen } from '@testing-library/react';
+...
+
+test(..., () => {
+	render(<... />);
+
+	const scoopImages = screen.getAllByRole('img', { name: ... });
+	expect(scoopImages).toHaveLength(2);
+
+	// @ts-ignore
+	const altTexts = scoopImages.map((element) => element.alt);
+	expect(altTexts).toEqual([..., ...]);
+})
+```
+
+### Simulating Server Error Response
+
+```jsx
+import { render, screen } from '@testing-library/react';
+import { rest } from 'msw';
+import { server } from '.../mocks/server';
+
+test('handles error', async () => {
+	server.resetHandlers(
+		rest.get('http://localhost:3030/scoops', (req, res, ctx) => {
+			return res(ctx.status(500));
+		}),
+		rest.get('http://localhost:3030/toppings', (req, res, ctx) => {
+			return res(ctx.status(500));
+		}),
+	);
+
+	render(<... />);
+
+	const alerts = await screen.findAllByRole('alert', { name: ... });
+
+	expect(alerts).toHaveLength(2);
+});
+```
+
+## Testing Components Wrapped in a Provider
+
+```jsx
+import { render, screen } from '@testing-library/react';
+...
+
+test(... async () => {
+	render(<... />);
+
+	const scoopSubtotal = ...;
+	expect(scoopSubtotal).toHaveTextContent(...);
+
+	const vanillaInput = await screen.findByRole(..., { name: ... });
+	await userEvent.clear(vanillaInput); // clear first
+	await userEvent.type(vanillaInput, ...);
+	expect(scoopSubtotal).toHaveTextContent(...);
+})
+```
+
+Wrap isolated component in a provider
+
+```jsx
+...
+import { ... } from '.../contexts/...'
+
+test(..., async () => {
+	render(<... />, { wrapper: ... });
+})
+```
+
+### Create custom render to wrap in provider by default
+
+Creating test utilities
+
+Create file `test-utils/testing-library-utils.jsx`
+
+```jsx
+import { render } from '@testing-library/react';
+import { CustomProvider } from ...;
+
+const renderWithContext = (ui, options) => {
+	return render(ui, { wrapper: CustomProvider, ...options });
+}
+
+export * from '@testing-library/react';
+
+exoprt { renderWithContext as render };
+```
+
+In test file that needs custom render, change all render and screen imports.
+
+```jsx
+import { render, screen } from '.../test-utils/testing-library-utils';
+...
+
+test(..., async () => {
+	render(<... />);
+	...
+}
+```
