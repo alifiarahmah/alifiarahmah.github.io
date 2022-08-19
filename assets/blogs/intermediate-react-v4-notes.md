@@ -57,12 +57,12 @@ useDebugValue can be used to expose custom value while debugging custom hooks in
 Tailwind is not tied to React. It's a CSS framework.
 
 Install:
-```
+```sh
 npm i -D tailwindcss@3.0.22 postcss@8.4.6 autoprefixer@10.4.2
 ```
 
 Init Tailwind project:
-```
+```sh
 npx tailwindcss init
 ```
 
@@ -116,7 +116,7 @@ We can also use Tailwind to layout our components using flex.
 
 There are several component styling by Tailwind CSS. Install it with
 
-```
+```sh
 npm install -D @tailwindcss/forms@0.4.0.
 ```
 
@@ -181,18 +181,18 @@ Typescript make you write javascript code in a more strict way. It's a good way 
 
 Install
 
-```
+```sh
 npm install -D typescript@4.5.5
 ```
 
 Then run
-```
+```sh
 npx tsc --init
 ```
 
 It will generate `tsconfig.json` file. Some React dependency types are required to be installed.
 
-```
+```sh
 npm install -D @types/react@17.0.39 @types/react-dom@17.0.11
 ```
 
@@ -200,7 +200,7 @@ npm install -D @types/react@17.0.39 @types/react-dom@17.0.11
 
 There is a project called `typescript-eslint` to replace TSLint (deprecated) that can be used to lint TypeScript code using ESLint.
 
-```
+```sh
 npm install -D eslint-import-resolver-typescript@2.5.0 @typescript-eslint/eslint-plugin@5.13.0 @typescript-eslint/parser@5.13.0
 ```
 
@@ -280,7 +280,7 @@ Modify `.eslintrc.json`
 
 Add type check to `package.json`
 
-```
+```json
 "scripts": {
 	...,
 	"typecheck": "tsc --noEmit",
@@ -294,7 +294,7 @@ Redux is a library that does state management. Back then, Redux was made to repl
 
 Install Redux
 
-```
+```sh
 npm install redux@4.1.2 react-redux@7.2.6
 ```
 
@@ -402,7 +402,7 @@ Redux Dev Tools is a browser extension that allows us to see the state of the st
 Jest is a testing library that allows us to write tests in JavaScript. It is built on top of Jasmine.
 
 Install Jest
-```
+```sh
 npm install -D jest@27.5.1 @testing-library/react@12.1.3
 ```
 
@@ -479,7 +479,7 @@ To test a component that uses a library that is not available in the browser, we
 
 Install
 
-```
+```sh
 npm install -D jest-fetch-mock@3.0.3
 ```
 
@@ -525,7 +525,7 @@ test("...", async () => {
 
 Snapshot tests are a low-cost way to write tests.
 
-```
+```sh
 npm install -D react-test-renderer@17.0.2.
 ```
 
@@ -560,7 +560,7 @@ Add command to `package.json`
 ```
 
 The script will generate a report of things that are covered and not coveredd with tests. It will also generate a `index.html` file open in the browser by running
-```
+```sh
 open coverage/lcov-report/index.html
 ```
 
