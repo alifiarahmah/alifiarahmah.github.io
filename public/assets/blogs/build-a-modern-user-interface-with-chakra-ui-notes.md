@@ -290,7 +290,6 @@ const theme = extendTheme({
 	}
 })
 ```
-```
 
 ```jsx
 const theme = extendTheme({
