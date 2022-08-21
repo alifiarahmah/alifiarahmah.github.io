@@ -1,8 +1,18 @@
 import { Box, Code, Heading } from '@chakra-ui/react';
 import React from 'react';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+import json from 'react-syntax-highlighter/dist/cjs/languages/prism/json';
+import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
+import typescript from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript';
+import { darcula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+
+SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('typescript', typescript);
+SyntaxHighlighter.registerLanguage('json', json);
 
 export const markdownThemeConfig: any = {
-	code: ({ inline, children }: any) => {
+	code: ({ inline, children, className }: any) => {
 		if (inline) {
 			return (
 				<Code variant="unstyled" fontSize="auto">
@@ -11,22 +21,18 @@ export const markdownThemeConfig: any = {
 			);
 		}
 		return (
-			<Code
-				display="block"
-				fontSize="md"
-				whiteSpace="pre"
-				my={3}
-				p={5}
-				overflowX="scroll"
-				sx={{
-					tabSize: 2,
-					'&::-webkit-scrollbar': {
-						display: 'none'
-					}
-				}}
+			<SyntaxHighlighter
+				language={
+					className?.replace('language-', '') === 'sh'
+						? 'bash'
+						: className?.replace('language-', '') === 'HTML'
+						? 'cshtml'
+						: className?.replace('language-', '')
+				}
+				style={darcula}
 			>
 				{children}
-			</Code>
+			</SyntaxHighlighter>
 		);
 	},
 	h2: ({ children }: any) => (
