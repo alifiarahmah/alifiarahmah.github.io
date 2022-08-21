@@ -238,7 +238,7 @@ test(..., async () => {
 
 ### Create custom render to wrap in provider by default
 
-Creating test utilities
+We can do this by creating test utilities and change the import statement to use the test utilities we made.
 
 Create file `test-utils/testing-library-utils.jsx`
 
@@ -252,7 +252,7 @@ const renderWithContext = (ui, options) => {
 
 export * from '@testing-library/react';
 
-exoprt { renderWithContext as render };
+export { renderWithContext as render };
 ```
 
 In test file that needs custom render, change all render and screen imports.
@@ -266,3 +266,4 @@ test(..., async () => {
 	...
 }
 ```
+
