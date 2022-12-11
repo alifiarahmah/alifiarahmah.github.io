@@ -30,7 +30,12 @@ export default function Layout({
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Navbar />
-			<Container maxW="container.lg" w={{ base: '90%', lg: 'auto' }} py={10} minH="75vh">
+			<Container
+				maxW="container.lg"
+				w={{ base: '90%', lg: 'auto' }}
+				py={10}
+				minH="75vh"
+			>
 				{children}
 			</Container>
 			<Footer />
