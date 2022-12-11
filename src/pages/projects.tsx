@@ -55,7 +55,9 @@ export default function Projects({ projects }) {
 
 	return (
 		<Layout title="Projects">
-			<Heading>Projects</Heading>
+			<Heading as="h1" mb={20} textAlign="center">
+				Projects
+			</Heading>
 			<VStack alignItems="stretch" gap={3}>
 				{isLoading
 					? Array.from({ length: 6 }, (_, i) => (
