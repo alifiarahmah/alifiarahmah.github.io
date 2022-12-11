@@ -1,32 +1,24 @@
 import {
 	Box,
-	GridItem,
 	Heading,
 	HStack,
-	SimpleGrid,
 	SkeletonCircle,
 	SkeletonText,
 	Tag,
 	Text,
-	useColorModeValue
+	useColorModeValue,
+	VStack
 } from '@chakra-ui/react';
-import axios from 'axios';
+import { PrismaClient } from '@prisma/client';
 import React, { useEffect, useState } from 'react';
-import {
-	AiFillFileText,
-	AiOutlineDownload,
-	AiOutlineGithub,
-	AiOutlineLink
-} from 'react-icons/ai';
-import { BiLinkExternal } from 'react-icons/bi';
+import { FaDownload, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import IconButton from '../components/common/icon-button';
 import Layout from '../components/common/page-layout';
-import { IProject } from '../types';
 
-export default function Projects() {
+export default function Projects({ projects }) {
 	// Here's the signature
 	const colorValue = useColorModeValue('black', 'black.200');
-	const [projects, setProjects] = useState<Array<IProject>>([]);
+	// const [projects, setProjects] = useState<Array<IProject>>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
 	var data = JSON.stringify({
@@ -47,25 +39,27 @@ export default function Projects() {
 	};
 
 	useEffect(() => {
-		axios(config)
-			.then(function (response) {
-				setProjects(response.data.documents);
-			})
-			.finally(() => {
-				setIsLoading(false);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		if (projects.length > 0) {
+			setIsLoading(false);
+		} else {
+			// axios(config)
+			// 	.then(function (response) {
+			// 		setProjects(response.data);
+			// 		setIsLoading(false);
+			// 	})
+			// 	.catch(function (error) {
+			// 		console.log(error);
+			// 	});
+		}
 	}, []);
 
 	return (
 		<Layout title="Projects">
 			<Heading>Projects</Heading>
-			<SimpleGrid my={20} columns={{ base: 1, md: 2, lg: 3 }} gap={5}>
+			<VStack alignItems="stretch" gap={3}>
 				{isLoading
 					? Array.from({ length: 6 }, (_, i) => (
-							<GridItem
+							<Box
 								key={i}
 								borderWidth="3px"
 								borderColor={colorValue}
@@ -87,11 +81,11 @@ export default function Projects() {
 										))}
 									</HStack>
 								</Box>
-							</GridItem>
+							</Box>
 					  ))
 					: projects.map((project) => (
-							<GridItem
-								key={project._id}
+							<Box
+								key={project.id}
 								borderWidth="3px"
 								borderColor={colorValue}
 								p={3}
@@ -105,51 +99,65 @@ export default function Projects() {
 									</Heading>
 									<Text>{project.description}</Text>
 								</Box>
-								<Box mt={3}>
-									<HStack
-										overflowX="scroll"
-										sx={{
-											'&::-webkit-scrollbar': {
-												display: 'none'
-											}
-										}}
-										gap={1}
-										alignItems="center"
-									>
-										{project.tags.map((tag: string) => (
-											<Tag size="sm" key={tag}>
-												{tag}
-											</Tag>
-										))}
-									</HStack>
-									<HStack gap={0} justifyContent="flex-end">
-										{project.link.map((link: { type: string; url: string }) => (
+								<HStack
+									my={2}
+									overflowX="scroll"
+									sx={{
+										'&::-webkit-scrollbar': {
+											display: 'none'
+										}
+									}}
+									gap={1}
+									justifyContent="space-between"
+									alignItems="center"
+								>
+									<Tag size="lg">{project.tags}</Tag>
+									<HStack>
+										{project.githubUrl && (
 											<IconButton
-												aria-label={link.type}
-												key={link.url}
-												icon={
-													link.type === 'github' ? (
-														<AiOutlineGithub size="1.5rem" />
-													) : link.type === 'web' ? (
-														<BiLinkExternal size="1.5rem" />
-													) : link.type === 'mobile' ||
-													  link.type === 'desktop' ? (
-														<AiOutlineDownload size="1.5rem" />
-													) : link.type === 'docs' ? (
-														<AiFillFileText size="1.5rem" />
-													) : (
-														<AiOutlineLink size="1.5rem" />
-													)
-												}
-												path={link.url}
-												my={0}
+												path={project.githubUrl}
+												aria-label="Github"
+												icon={<FaGithub size="1.5rem" />}
+												variant="ghost"
 											/>
-										))}
+										)}
+										{project.miscDownloadUrl && (
+											<IconButton
+												path={project.miscDownloadUrl}
+												aria-label="Download"
+												icon={<FaDownload size="1.5rem" />}
+												variant="ghost"
+											/>
+										)}
+										{project.extUrl && (
+											<IconButton
+												path={project.miscDownloadUrl}
+												aria-label="Download"
+												icon={<FaExternalLinkAlt size="1.5rem" />}
+												variant="ghost"
+											/>
+										)}
 									</HStack>
-								</Box>
-							</GridItem>
+								</HStack>
+							</Box>
 					  ))}
-			</SimpleGrid>
+			</VStack>
 		</Layout>
 	);
+}
+
+export async function getStaticProps() {
+	const prisma = new PrismaClient();
+
+	const projects = await prisma.project.findMany({
+		orderBy: {
+			createdAt: 'desc'
+		}
+	});
+
+	return {
+		props: {
+			projects: JSON.parse(JSON.stringify(projects))
+		}
+	};
 }
