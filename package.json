@@ -11,7 +11,8 @@
 		"start": "next start",
 		"export": "next export",
 		"predeploy": "npm run build && npm run export && touch out/.nojekyll",
-		"deploy": "gh-pages -d out -t true"
+		"deploy": "gh-pages -d out -t true",
+		"migrate": "prisma db push"
 	},
 	"dependencies": {
 		"@babel/core": "^7.20.5",
@@ -22,7 +23,7 @@
 		"@mdx-js/loader": "^2.1.2",
 		"@mdx-js/react": "^2.1.5",
 		"@next/mdx": "^12.2.5",
-		"@prisma/client": "^4.7.1",
+		"@prisma/client": "^4.14.1",
 		"axios": "^0.27.2",
 		"chakra-ui-markdown-renderer": "^4.1.0",
 		"date-fns": "^2.29.1",

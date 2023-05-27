@@ -12,7 +12,6 @@ model Project {
   name            String
   description     String
   githubUrl       String?
-  websiteUrl      String?
   miscDownloadUrl String?
   tags            String?   @default("Misc.")
   createdAt       DateTime? @db.Date

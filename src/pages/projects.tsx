@@ -11,7 +11,12 @@ import {
 } from '@chakra-ui/react';
 import { PrismaClient } from '@prisma/client';
 import React, { useEffect, useState } from 'react';
-import { FaDownload, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import {
+	FaDownload,
+	FaExternalLinkAlt,
+	FaGithub,
+	FaGitlab
+} from 'react-icons/fa';
 import IconButton from '../components/common/icon-button';
 import Layout from '../components/common/page-layout';
 
@@ -117,10 +122,16 @@ export default function Projects({ projects }) {
 									<HStack>
 										{project.githubUrl && (
 											<IconButton
+												// if path begins with gitlab, then use gitlab icon, else use github icon
 												path={project.githubUrl}
 												aria-label="Github"
-												icon={<FaGithub size="1.5rem" />}
-												variant="ghost"
+												icon={
+													project.githubUrl.slice(8, 14) === 'gitlab' ? (
+														<FaGitlab size="1.5rem" />
+													) : (
+														<FaGithub size="1.5rem" />
+													)
+												}
 											/>
 										)}
 										{project.miscDownloadUrl && (
@@ -128,15 +139,13 @@ export default function Projects({ projects }) {
 												path={project.miscDownloadUrl}
 												aria-label="Download"
 												icon={<FaDownload size="1.5rem" />}
-												variant="ghost"
 											/>
 										)}
 										{project.extUrl && (
 											<IconButton
-												path={project.miscDownloadUrl}
-												aria-label="Download"
+												path={project.extUrl}
+												aria-label="Go to project"
 												icon={<FaExternalLinkAlt size="1.5rem" />}
-												variant="ghost"
 											/>
 										)}
 									</HStack>
