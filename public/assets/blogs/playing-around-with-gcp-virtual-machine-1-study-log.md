@@ -11,8 +11,6 @@ So, to build a solution implementation for my industrial internship (Kerja Prakt
 
 After redeeming my Free Trial I got about $300 credits and $100 from Organization Free Trial Bonus.
 
-![Alt text](../images/playing-around-with-gcp-virtual-machine-1-study-log/image.png)
-
 On the welcome page, you can see quick access to the most used services, and also some recommended services. I decided to use Compute Engine as I want to create a virtual machine.
 
 ## Creating the Virtual Machine
