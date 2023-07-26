@@ -20,15 +20,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          version: 6.0.2
-      - name: pnpm ci, build and test
+          node-version: ${{ matrix.node-version }}
+          cache: 'nnpm'
+      - name: npm ci, build and test
         run: |
-          pnpm i
-          pnpm run build && pnpm run export
-          touch /out/.nojekyll
+          npm i
+          npm run build && npm run export
+          touch ./out/.nojekyll
         env:
           NEXT_PUBLIC_API_URL: '${{ secrets.NEXT_PUBLIC_API_URL }}'
           NEXT_PUBLIC_API_KEY: '${{ secrets.NEXT_PUBLIC_API_KEY }}'
