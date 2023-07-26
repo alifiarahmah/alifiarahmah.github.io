@@ -34,15 +34,13 @@ jobs:
         run: |
           npm i
           npx prisma generate
-          npm run predeploy
-          npm run deploy
         env:
           NEXT_PUBLIC_API_URL: '${{ secrets.NEXT_PUBLIC_API_URL }}'
           NEXT_PUBLIC_API_KEY: '${{ secrets.NEXT_PUBLIC_API_KEY }}'
           MYSQL_URL: '${{ secrets.MYSQL_URL }}'
-      # - name: Deploy
-      #   uses: JamesIves/github-pages-deploy-action@releases/v3
-      #   with:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
-      #     BRANCH: gh-pages
-      #     FOLDER: out
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
+          BRANCH: gh-pages
+          FOLDER: out
