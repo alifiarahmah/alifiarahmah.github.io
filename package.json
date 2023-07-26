@@ -10,7 +10,7 @@
 		"build": "next build",
 		"start": "next start",
 		"export": "next export",
-		"predeploy": "npm run build && npm run export && touch /out/.nojekyll",
+		"predeploy": "next build && next export && touch ./out/.nojekyll",
 		"deploy": "gh-pages -d /out -t true",
 		"migrate": "prisma db push"
 	},
