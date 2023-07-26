@@ -26,17 +26,19 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: npm ci, build and test
+      - name: npm build, export, and deploy
         run: |
           npm i
           npm run build && npm run export
-          touch ./out/.nojekyll
+          touch out/.nojekyll
+          git add out && git commit -m "Deploying to Github Pages"
+          git subtree push --prefix out origin gh-pages
         env:
           NEXT_PUBLIC_API_URL: '${{ secrets.NEXT_PUBLIC_API_URL }}'
           NEXT_PUBLIC_API_KEY: '${{ secrets.NEXT_PUBLIC_API_KEY }}'
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
-          BRANCH: gh-pages
-          FOLDER: out
+      # - name: Deploy
+      #   uses: JamesIves/github-pages-deploy-action@releases/v3
+      #   with:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_KEY }}
+      #     BRANCH: gh-pages
+      #     FOLDER: out
