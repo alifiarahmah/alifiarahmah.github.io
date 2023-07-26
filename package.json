@@ -12,6 +12,7 @@
 		"export": "next export",
 		"predeploy": "next build && next export",
 		"deploy": "gh-pages -d /out -t true",
+		"generate": "prisma generate",
 		"migrate": "prisma db push"
 	},
 	"dependencies": {
