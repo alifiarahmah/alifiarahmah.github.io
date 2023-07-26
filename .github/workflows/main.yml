@@ -35,6 +35,7 @@ jobs:
         env:
           NEXT_PUBLIC_API_URL: '${{ secrets.NEXT_PUBLIC_API_URL }}'
           NEXT_PUBLIC_API_KEY: '${{ secrets.NEXT_PUBLIC_API_KEY }}'
+          MYSQL_URL: '${{ secrets.MYSQL_URL }}'
       # - name: Deploy
       #   uses: JamesIves/github-pages-deploy-action@releases/v3
       #   with:
