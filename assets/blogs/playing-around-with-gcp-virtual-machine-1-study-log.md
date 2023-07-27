@@ -35,7 +35,7 @@ And now we're in the machine! I can do anything I want.
 
 ## Create a server
 
-To test the machine, I decided to create a simple server using `apache2`. So I installed `apache2`, and enable the service. I also need to open the port 80 to allow HTTP traffic.
+To test the machine, I decided to create a simple server using `apache2`. So I installed `apache2`, and enable the service. I also need to open the port 80 to allow HTTP traffic, and also enable HTTP traffic in the firewall settings.
 
 ```sh
 sudo apt install apache2
