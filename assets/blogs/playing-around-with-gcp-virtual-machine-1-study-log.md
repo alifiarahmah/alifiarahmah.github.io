@@ -40,7 +40,6 @@ To test the machine, I decided to create a simple server using `apache2`. So I i
 ```sh
 sudo apt install apache2
 sudo systemctl enable apache2
-sudo ufw allow 80
 ```
 
 And now I can access the server in the browser using the machine's public IP address. It's still the default page, but it's working.
