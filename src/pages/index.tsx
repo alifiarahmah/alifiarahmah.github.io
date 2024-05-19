@@ -46,8 +46,8 @@ export default function Home() {
 					</Heading>
 					<Text textAlign="center" fontSize={{ base: 'lg', lg: '2xl' }}>
 						Undergraduate Informatics Student with interest in Software
-						Engineering. <br />
-						Currently learning web development, UI/UX, and mobile development.
+						Engineering, Cloud, and Cybersecurity.
+						Currently learning web development, UI/UX, and mobile development, cloud, and cybersecurity basics.
 					</Text>
 					<HStack gap={5} my={5}>
 						<IconButton
