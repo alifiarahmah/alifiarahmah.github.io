@@ -1,0 +1,352 @@
+[
+	{
+		"id": "1",
+		"name": "alifiarahmah.github.io",
+		"description": "Personal portfolio website and blog. Refactored from Next.js + Chakra UI to Astro.js + Tailwind CSS, featuring markdown-based blog posts via Astro Content Collections.",
+		"tags": ["TypeScript", "Astro.js", "Web"],
+		"githubUrl": "https://github.com/alifiarahmah/alifiarahmah.github.io",
+		"miscDownloadUrl": null,
+		"extUrl": "https://alifiarahmah.github.io",
+		"createdAt": "2020-05-22"
+	},
+	{
+		"id": "2",
+		"name": "Infosec-Vault",
+		"description": "A personal vault of notes and resources accumulated while learning from various cybersecurity learning platforms.",
+		"tags": ["Cybersecurity"],
+		"githubUrl": "https://github.com/alifiarahmah/Infosec-Vault",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2026-12-01"
+	},
+	{
+		"id": "4",
+		"name": "majika-android",
+		"description": "An Android FnB online store app with payment and twibbon camera integration built in Kotlin for IF3210 Platform-Based Development class project.",
+		"tags": ["Kotlin", "Android", "Mobile"],
+		"githubUrl": "https://github.com/alifiarahmah/majika-android",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2023-02-26"
+	},
+	{
+		"id": "5",
+		"name": "survivalshooter-unt",
+		"description": "A survival shooter game built with Unity and C# for IF3210 Platform-Based Development class project. Playable in the browser via GitHub Pages.",
+		"tags": ["C#", "Unity", "Game"],
+		"githubUrl": "https://github.com/alifiarahmah/survivalshooter-unt",
+		"miscDownloadUrl": null,
+		"extUrl": "https://alifiarahmah.github.io/survivalshooter-unt/",
+		"createdAt": "2023-04-16"
+	},
+	{
+		"id": "6",
+		"name": "IF3260 Tugas2 — 3D WebGL Hollow Object",
+		"description": "A 3D hollow object renderer built from scratch using WebGL and JavaScript for IF3260 Computer Graphics class project.",
+		"tags": ["JavaScript", "WebGL", "Graphics"],
+		"githubUrl": "https://github.com/alifiarahmah/IF3260_Tugas2_K03_G03",
+		"miscDownloadUrl": null,
+		"extUrl": "https://alifiarahmah.github.io/IF3260_Tugas2_K03_G03/src",
+		"createdAt": "2023-03-11"
+	},
+	{
+		"id": "7",
+		"name": "alipduino",
+		"description": "A collection of Arduino projects built with C++ for the IF3210 Platform-Based Development Arduino class.",
+		"tags": ["C++", "Arduino", "Embedded"],
+		"githubUrl": "https://github.com/alifiarahmah/alipduino",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2023-04-05"
+	},
+	{
+		"id": "8",
+		"name": "dicoding_submission_ml",
+		"description": "Submissions for Dicoding's \"Belajar Machine Learning untuk Pemula\" course, implementing classification models using TensorFlow.",
+		"tags": ["Python", "Machine Learning", "TensorFlow"],
+		"githubUrl": "https://github.com/alifiarahmah/dicoding_submission_ml",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2023-09-18"
+	},
+	{
+		"id": "9",
+		"name": "dicoding-submission-api",
+		"description": "A RESTful bookshelf API submission for Dicoding's \"Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud\" course, built with Hapi.js.",
+		"tags": ["JavaScript", "Node.js", "REST API"],
+		"githubUrl": "https://github.com/alifiarahmah/dicoding-submission-api",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2023-09-13"
+	},
+	{
+		"id": "11",
+		"name": "binotify-service",
+		"description": "A web service consisting of a subscriber/singer website, REST API, and SOAP API for IF3110 Web-Based Development class project.",
+		"tags": ["PHP", "REST API", "SOAP", "Web"],
+		"githubUrl": "https://github.com/alifiarahmah/binotify-service",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-12-09"
+	},
+	{
+		"id": "12",
+		"name": "binotify",
+		"description": "A monolithic music streaming web application built with HTML, CSS, JavaScript, and PHP for IF3110 Web-Based Development class project.",
+		"tags": ["PHP", "JavaScript", "Web"],
+		"githubUrl": "https://github.com/alifiarahmah/binotify",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-10-28"
+	},
+	{
+		"id": "13",
+		"name": "jarkom-tolakangin",
+		"description": "A Python CLI program simulating TCP reliable file transfer over UDP sockets, for IF3130 Computer Networks class project.",
+		"tags": ["Python", "Networking", "CLI"],
+		"githubUrl": "https://github.com/alifiarahmah/jarkom-tolakangin",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-11-19"
+	},
+	{
+		"id": "14",
+		"name": "WordSearchPuzzle-Solver",
+		"description": "Implementation of a brute-force algorithm to solve word search puzzles, written in C++ for IF2121 Algorithm Strategies class project.",
+		"tags": ["C++", "Algorithm"],
+		"githubUrl": "https://github.com/alifiarahmah/WordSearchPuzzle-Solver",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-01-20"
+	},
+	{
+		"id": "15",
+		"name": "Tucil3 — 15-Puzzle Solver",
+		"description": "Implementation of the Branch and Bound algorithm to solve the 15-Puzzle sliding game, for IF2121 Algorithm Strategies class project.",
+		"tags": ["Java", "Algorithm"],
+		"githubUrl": "https://github.com/alifiarahmah/Tucil3_13520122",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-03-29"
+	},
+	{
+		"id": "16",
+		"name": "ConvexHull",
+		"description": "Convex hull implementation using the divide and conquer algorithm in Python (Jupyter Notebook), for IF2121 Algorithm Strategies class project.",
+		"tags": ["Python", "Algorithm", "Jupyter Notebook"],
+		"githubUrl": "https://github.com/alifiarahmah/ConvexHull",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-02-28"
+	},
+	{
+		"id": "20",
+		"name": "HarvestProlog",
+		"description": "A CLI farm simulation role-playing game implemented in GNU Prolog for IF2121 Computational Logic class project.",
+		"tags": ["Prolog", "CLI", "Game"],
+		"githubUrl": "https://github.com/alifiarahmah/HarvestProlog",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2021-11-12"
+	},
+	{
+		"id": "21",
+		"name": "callaborators",
+		"description": "A mobile app prototype for finding teammates for competitions and projects. Honorable Mention at the Mile Zero Project Competition.",
+		"tags": ["Flutter", "Dart", "Mobile"],
+		"githubUrl": "https://github.com/alifiarahmah/callaborators",
+		"miscDownloadUrl": "https://github.com/alifiarahmah/callaborators/raw/main/build/app/outputs/flutter-apk/app-release.apk",
+		"extUrl": "https://milezeroproject.com/library/160934kilo",
+		"createdAt": "2021-02-06"
+	},
+	{
+		"id": "22",
+		"name": "edufun",
+		"description": "A high-order thinking skill educational mobile game prototype built with Flutter, created for the HackBiz 2021 Final Round by team \"Mantan TPB\".",
+		"tags": ["Flutter", "Dart", "Mobile"],
+		"githubUrl": "https://github.com/alifiarahmah/edufun",
+		"miscDownloadUrl": "https://github.com/alifiarahmah/edufun/raw/master/build/app/outputs/flutter-apk/app-release.apk",
+		"extUrl": null,
+		"createdAt": "2021-07-30"
+	},
+	{
+		"id": "23",
+		"name": "board-of-feedback",
+		"description": "A simple feedback board web application for CRUD exploration built with Python Flask and Materialize.css.",
+		"tags": ["Python", "Flask", "Web"],
+		"githubUrl": "https://github.com/alifiarahmah/board-of-feedback",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2020-11-21"
+	},
+	{
+		"id": "24",
+		"name": "mencongak-kuy-bot",
+		"description": "A simple LINE Bot for playing math mental arithmetic games, built using PHP and the LINE Messaging API.",
+		"tags": ["PHP", "Bot", "LINE API"],
+		"githubUrl": "https://github.com/alifiarahmah/mencongak-kuy-bot",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2020-12-29"
+	},
+	{
+		"id": "26",
+		"name": "Tubes-Doraemonangis",
+		"description": "A CLI program simulating a \"magic pocket\" service using Python, for IF1210 Programming Fundamentals class project.",
+		"tags": ["Python", "CLI"],
+		"githubUrl": "https://github.com/alifiarahmah/Tubes-Doraemonangis",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2021-04-10"
+	},
+	{
+		"id": "27",
+		"name": "Get-to-Know-Me",
+		"description": "A personal portfolio website mini project built with React.js and React-Bootstrap for IEEE ITB SB IT Division Open Recruitment.",
+		"tags": ["JavaScript", "React", "Web"],
+		"githubUrl": "https://github.com/alifiarahmah/Get-to-Know-Me",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2021-04-23"
+	},
+	{
+		"id": "28",
+		"name": "ITB OpenCourseWare",
+		"description": "OpenCourseWare prototype for Institut Teknologi Bandung made for IF3250 Software Project",
+		"tags": ["Web", "React", "TypeScript"],
+		"githubUrl": "https://gitlab.informatika.org/ocw",
+		"miscDownloadUrl": null,
+		"extUrl": "https://ocw.bayusamudra.my.id/",
+		"createdAt": "2023-04-28"
+	},
+	{
+		"id": "29",
+		"name": "3D Articulated Model Viewer",
+		"description": "A 3D articulated model viewer with 4 pre-loaded models made using WebGL for IF3260 Computer Graphics Class Project #3",
+		"tags": ["Web", "WebGL", "JavaScript"],
+		"githubUrl": "https://github.com/febryola/IF3260_Tugas3_K03_G04",
+		"miscDownloadUrl": null,
+		"extUrl": "https://alifiarahmah.github.io/IF3260_Tugas3_K03_G04/src/",
+		"createdAt": "2023-04-20"
+	},
+	{
+		"id": "31",
+		"name": "basiCAD",
+		"description": "Basic Computer-Aided Design (CAD) web application made using WebGL for IF3260 Computer Graphics Class Project #1",
+		"tags": ["Web", "WebGL"],
+		"githubUrl": "https://github.com/Radenz/basicad",
+		"miscDownloadUrl": null,
+		"extUrl": "http://basicad.vercel.app/",
+		"createdAt": "2023-02-26"
+	},
+	{
+		"id": "33",
+		"name": "Ice Path Solver",
+		"description": "Implementation of branch and bound algorithm to solve puzzle like Ice Path labyrinth from Pokemon Crystal for IF2211 Algorithm Strategies course article project",
+		"tags": ["CLI", "Algorithm", "Java"],
+		"githubUrl": "https://github.com/alifiarahmah/icepath-solver",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-05-22"
+	},
+	{
+		"id": "34",
+		"name": "Minecraft Aether Realm",
+		"description": "A GUI game made using Java for IF2210 Object Oriented Programming class project",
+		"tags": ["GUI", "Java", "Game"],
+		"githubUrl": "https://github.com/alifiarahmah/Tubes2-OOP-Minecraft-Aether-Realm",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-04-29"
+	},
+	{
+		"id": "35",
+		"name": "DNA Matching",
+		"description": "A disease detection website using React and Go that implements string matching algorithm for DNA pattern matching, made for IF2211 Algorithm Strategies class project",
+		"tags": ["Web", "React", "Go"],
+		"githubUrl": "https://github.com/alifiarahmah/Tubes3_13520006",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-04-29"
+	},
+	{
+		"id": "37",
+		"name": "Leetspeak Generator",
+		"description": "A silly project to generate leetspeak writings using simple pseudo-random number generator (PRNG) and hashmap for IF2120 Discrete Math course on 2021",
+		"tags": ["CLI", "Python"],
+		"githubUrl": "https://github.com/alifiarahmah/leetspeak-generator",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2022-02-17"
+	},
+	{
+		"id": "39",
+		"name": "OpenSearch",
+		"description": "A Collaboration Platform for Open Source Projects. Runner Up of GarudaHacks 2.0 in Economic Opportunity Project Category.",
+		"tags": ["Web", "React", "MERN Stack"],
+		"githubUrl": "https://github.com/GarudaHacksMafiaTeam/OpenSearch",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2021-11-21"
+	},
+	{
+		"id": "40",
+		"name": "Mobilita Package Delivery",
+		"description": "A command-line interface (CLI) delivery simulation program that implements several data structures for IF2110 Data Structure and Algorithms class project",
+		"tags": ["CLI", "Data Structures"],
+		"githubUrl": "https://github.com/alifiarahmah/Mobilita-Package-Delivery",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2021-11-18"
+	},
+	{
+		"id": "41",
+		"name": "Image Compressor",
+		"description": "A website application for image compression that is developed for IF2123 Geometric and Linear Algebra class project",
+		"tags": ["Web", "Python", "Linear Algebra"],
+		"githubUrl": "https://github.com/rifqi2320/Image-Compression-but-its-a-meme",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2021-11-15"
+	},
+	{
+		"id": "43",
+		"name": "online-course",
+		"description": "A mock online course app made using Flutter",
+		"tags": ["Mobile", "Flutter", "Dart"],
+		"githubUrl": "https://github.com/alifiarahmah/online-course",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2021-07-27"
+	},
+	{
+		"id": "44",
+		"name": "Youtube Video Data Analysis",
+		"description": "Data analysis of US Youtube video statistics made for KU1102 Introduction to Computation class project",
+		"tags": ["Data", "Python", "Data Analysis"],
+		"githubUrl": null,
+		"miscDownloadUrl": null,
+		"extUrl": "https://colab.research.google.com/drive/1VFsYuaxyz5HIFqLjnEfsEsWbxP03M0uq?usp=sharing",
+		"createdAt": "2020-12-09"
+	},
+	{
+		"id": "45",
+		"name": "Film Data Analysis",
+		"description": "Data science exploration made for Google Developer Student Club Institut Teknologi Bandung (GDSC ITB) event #2 task",
+		"tags": ["Data", "Python", "Data Science"],
+		"githubUrl": "https://github.com/alifiarahmah/DSCDataScience/blob/main/EksplorasiData_AlifiaRahmah/DSC_2_DataScience.ipynb",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2020-11-14"
+	},
+	{
+		"id": "46",
+		"name": "Tubes-ATM",
+		"description": "A simple automatic teller machine (ATM) simulation program using Python made for KU1102 Introduction to Computation class project",
+		"tags": ["CLI", "Python"],
+		"githubUrl": "https://github.com/alifiarahmah/Tubes-ATM",
+		"miscDownloadUrl": null,
+		"extUrl": null,
+		"createdAt": "2020-11-20"
+	}
+]

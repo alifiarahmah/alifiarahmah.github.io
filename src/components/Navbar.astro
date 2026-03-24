@@ -1,0 +1,226 @@
+---
+const routes = [
+	{ path: '/', label: 'Home' },
+	// { path: '/about', label: 'About' },
+	{ path: '/projects', label: 'Projects' },
+	{ path: '/blog', label: 'Blog' },
+];
+
+const currentPath = Astro.url.pathname;
+
+const isActive = (path: string) => {
+	if (path === '/') return currentPath === '/';
+	return currentPath.startsWith(path);
+};
+---
+
+<!-- Desktop + Mobile Navbar -->
+<nav
+	class="relative flex items-center justify-center w-full my-5 px-6"
+	aria-label="Main navigation"
+>
+	<!-- Desktop nav links -->
+	<div class="hidden lg:flex items-center">
+		{
+			routes.map((r) => (
+				<a
+					href={r.path}
+					class={`nav-btn border-b-2 ${
+						isActive(r.path)
+							? 'border-black dark:border-white font-semibold'
+							: 'border-transparent'
+					}`}
+				>
+					{r.label}
+				</a>
+			))
+		}
+	</div>
+
+	<!-- Right-side controls -->
+	<div class="lg:absolute lg:right-6 flex items-center gap-1">
+		<!-- Dark mode toggle -->
+		<button
+			id="theme-toggle"
+			aria-label="Toggle dark mode"
+			class="icon-btn w-12 h-12 text-gray-900 dark:text-gray-100"
+		>
+			<!-- Moon icon (shown in light mode) -->
+			<svg
+				id="icon-moon"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="currentColor"
+				width="26"
+				height="26"
+				class="block dark:hidden"
+			>
+				<path
+					d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+				></path>
+			</svg>
+			<!-- Sun icon (shown in dark mode) -->
+			<svg
+				id="icon-sun"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				width="26"
+				height="26"
+				class="hidden dark:block"
+			>
+				<circle cx="12" cy="12" r="5"></circle>
+				<line x1="12" y1="1" x2="12" y2="3"></line>
+				<line x1="12" y1="21" x2="12" y2="23"></line>
+				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+				<line x1="1" y1="12" x2="3" y2="12"></line>
+				<line x1="21" y1="12" x2="23" y2="12"></line>
+				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+			</svg>
+		</button>
+
+		<!-- Mobile hamburger button -->
+		<button
+			id="mobile-menu-btn"
+			aria-label="Open menu"
+			aria-expanded="false"
+			aria-controls="mobile-drawer"
+			class="icon-btn w-12 h-12 lg:hidden text-gray-900 dark:text-gray-100"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="currentColor"
+				width="28"
+				height="28"
+			>
+				<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+			</svg>
+		</button>
+	</div>
+</nav>
+
+<!-- Mobile Drawer Overlay + Panel -->
+<div
+	id="mobile-drawer"
+	role="dialog"
+	aria-modal="true"
+	aria-label="Navigation menu"
+	class="fixed inset-0 z-50 hidden"
+>
+	<!-- Backdrop -->
+	<div
+		id="drawer-overlay"
+		class="absolute inset-0 bg-black/50 transition-opacity duration-300"
+	>
+	</div>
+
+	<!-- Drawer panel -->
+	<div
+		id="drawer-panel"
+		class="absolute right-0 top-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl flex flex-col translate-x-full transition-transform duration-300"
+	>
+		<!-- Close button row -->
+		<div class="flex justify-end p-4 border-b border-gray-200 dark:border-gray-700">
+			<button
+				id="close-drawer"
+				aria-label="Close menu"
+				class="icon-btn w-10 h-10 text-gray-900 dark:text-gray-100"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					width="24"
+					height="24"
+				>
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+
+		<!-- Mobile nav links -->
+		<nav class="flex flex-col">
+			{
+				routes.map((r) => (
+					<a
+						href={r.path}
+						class={`nav-btn text-left border-b border-gray-100 dark:border-gray-800 ${
+							isActive(r.path)
+								? 'bg-gray-100 dark:bg-gray-800 font-semibold'
+								: ''
+						}`}
+					>
+						{r.label}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+</div>
+
+<script>
+	// ── Dark mode toggle ──────────────────────────────────────────────
+	const themeBtn = document.getElementById('theme-toggle');
+
+	themeBtn?.addEventListener('click', () => {
+		const html = document.documentElement;
+		const isDark = html.classList.toggle('dark');
+		localStorage.setItem('theme', isDark ? 'dark' : 'light');
+	});
+
+	// ── Mobile drawer ─────────────────────────────────────────────────
+	const menuBtn = document.getElementById('mobile-menu-btn');
+	const drawer = document.getElementById('mobile-drawer');
+	const panel = document.getElementById('drawer-panel');
+	const overlay = document.getElementById('drawer-overlay');
+	const closeBtn = document.getElementById('close-drawer');
+
+	function openDrawer() {
+		drawer?.classList.remove('hidden');
+		// Trigger transition on next frame
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				panel?.classList.remove('translate-x-full');
+				panel?.classList.add('translate-x-0');
+			});
+		});
+		menuBtn?.setAttribute('aria-expanded', 'true');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeDrawer() {
+		panel?.classList.remove('translate-x-0');
+		panel?.classList.add('translate-x-full');
+		menuBtn?.setAttribute('aria-expanded', 'false');
+		document.body.style.overflow = '';
+		// Wait for transition to finish before hiding
+		panel?.addEventListener(
+			'transitionend',
+			() => drawer?.classList.add('hidden'),
+			{ once: true },
+		);
+	}
+
+	menuBtn?.addEventListener('click', openDrawer);
+	closeBtn?.addEventListener('click', closeDrawer);
+	overlay?.addEventListener('click', closeDrawer);
+
+	// Close drawer on Escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && !drawer?.classList.contains('hidden')) {
+			closeDrawer();
+		}
+	});
+</script>

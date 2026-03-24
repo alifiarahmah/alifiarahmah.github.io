@@ -1,0 +1,281 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { fetchMediumPosts } from '../../lib/medium';
+
+// Fetch both sources in parallel
+const [localPosts, mediumPosts] = await Promise.all([
+	getCollection('blog'),
+	fetchMediumPosts(),
+]);
+
+// Unified post shape for the template
+interface UnifiedPost {
+	title: string;
+	excerpt: string;
+	date: string;
+	href: string;
+	isExternal: boolean;
+	source: 'local' | 'medium';
+}
+
+const allPosts: UnifiedPost[] = [
+	...localPosts.map((post) => ({
+		title: post.data.title,
+		excerpt: post.data.excerpt,
+		date: post.data.date,
+		href: `/blog/${post.slug}`,
+		isExternal: false,
+		source: 'local' as const,
+	})),
+	...mediumPosts.map((post) => ({
+		title: post.title,
+		excerpt: post.excerpt,
+		date: post.date,
+		href: post.url,
+		isExternal: true,
+		source: 'medium' as const,
+	})),
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const localCount = allPosts.filter((p) => p.source === 'local').length;
+const mediumCount = allPosts.filter((p) => p.source === 'medium').length;
+
+const formatDate = (dateStr: string) =>
+	new Date(dateStr).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
+---
+
+<Layout title="Blog">
+	<h1 class="text-3xl lg:text-4xl font-bold text-center mb-10">Blog</h1>
+
+	{
+		allPosts.length === 0 ? (
+			<p class="text-center text-gray-500 dark:text-gray-400 text-lg py-16">
+				No posts yet. Check back soon!
+			</p>
+		) : (
+			<>
+				<!-- Source filter tabs -->
+				<div
+					id="source-filter"
+					class="flex flex-wrap gap-2 mb-10"
+					role="group"
+					aria-label="Filter posts by source"
+				>
+					<button
+						class="filter-btn is-active"
+						data-source-filter="all"
+						aria-pressed="true"
+					>
+						All
+						<span class="ml-1.5 opacity-60 text-xs font-normal tabular-nums">
+							({allPosts.length})
+						</span>
+					</button>
+					<button
+						class="filter-btn"
+						data-source-filter="local"
+						aria-pressed="false"
+					>
+						<!-- File icon -->
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							width="13"
+							height="13"
+							class="inline -mt-0.5 mr-0.5"
+						>
+							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+						</svg>
+						Local
+						<span class="ml-1.5 opacity-60 text-xs font-normal tabular-nums">
+							({localCount})
+						</span>
+					</button>
+					<button
+						class="filter-btn"
+						data-source-filter="medium"
+						aria-pressed="false"
+					>
+						<!-- Medium "M" icon -->
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+							width="13"
+							height="13"
+							class="inline -mt-0.5 mr-0.5"
+						>
+							<path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+						</svg>
+						Medium
+						<span class="ml-1.5 opacity-60 text-xs font-normal tabular-nums">
+							({mediumCount})
+						</span>
+					</button>
+				</div>
+
+				<!-- Post list -->
+				<div id="post-list" class="flex flex-col divide-y divide-gray-200 dark:divide-gray-700">
+					{allPosts.map((post) => (
+						<article
+							class="py-10 transition-opacity duration-200"
+							data-post-source={post.source}
+						>
+							<!-- Title row -->
+							<div class="flex flex-wrap items-start gap-3 mb-2">
+								<a
+									href={post.href}
+									target={post.isExternal ? '_blank' : undefined}
+									rel={post.isExternal ? 'noopener noreferrer' : undefined}
+									class="group flex-1 min-w-0"
+								>
+									<h2 class="text-2xl font-bold my-0 leading-snug group-hover:underline underline-offset-4 inline">
+										{post.title}
+									</h2>
+									{post.isExternal && (
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill="currentColor"
+											width="14"
+											height="14"
+											class="inline ml-1.5 mb-1 text-gray-400 dark:text-gray-500 shrink-0"
+											aria-label="Opens on Medium"
+										>
+											<path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+										</svg>
+									)}
+								</a>
+
+								<!-- Source badge -->
+								{post.source === 'local' ? (
+									<span class="source-badge-local shrink-0 mt-1">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill="currentColor"
+											width="10"
+											height="10"
+										>
+											<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+										</svg>
+										Local
+									</span>
+								) : (
+									<span class="source-badge-medium shrink-0 mt-1">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill="currentColor"
+											width="10"
+											height="10"
+										>
+											<path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+										</svg>
+										Medium
+									</span>
+								)}
+							</div>
+
+							<!-- Date -->
+							<time
+								datetime={post.date}
+								class="text-sm text-gray-500 dark:text-gray-400 block mb-3"
+							>
+								{formatDate(post.date)}
+							</time>
+
+							<!-- Excerpt -->
+							{post.excerpt && (
+								<p class="text-base lg:text-lg text-gray-700 dark:text-gray-300 my-0 line-clamp-3">
+									{post.excerpt}
+								</p>
+							)}
+
+							<!-- Read more -->
+							<a
+								href={post.href}
+								target={post.isExternal ? '_blank' : undefined}
+								rel={post.isExternal ? 'noopener noreferrer' : undefined}
+								class="inline-block font-bold text-sm mt-4 hover:underline underline-offset-4"
+							>
+								{post.isExternal ? 'Read on Medium' : 'Read more'} &rarr;
+							</a>
+						</article>
+					))}
+				</div>
+
+				<!-- Empty state (shown by JS when a filter has no results) -->
+				<p
+					id="no-posts"
+					class="hidden text-center text-gray-500 dark:text-gray-400 text-lg py-16"
+				>
+					No posts found for this filter.
+				</p>
+			</>
+		)
+	}
+</Layout>
+
+<script>
+	const filterBtns = document.querySelectorAll<HTMLButtonElement>(
+		'#source-filter .filter-btn',
+	);
+	const posts = document.querySelectorAll<HTMLElement>(
+		'#post-list article',
+	);
+	const noPostsMsg = document.getElementById('no-posts');
+
+	function applyFilter(selected: string) {
+		let visible = 0;
+
+		posts.forEach((post) => {
+			const src = post.dataset.postSource ?? '';
+			const matches = selected === 'all' || src === selected;
+
+			if (matches) {
+				post.style.opacity = '0';
+				post.classList.remove('hidden');
+				requestAnimationFrame(() =>
+					requestAnimationFrame(() => {
+						post.style.opacity = '1';
+					}),
+				);
+				visible++;
+			} else {
+				post.style.opacity = '0';
+				post.addEventListener(
+					'transitionend',
+					() => {
+						if (post.style.opacity === '0') post.classList.add('hidden');
+					},
+					{ once: true },
+				);
+			}
+		});
+
+		noPostsMsg?.classList.toggle('hidden', visible > 0);
+	}
+
+	function setActiveTab(selected: string) {
+		filterBtns.forEach((btn) => {
+			const isActive = btn.dataset.sourceFilter === selected;
+			btn.classList.toggle('is-active', isActive);
+			btn.setAttribute('aria-pressed', String(isActive));
+		});
+	}
+
+	filterBtns.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const filter = btn.dataset.sourceFilter ?? 'all';
+			setActiveTab(filter);
+			applyFilter(filter);
+		});
+	});
+</script>

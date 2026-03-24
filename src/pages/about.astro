@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { marked } from 'marked';
+
+let readmeHtml = '';
+try {
+	const res = await fetch(
+		'https://raw.githubusercontent.com/alifiarahmah/alifiarahmah/main/README.md',
+	);
+	if (res.ok) {
+		const raw = await res.text();
+		readmeHtml = await marked.parse(raw);
+	}
+} catch (e) {
+	console.warn('Could not fetch GitHub README:', e);
+}
+---
+
+<Layout title="About Me">
+	<h1 class="text-3xl lg:text-4xl font-bold text-center mb-16">About Me</h1>
+
+	{
+		readmeHtml ? (
+			<div
+				class="prose prose-lg dark:prose-invert max-w-none
+				prose-headings:font-bold prose-headings:my-4
+				prose-a:text-blue-600 dark:prose-a:text-blue-400
+				prose-img:rounded-md prose-img:inline-block prose-img:my-0
+				prose-code:before:content-none prose-code:after:content-none
+				prose-pre:bg-gray-900 prose-pre:text-gray-100"
+			>
+				<Fragment set:html={readmeHtml} />
+			</div>
+		) : (
+			<p class="text-center text-gray-500 dark:text-gray-400">
+				Could not load content. Please try again later.
+			</p>
+		)
+	}
+</Layout>

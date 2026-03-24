@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-family: 'Ubuntu', system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply antialiased;
+	}
+
+	h1 {
+		@apply text-3xl font-bold my-5;
+	}
+
+	h2 {
+		@apply text-2xl font-bold my-5;
+	}
+
+	h3 {
+		@apply text-lg font-semibold my-4;
+	}
+
+	h4 {
+		@apply text-base font-semibold my-3;
+	}
+
+	p {
+		@apply my-1 text-lg lg:text-xl;
+	}
+}
+
+@layer components {
+	.nav-btn {
+		@apply px-6 py-4 text-xl font-medium transition-colors duration-150
+		hover:bg-black hover:text-white
+		dark:hover:bg-gray-100 dark:hover:text-black;
+	}
+
+	.icon-btn {
+		@apply inline-flex items-center justify-center w-10 h-10 transition-opacity duration-150 hover:opacity-70;
+	}
+
+	.tag {
+		@apply inline-block px-3 py-1 text-sm font-medium bg-gray-200 dark:bg-gray-700 rounded-full;
+	}
+
+	.filter-btn {
+		@apply px-4 py-1.5 text-sm font-medium border-2 border-black dark:border-white
+		rounded-sm cursor-pointer transition-colors duration-150
+		bg-transparent text-black dark:text-white
+		hover:bg-black/10 dark:hover:bg-white/10;
+	}
+
+	.filter-btn.is-active {
+		@apply bg-black text-white dark:bg-white dark:text-black
+		hover:bg-black dark:hover:bg-white;
+	}
+
+	.source-badge {
+		@apply inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full;
+	}
+
+	.source-badge-local {
+		@apply source-badge bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+	}
+
+	.source-badge-medium {
+		@apply source-badge bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300;
+	}
+}
