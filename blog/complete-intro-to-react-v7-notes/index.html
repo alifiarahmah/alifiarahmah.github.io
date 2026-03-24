@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Astro v4.16.19"><title>Complete Intro to React, v7 - Notes - Blog - alifiarahmah&#39;s homepage</title><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"><!-- Prevent flash of unstyled content for dark mode --><script>
+			(function () {
+				const stored = localStorage.getItem('theme');
+				if (
+					stored === 'dark' ||
+					(!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
+				) {
+					document.documentElement.classList.add('dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+				}
+			})();
+		</script><link rel="stylesheet" href="/_astro/about.BDG0kavN.css"><script type="module" src="/_astro/hoisted.FaBchAMQ.js"></script></head> <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-200"> <!-- Desktop + Mobile Navbar --><nav class="relative flex items-center justify-center w-full my-5 px-6" aria-label="Main navigation"> <!-- Desktop nav links --> <div class="hidden lg:flex items-center"> <a href="/" class="nav-btn border-b-2 border-transparent"> Home </a><a href="/projects" class="nav-btn border-b-2 border-transparent"> Projects </a><a href="/blog" class="nav-btn border-b-2 border-black dark:border-white font-semibold"> Blog </a> </div> <!-- Right-side controls --> <div class="lg:absolute lg:right-6 flex items-center gap-1"> <!-- Dark mode toggle --> <button id="theme-toggle" aria-label="Toggle dark mode" class="icon-btn w-12 h-12 text-gray-900 dark:text-gray-100"> <!-- Moon icon (shown in light mode) --> <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26" class="block dark:hidden"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <!-- Sun icon (shown in dark mode) --> <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" class="hidden dark:block"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <!-- Mobile hamburger button --> <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" class="icon-btn w-12 h-12 lg:hidden text-gray-900 dark:text-gray-100"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"> <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path> </svg> </button> </div> </nav> <!-- Mobile Drawer Overlay + Panel --> <div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu" class="fixed inset-0 z-50 hidden"> <!-- Backdrop --> <div id="drawer-overlay" class="absolute inset-0 bg-black/50 transition-opacity duration-300"></div> <!-- Drawer panel --> <div id="drawer-panel" class="absolute right-0 top-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl flex flex-col translate-x-full transition-transform duration-300"> <!-- Close button row --> <div class="flex justify-end p-4 border-b border-gray-200 dark:border-gray-700"> <button id="close-drawer" aria-label="Close menu" class="icon-btn w-10 h-10 text-gray-900 dark:text-gray-100"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> <!-- Mobile nav links --> <nav class="flex flex-col"> <a href="/" class="nav-btn text-left border-b border-gray-100 dark:border-gray-800 "> Home </a><a href="/projects" class="nav-btn text-left border-b border-gray-100 dark:border-gray-800 "> Projects </a><a href="/blog" class="nav-btn text-left border-b border-gray-100 dark:border-gray-800 bg-gray-100 dark:bg-gray-800 font-semibold"> Blog </a> </nav> </div> </div>  <main class="container mx-auto max-w-4xl w-[90%] lg:w-auto py-10 min-h-[75vh]">  <article class="max-w-none"> <!-- Back link --> <a href="/blog" class="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors mb-8"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"> <line x1="19" y1="12" x2="5" y2="12"></line> <polyline points="12 19 5 12 12 5"></polyline> </svg>
+Back to Blog
+</a> <!-- Post header --> <header class="mb-10"> <h1 class="text-3xl lg:text-4xl font-bold leading-tight my-2"> Complete Intro to React, v7 - Notes </h1> <time datetime="2020-08-06" class="text-sm text-gray-500 dark:text-gray-400 block mt-2"> August 6, 2020 </time> </header> <!-- Post body — rendered from markdown via Astro content collections --> <div class="prose prose-lg dark:prose-invert max-w-none
+			prose-headings:font-bold prose-headings:my-4
+			prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl
+			prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+			prose-blockquote:border-l-4 prose-blockquote:border-gray-400 prose-blockquote:pl-4 prose-blockquote:italic
+			prose-code:before:content-none prose-code:after:content-none
+			prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+			prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg
+			prose-img:rounded-md prose-img:shadow-sm
+			prose-ul:my-4 prose-ol:my-4 prose-li:my-1"> <p>This is the note I take as I watch this course
+<a href="https://frontendmasters.com/courses/complete-react-v7/">Complete Intro to React, v7 - FrontendMasters</a></p>
+<h2 id="vanilla-react">Vanilla React</h2>
+<p>React can be used purely by importing the react script in HTML.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"root"</span><span style="color:#E1E4E8">>not rendered&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">script</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"https://unpkg.com/react@17.0.2/umd/react.development.js"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">script</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">    // Your code is going to go here</span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<p>Then we put our code in the last script tag.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">    "div"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    {},</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h1"</span><span style="color:#E1E4E8">, {}, </span><span style="color:#9ECBFF">"Adopt Me!"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">ReactDOM.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(App), document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"root"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"></span></code></pre>
+<p>To implement best practice, we could separate the code into a separate file called <code>App.js</code> then import it in the HTML file with <code>&#x3C;script src="App.js">&#x3C;/script></code>.</p>
+<h3 id="component">Component</h3>
+<p>Create component that return element with multiple children with passing it in array of elements.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> Pet</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"div"</span><span style="color:#E1E4E8">, {}, [</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h1"</span><span style="color:#E1E4E8">, {}, </span><span style="color:#9ECBFF">"Luna"</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h2"</span><span style="color:#E1E4E8">, {}, </span><span style="color:#9ECBFF">"Dog"</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h2"</span><span style="color:#E1E4E8">, {}, </span><span style="color:#9ECBFF">"Havanese"</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]);</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span></code></pre>
+<p>The component will be used inside the <code>App</code> component.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">    "div"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    {},</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h1"</span><span style="color:#E1E4E8">, {}, </span><span style="color:#9ECBFF">"Adopt Me!"</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#F97583">    ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(Pet)</span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Add props to the element</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> Pet</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">props</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"div"</span><span style="color:#E1E4E8">, {}, [</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h1"</span><span style="color:#E1E4E8">, {}, props.name),</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h2"</span><span style="color:#E1E4E8">, {}, props.animal),</span></span>
+<span class="line"><span style="color:#E1E4E8">    React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h2"</span><span style="color:#E1E4E8">, {}, props.breed),</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]);</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"div"</span><span style="color:#E1E4E8">, {}, [</span></span>
+<span class="line"><span style="color:#E1E4E8">      React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"h1"</span><span style="color:#E1E4E8">, {}, </span><span style="color:#9ECBFF">"Adopt Me!"</span><span style="color:#E1E4E8">),</span></span>
+<span class="line"><span style="color:#F97583">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">      React.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(Pet, {</span></span>
+<span class="line"><span style="color:#E1E4E8">        name: </span><span style="color:#9ECBFF">"Luna"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        animal: </span><span style="color:#9ECBFF">"Dog"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        breed: </span><span style="color:#9ECBFF">"Havanese"</span></span>
+<span class="line"><span style="color:#E1E4E8">      })</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="js-tools">JS Tools</h2>
+<h3 id="npm-node-package-manager">npm (Node Package Manager)</h3>
+<p>Bring various open source code modules to import into the project.</p>
+<p>To initialize, run</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> init</span><span style="color:#79B8FF"> -y</span></span>
+<span class="line"></span></code></pre>
+<p>It will make a new file called <code>package.json</code> in the root directory.</p>
+<h3 id="prettier">Prettier</h3>
+<p>Re-print the code with a predefined style. This is a good way to make sure the code is formatted correctly.</p>
+<p>To install prettier globally, run</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> --global</span><span style="color:#9ECBFF"> prettier</span></span>
+<span class="line"></span></code></pre>
+<p>To declare a project as a prettier project, create a file <code>.prettierrc</code>. This configuration could be either empty (only contains <code>{}</code>) or have some configuration.</p>
+<p>To manually format the code, run</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">prettier</span><span style="color:#79B8FF"> --write</span><span style="color:#79B8FF"> \"</span><span style="color:#9ECBFF">src/</span><span style="color:#79B8FF">**</span><span style="color:#9ECBFF">/</span><span style="color:#79B8FF">*</span><span style="color:#9ECBFF">.{js,jsx}</span><span style="color:#79B8FF">\"</span></span>
+<span class="line"></span></code></pre>
+<p>We can also set up a CLI command in the <code>package.json</code> to format the code automatically.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#9ECBFF">"scripts"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">  "format"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"prettier --write </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">src/**/*.{js,jsx}</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Then we can use <code>npm run format</code> to format the code.</p>
+<h3 id="eslint">ESLint</h3>
+<p>It is a linter to enforce a style guide for JavaScript code.</p>
+<p>To install ESLint, run</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> eslint@8.8.0</span><span style="color:#9ECBFF"> eslint-config-prettier@8.3.0</span></span>
+<span class="line"></span></code></pre>
+<p>There are so many preset configs. To create a new config, create a file <code>.eslintrc.json</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "extends"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"eslint:recommended"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"prettier"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "plugins"</span><span style="color:#E1E4E8">: [],</span></span>
+<span class="line"><span style="color:#79B8FF">  "parserOptions"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "ecmaVersion"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2022</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    "sourceType"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"module"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    "ecmaFeatures"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "jsx"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#79B8FF">  "env"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "es6"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    "browser"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    "node"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>To run ESLint, add the CLI command to <code>"scripts"</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">"lint"</span><span style="color:#79B8FF">:</span><span style="color:#9ECBFF"> "eslint </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">src/**/*.{js,jsx}</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF"> --quiet",</span></span>
+<span class="line"></span></code></pre>
+<h3 id="git">Git</h3>
+<p>There are several things that shouldn’t we commit to repo. Add to <code>.gitignore</code></p>
+<ul>
+<li><code>node_modules</code></li>
+<li><code>.parcel-cache/</code></li>
+<li><code>dist/</code></li>
+<li><code>.env</code></li>
+<li><code>.DS_Store</code></li>
+<li><code>coverage/</code></li>
+<li><code>.vscode/</code></li>
+</ul>
+<h3 id="parcel">Parcel</h3>
+<p>A bundler for modern JavaScript applications. It crawl through the project and bundle all the files together and then run the code on a server.</p>
+<p>Install Parcel with</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> parcel@2.2.1</span></span>
+<span class="line"></span></code></pre>
+<p>Inside the <code>package.json</code> file, add the following script to <code>"scripts"</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">"dev"</span><span style="color:#79B8FF">:</span><span style="color:#9ECBFF"> "parcel src/index.html",</span></span>
+<span class="line"></span></code></pre>
+<p>Then we can use <code>npm run dev</code> to run the app. The app will be served on <code>localhost</code>. It will automatically watch for changes and rebuild the app.</p>
+<h3 id="browserslist">Browserslist</h3>
+<p>Transforms JS code from futuristic code to code that is understandable by older browsers with Babel.</p>
+<p>Browserslist are intstalled with Parcel and can be used to specify the browsers that the code will be transpiled to. Add to <code>package.json</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">    ...</span></span>
+<span class="line"><span style="color:#79B8FF">    "browserslist"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#9ECBFF">        "last 2 Chrome versions"</span></span>
+<span class="line"><span style="color:#E1E4E8">    ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="core-react-concepts">Core React Concepts</h2>
+<h3 id="jsx">JSX</h3>
+<p>Makes code more readable and more HTML-like. React component in JSX should be written in capitalized format.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> Pet</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">props</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>{props.name}&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">h2</span><span style="color:#E1E4E8">>{props.animal}&#x3C;/</span><span style="color:#85E89D">h2</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">h2</span><span style="color:#E1E4E8">>{props.breed}&#x3C;/</span><span style="color:#85E89D">h2</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#E1E4E8"> Pet;</span></span>
+<span class="line"></span></code></pre>
+<p>Javascript expression inside the return value is wrapped in <code>{}</code> e.g. <code>{props.name}</code>.</p>
+<h3 id="hooks">Hooks</h3>
+<p>Hooks get caught every time a component is rendered. We can keep pieces of mutable state and modify them later using the updater functions.</p>
+<p>To add a hook</p>
+<p><strong>useState</strong></p>
+<p><code>const [state, setState] = useState(initialState)</code>.</p>
+<p>State is the piece of mutable state and setState is the updater function. The updater function is used to update the state value.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useState } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">location</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">setLocation</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useState</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#85E89D">input</span></span>
+<span class="line"><span style="color:#B392F0">            id</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"location"</span></span>
+<span class="line"><span style="color:#B392F0">            value</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{location}</span></span>
+<span class="line"><span style="color:#B392F0">            placeholder</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"Location"</span></span>
+<span class="line"><span style="color:#B392F0">            onChange</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#B392F0"> setLocation</span><span style="color:#E1E4E8">(e.target.value)}</span></span>
+<span class="line"><span style="color:#E1E4E8">        /></span></span>
+<span class="line"><span style="color:#E1E4E8">    );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p><strong>useEffect</strong></p>
+<p>Allows to say “do a render of this component first so the user can see something then as soon as the render is done, then do something (the something here being an effect.)”. The effect is a function that is called when the component is rendered.</p>
+<p>To let the user see the UI first before make request to API, we put the request API in the <code>useEffect</code> hook.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#6A737D">// change import at top</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useEffect } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> App</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">    useEffect</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">      requestPets</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">    }, []); </span><span style="color:#6A737D">// dependent var. will call exactly once.</span></span>
+<span class="line"><span style="color:#6A737D">    // if we want it to call every time breed changes, change [] to [breed]</span></span>
+<span class="line"><span style="color:#6A737D">    // if no second argument, it will call everytime the component is rendered (anything changes).</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    async function requestPets() {</span></span>
+<span class="line"><span style="color:#E1E4E8">      const res = await fetch(</span></span>
+<span class="line"><span style="color:#E1E4E8">        ...</span></span>
+<span class="line"><span style="color:#E1E4E8">      );</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    ...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p><strong>Custom Hooks</strong></p>
+<p>We can use one or several react hooks to make a reusable custom hooks.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useState, useEffect } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> useBreedList</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">animal</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">breedList</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">setBreedList</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useState</span><span style="color:#E1E4E8">([]);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">status</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">setStatus</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useState</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"unloaded"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  useEffect</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">animal) {</span></span>
+<span class="line"><span style="color:#F97583">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> requestBreedList</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }, [animal]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> [breedList, status];</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>The function will return two things. We can use the hooks like this</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> useBreedList </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./useBreedList"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">breeds</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useBreedList</span><span style="color:#E1E4E8">(animal);</span></span>
+<span class="line"></span></code></pre>
+<h3 id="handling-user-input">Handling User Input</h3>
+<p>To listen to user actions on input like submit events</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">form</span></span>
+<span class="line"><span style="color:#B392F0">  onSubmit</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#FFAB70">e</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    e.</span><span style="color:#B392F0">preventDefault</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#B392F0">    requestPets</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  }}</span></span>
+<span class="line"><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<p>There are other listener like <code>onChange</code>, on mouse enter, key pres, copy paste, etc.</p>
+<h3 id="react-dev-tools">React Dev Tools</h3>
+<p><strong><code>NODE_ENV=development</code></strong></p>
+<p>When using Parcel, there are some developer conveniences for debugging stuffs to help in development. When building the app, the environment variable will be <code>NODE_ENV=production</code> to strip the development tools and make the bundle smaller.</p>
+<p><strong>&#x3C;React.StrictMode></strong></p>
+<p>Will give additional warnings about things that might be wrong in React usage.</p>
+<p><strong>DevTools extension</strong></p>
+<p>Extension to explore DOM tree, modify state, props, etc.</p>
+<h2 id="react-capabilities">React Capabilities</h2>
+<h3 id="react-router">React Router</h3>
+<p>Install</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> react-router-dom@6.2.1</span></span>
+<span class="line"></span></code></pre>
+<p>To use</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { BrowserRouter, Routes, Route } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react-router-dom"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#79B8FF">BrowserRouter</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#79B8FF">Routes</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#79B8FF">Route</span><span style="color:#B392F0"> path</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/details/:id"</span><span style="color:#B392F0"> element</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#79B8FF">Details</span><span style="color:#E1E4E8"> />} /></span></span>
+<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#79B8FF">Route</span><span style="color:#B392F0"> path</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/"</span><span style="color:#B392F0"> element</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#79B8FF">SearchParams</span><span style="color:#E1E4E8"> />} /></span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#79B8FF">Routes</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#79B8FF">BrowserRouter</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>To make link to page, use <code>&#x3C;Link></code> so React won’t totally reload the entire app all over again when clicked.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">Link</span><span style="color:#B392F0"> to</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#9ECBFF">`/details/${</span><span style="color:#E1E4E8">id</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">} </span><span style="color:#B392F0">className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"pet"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  ...</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#79B8FF">Link</span><span style="color:#E1E4E8">>;</span></span>
+<span class="line"></span></code></pre>
+<p>To get the <code>id</code> params from the URL, use <code>useParams()</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useParams } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react-router-dom"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> Details</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">id</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useParams</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    ..</span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="class-components">Class Components</h3>
+<p>Use class as a way to declare a component.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { Component } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Details</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Component</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#79B8FF">    super</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.state </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    };</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  async</span><span style="color:#B392F0"> componentDidMount</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    ...</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  render</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">        ...</span></span>
+<span class="line"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    );</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Class elements:</p>
+<ul>
+<li>Declaration: React class extends <code>React.Component</code> and have one render method that returns JSX.</li>
+<li><code>constructor()</code>: We can set the initial state. We have to write <code>super(props)</code> at the beginning so it also run the constructor of the parent class.</li>
+<li><code>componentDidMount()</code>: Called after the component is rendered. Usage example: to make a request to API.</li>
+<li><code>this.state</code>: Mutable state of component, use <code>this.setState</code> to modify</li>
+<li><code>this.props</code>: Come from parent component, immutable.</li>
+</ul>
+<p>If working with hooks, we make wrapper component that uses the hook and pass the jsx returns to the wrapper component.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Details</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Component</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"><span style="color:#B392F0">  render</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    ...</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">const </span><span style="color:#B392F0">WrappedDetails</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> params</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> useParams</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#79B8FF">Details</span><span style="color:#B392F0"> params</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{params} /></span></span>
+<span class="line"><span style="color:#E1E4E8">  );</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="class-properties">Class Properties</h3>
+<p>Install a Babel plugin to use class properties to replace constructor.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> i</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> @babel/plugin-proposal-class-properties@7.16.7</span></span>
+<span class="line"></span></code></pre>
+<p>Make file <code>.babelrc</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "plugins"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"@babel/plugin-proposal-class-properties"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>The constructor in class Details can be replaced to</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Details</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Component</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  state</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { loading: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="managing-state-in-class-components">Managing State in Class Components</h3>
+<p>We can have defaultProps in class components to set props that a component has by default if it’s not passed from the parent.</p>
+<p>Make event listener</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#B392F0">handleIndexClick</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> event</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">setState</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#F97583">    ...</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">...</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">img</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">  onClick</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.handleIndexClick} </span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">  ...</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#E1E4E8">/></span></span>
+<span class="line"></span></code></pre>
+<h2 id="special-case-react-tools">Special Case React Tools</h2>
+<h3 id="error-boundaries">Error Boundaries</h3>
+<p>To catch errors in components.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> ErrorBoundary</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Component</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  state</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { hasError: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line"><span style="color:#F97583">  static</span><span style="color:#B392F0"> getDerivedStateFromError</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> { hasError: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  componentDidCatch</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">error</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">info</span><span style="color:#E1E4E8">){</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"ErrorBoundary caught an error"</span><span style="color:#E1E4E8">, error, info);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  render</span><span style="color:#E1E4E8"> () {</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.state.hasError) {</span></span>
+<span class="line"><span style="color:#F97583">      return</span><span style="color:#F97583"> ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#F97583"> ...</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">...</span></span>
+<span class="line"></span></code></pre>
+<p>Now wrap the component with <code>&#x3C;ErrorBoundary></code> and catch the error.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> WrappedDetails</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#79B8FF">ErrorBoundary</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#79B8FF">ErrorBoundary</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  )</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>To make redirect automatically, use <code>componentDidUpdate</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Details</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Component</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  state</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> { hasError: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, redirect: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8"> };</span></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  componentDidUpdate</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.state.hasError) {</span></span>
+<span class="line"><span style="color:#B392F0">      setTimeout</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">setState</span><span style="color:#E1E4E8">({ redirect: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8"> }), </span><span style="color:#79B8FF">5000</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  if</span><span style="color:#E1E4E8"> (this.state.redirect) {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#79B8FF">Navigate</span><span style="color:#B392F0"> to</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/"</span><span style="color:#E1E4E8"> />;</span></span>
+<span class="line"><span style="color:#E1E4E8">  } } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.state.hasError) {</span></span>
+<span class="line"><span style="color:#F97583">    ...</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="context">Context</h3>
+<p>Context is like global state in application. Mostly replaces Redux. Context won’t really be used in most of applications, only use when needed.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { createContext } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> ThemeContext</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> createContext</span><span style="color:#E1E4E8">([</span><span style="color:#9ECBFF">"green"</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {}]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">...</span></span>
+<span class="line"></span></code></pre>
+<p><code>createContext</code> returns two object, <code>Provider</code> and <code>Consumer</code>. Provider is the component that provides the context and Consumer is the component that consumes the context. Consumer accept function as a child and give it to the context. To use the consumer, use <code>useContext</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> ThemeContext </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./ThemeContext"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// top of SearchParams function body</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">theme</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">setTheme</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#B392F0"> useContext</span><span style="color:#E1E4E8">(ThemeContext);</span></span>
+<span class="line"></span></code></pre>
+<p>To consume inside class component</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#6A737D">// import</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> ThemeContext </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./ThemeContext"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// replace button</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">ThemeContext.Consumer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  {([</span><span style="color:#FFAB70">theme</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">button</span><span style="color:#B392F0"> style</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{{ backgroundColor: theme }}>Adopt {name}&#x3C;/</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  )}</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#79B8FF">ThemeContext.Consumer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<p>To change the theme in the context, use <code>setTheme</code>.</p>
+<h3 id="portals-and-useref">Portals and <code>useRef</code></h3>
+<p>Separate mount point. Can be used to make a modal or contextual navbar.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> React, { useEffect, useRef } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { createPortal } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react-dom"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> Modal</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> ({ </span><span style="color:#FFAB70">children</span><span style="color:#E1E4E8"> }) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> elRef</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> useRef</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">null</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">elRef.current) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    elRef.current </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"div"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">  useEffect</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> modalRoot</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"modal"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    modalRoot.</span><span style="color:#B392F0">appendChild</span><span style="color:#E1E4E8">(elRef.current);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> modalRoot.</span><span style="color:#B392F0">removeChild</span><span style="color:#E1E4E8">(elRef.current);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }, []);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#B392F0"> createPortal</span><span style="color:#E1E4E8">(&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">>{children}&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">>, elRef.current);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">...</span></span>
+<span class="line"></span></code></pre>
+<p>This will mount the component when rendered and then remove it when unrendered.</p>
+<p>Refs are instance variable for function components. Anytime refer to <code>elRef.current</code>, it will always referring to the same element, while <code>useState</code> will always refer to the state of variable when the function is called.</p> </div> <!-- Post footer --> <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700"> <a href="/blog" class="inline-flex items-center gap-2 font-semibold hover:underline underline-offset-4"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"> <line x1="19" y1="12" x2="5" y2="12"></line> <polyline points="12 19 5 12 12 5"></polyline> </svg>
+All Posts
+</a> </footer> </article>  </main> <footer class="my-5 text-center text-base text-gray-600 dark:text-gray-400">
+&copy; 2026 Alifia Rahmah
+</footer> </body></html>

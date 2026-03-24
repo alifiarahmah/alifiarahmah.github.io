@@ -1,0 +1,431 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Astro v4.16.19"><title>Intermediate React, v4 - Notes - Blog - alifiarahmah&#39;s homepage</title><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"><!-- Prevent flash of unstyled content for dark mode --><script>
+			(function () {
+				const stored = localStorage.getItem('theme');
+				if (
+					stored === 'dark' ||
+					(!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
+				) {
+					document.documentElement.classList.add('dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+				}
+			})();
+		</script><link rel="stylesheet" href="/_astro/about.BDG0kavN.css"><script type="module" src="/_astro/hoisted.FaBchAMQ.js"></script></head> <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans transition-colors duration-200"> <!-- Desktop + Mobile Navbar --><nav class="relative flex items-center justify-center w-full my-5 px-6" aria-label="Main navigation"> <!-- Desktop nav links --> <div class="hidden lg:flex items-center"> <a href="/" class="nav-btn border-b-2 border-transparent"> Home </a><a href="/projects" class="nav-btn border-b-2 border-transparent"> Projects </a><a href="/blog" class="nav-btn border-b-2 border-black dark:border-white font-semibold"> Blog </a> </div> <!-- Right-side controls --> <div class="lg:absolute lg:right-6 flex items-center gap-1"> <!-- Dark mode toggle --> <button id="theme-toggle" aria-label="Toggle dark mode" class="icon-btn w-12 h-12 text-gray-900 dark:text-gray-100"> <!-- Moon icon (shown in light mode) --> <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26" class="block dark:hidden"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <!-- Sun icon (shown in dark mode) --> <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" class="hidden dark:block"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> </button> <!-- Mobile hamburger button --> <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" class="icon-btn w-12 h-12 lg:hidden text-gray-900 dark:text-gray-100"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"> <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path> </svg> </button> </div> </nav> <!-- Mobile Drawer Overlay + Panel --> <div id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu" class="fixed inset-0 z-50 hidden"> <!-- Backdrop --> <div id="drawer-overlay" class="absolute inset-0 bg-black/50 transition-opacity duration-300"></div> <!-- Drawer panel --> <div id="drawer-panel" class="absolute right-0 top-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl flex flex-col translate-x-full transition-transform duration-300"> <!-- Close button row --> <div class="flex justify-end p-4 border-b border-gray-200 dark:border-gray-700"> <button id="close-drawer" aria-label="Close menu" class="icon-btn w-10 h-10 text-gray-900 dark:text-gray-100"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> <!-- Mobile nav links --> <nav class="flex flex-col"> <a href="/" class="nav-btn text-left border-b border-gray-100 dark:border-gray-800 "> Home </a><a href="/projects" class="nav-btn text-left border-b border-gray-100 dark:border-gray-800 "> Projects </a><a href="/blog" class="nav-btn text-left border-b border-gray-100 dark:border-gray-800 bg-gray-100 dark:bg-gray-800 font-semibold"> Blog </a> </nav> </div> </div>  <main class="container mx-auto max-w-4xl w-[90%] lg:w-auto py-10 min-h-[75vh]">  <article class="max-w-none"> <!-- Back link --> <a href="/blog" class="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors mb-8"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"> <line x1="19" y1="12" x2="5" y2="12"></line> <polyline points="12 19 5 12 12 5"></polyline> </svg>
+Back to Blog
+</a> <!-- Post header --> <header class="mb-10"> <h1 class="text-3xl lg:text-4xl font-bold leading-tight my-2"> Intermediate React, v4 - Notes </h1> <time datetime="2020-08-11" class="text-sm text-gray-500 dark:text-gray-400 block mt-2"> August 11, 2020 </time> </header> <!-- Post body — rendered from markdown via Astro content collections --> <div class="prose prose-lg dark:prose-invert max-w-none
+			prose-headings:font-bold prose-headings:my-4
+			prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl
+			prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+			prose-blockquote:border-l-4 prose-blockquote:border-gray-400 prose-blockquote:pl-4 prose-blockquote:italic
+			prose-code:before:content-none prose-code:after:content-none
+			prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+			prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg
+			prose-img:rounded-md prose-img:shadow-sm
+			prose-ul:my-4 prose-ol:my-4 prose-li:my-1"> <p>This is the note I take as I watch this course
+<a href="https://frontendmasters.com/courses/intermediate-react-v4/">Intermediate React, v4 | FrontendMasters</a></p>
+<h2 id="hooks-in-depth">Hooks in Depth</h2>
+<h3 id="usestate"><code>useState</code></h3>
+<p>Lets you manage state of React component.</p>
+<h3 id="useeffect"><code>useEffect</code></h3>
+<p>Lets you call side effect for component outside of normal render cycle. Second argument is used to determine dependencies.</p>
+<h3 id="usecontext"><code>useContext</code></h3>
+<p>If not using useContext, we have to pass context to component several levels lower way down (prop drilling). We can access/update context from child level. Using useContext solve this problem like a global variable, but it don’t show the explicit relationship between components.</p>
+<h3 id="useref"><code>useRef</code></h3>
+<p>useRef difference from useState is that it’s a reference to the DOM element. useState will be changed when component re-renders, but useRef will be changed when component unmounts.</p>
+<h3 id="usereducer"><code>useReducer</code></h3>
+<p>Basically useState with extra steps to manage state using dispatch, break it and make it testable. Using the reducer with the same state and action will always return the same new state.</p>
+<h3 id="usememo"><code>useMemo</code></h3>
+<p>useMemo is a function that memoizes a function or value. It’s useful when you want to memoize a function that is expensive to compute or when you want to memoize a value that you expect to be constant (no need to recalculate).</p>
+<h3 id="usecallback"><code>useCallback</code></h3>
+<p>Same as useMemo, useCallback is used for performance optimization. It’s a function that memoizes a function and only recalculates if the dependencies change.</p>
+<h3 id="uselayouteffect"><code>useLayoutEffect</code></h3>
+<p>Same as useEffect, but it’s called after the component has been mounted. It’s synchronous to render. This is helpful because useLayout runs the same time as <code>componentDidMount</code> and <code>componentDidUpdaete</code> in class component, where <code>useEffect</code> is scheduled after. Use <code>useLayoutEffect</code> if it is guaranteed that the effect will run synchronously after the component has been mounted.</p>
+<h3 id="useimperativehandle"><code>useImperativeHandle</code></h3>
+<p>useImperativeHandle is a function that lets you customize methods of object that is returned from useRef hook.  It’s useful when you want to pass a ref to a component that is not a child of the component you are using it in, expecially on creating libraries.</p>
+<h3 id="usedebugvalue--useid"><code>useDebugValue</code> &#x26; <code>useId</code></h3>
+<p>useDebugValue can be used to expose custom value while debugging custom hooks in DevTools. useId is a function that generate a unique ID.</p>
+<h2 id="tailwindcss">TailwindCSS</h2>
+<h3 id="css--react">CSS &#x26; React</h3>
+<p>Tailwind is not tied to React. It’s a CSS framework.</p>
+<p>Install:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> i</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> tailwindcss@3.0.22</span><span style="color:#9ECBFF"> postcss@8.4.6</span><span style="color:#9ECBFF"> autoprefixer@10.4.2</span></span>
+<span class="line"></span></code></pre>
+<p>Init Tailwind project:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npx</span><span style="color:#9ECBFF"> tailwindcss</span><span style="color:#9ECBFF"> init</span></span>
+<span class="line"></span></code></pre>
+<p>This will create a tailwind config in <code>tailwind.config.js</code>.</p>
+<p>Then add these line in the beginning of the global CSS file</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#F97583">@tailwind</span><span style="color:#E1E4E8"> base;</span></span>
+<span class="line"><span style="color:#F97583">@tailwind</span><span style="color:#E1E4E8"> components;</span></span>
+<span class="line"><span style="color:#F97583">@tailwind</span><span style="color:#E1E4E8"> utilities;</span></span>
+<span class="line"></span></code></pre>
+<p>Then create <code>.postcssrc</code> in root directory</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "plugins"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "autoprefixer"</span><span style="color:#E1E4E8">: {},</span></span>
+<span class="line"><span style="color:#79B8FF">    "tailwindcss"</span><span style="color:#E1E4E8">: {}</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="basics--gradients">Basics &#x26; Gradients</h3>
+<p>Basically, working with Tailwind CSS require us to implement CSS rules via adding <code>className</code> to our component so component will have a long className string from Tailwind. But sometimes we will have to add some custom style e.g. background image because Tailwind doesn’t support it.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span></span>
+<span class="line"><span style="color:#B392F0">	className</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"p-0 m-0"</span></span>
+<span class="line"><span style="color:#B392F0">	style</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{{</span></span>
+<span class="line"><span style="color:#E1E4E8">		background: </span><span style="color:#9ECBFF">"url(http://pets-images.dev-apis.com/pets/wallpaperA.jpg)"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">	}}</span></span>
+<span class="line"><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  	...</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<p>More Tailwind CSS class can be found at the docs.</p>
+<h3 id="css-libraries">CSS Libraries</h3>
+<p>Using Tailwind will make our CSS size much smaller. There are several other tools to do styling, including emotion and styled-components. They are good if we need to have some javascript functionality in our CSS like computing colors, etc.</p>
+<h3 id="layout-basics">Layout Basics</h3>
+<p>We can also use Tailwind to layout our components using flex.</p>
+<h3 id="tailwind-plugins">Tailwind Plugins</h3>
+<p>There are several component styling by Tailwind CSS. Install it with</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> @tailwindcss/forms@0.4.0.</span></span>
+<span class="line"></span></code></pre>
+<p>This will apply some default styling to basic form elements. In text input, add <code>type=text</code> so it will be styled as a text input.</p>
+<h3 id="grid--breakpoints">Grid &#x26; Breakpoints</h3>
+<p>We can also use Tailwind to layout our components using grid and it’s much easier than using pure CSS. We can also make it responsive.</p>
+<h3 id="positioning">Positioning</h3>
+<p>We can also have relative positioning in CSS.</p>
+<h2 id="code-splitting--server-side-rendering">Code Splitting &#x26; Server Side Rendering</h2>
+<h3 id="code-splitting">Code Splitting</h3>
+<p>Code splitting is a technique to split our application into smaller parts so the application won’t be loaded all at once. This is useful when we have a big application and we want to load it faster. To implement this, we can use <code>Suspense</code> and <code>React.lazy</code> in router.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useState, StrictMode, lazy, Suspense } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> Details</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> lazy</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"./Details"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> SearchParams</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> lazy</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"./SearchParams"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">	return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">		&#x3C;</span><span style="color:#79B8FF">Suspense</span><span style="color:#B392F0"> fallback</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>loading route...&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>}></span></span>
+<span class="line"><span style="color:#E1E4E8">			&#x3C;</span><span style="color:#79B8FF">BrowserRouter</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">				...</span></span>
+<span class="line"><span style="color:#E1E4E8">			&#x3C;/</span><span style="color:#79B8FF">BrowserRouter</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">		&#x3C;/</span><span style="color:#79B8FF">Suspense</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Other than this, the code can be load asynchronously with <code>lazy</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { ..., lazy } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> Modal</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> lazy</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"./Modal"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"></span></code></pre>
+<h3 id="server-side-rendering">Server Side Rendering</h3>
+<p>Performance is a big concern when we have a big application. There are several ways to improve performance. One challenge is to load the correct content first so user can see the site faster.</p>
+<p>Server side rendering is a technique to run React on the server before send it to the user and send the first rendering of the application. The user will only has to download the HTML and see the page, otherwise the user has to download HTML, JS, and load it before showing anything. The total time is relative slower because the React app is loading in the background, but the time the user see something on the page is much faster.</p>
+<p>To implement SSR, we have o change where our app is rendered. We use <code>hydrate</code> from <code>react-dom</code> instead of <code>render</code>, and then achieve it using Express and Node.</p>
+<h3 id="streaming-markup">Streaming Markup</h3>
+<p>We can use <em>streaming</em> when making HTTP request so we can send response in chunks (partially rendered) instead of sending the whole big payload at the end. Browser can immediately start downloading CSS while the app is loading. To implement this, we can use <code>renderToNodeStream</code> from <code>react-dom/server</code>.</p>
+<h2 id="typescript">TypeScript</h2>
+<p>Typescript make you write javascript code in a more strict way. It’s a good way to make sure your team don’t make mistakes as the project scales up. TypeScript make the code more readable and maintainable.</p>
+<h3 id="setup--refactoring">Setup &#x26; Refactoring</h3>
+<p>Install</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> typescript@4.5.5</span></span>
+<span class="line"></span></code></pre>
+<p>Then run</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npx</span><span style="color:#9ECBFF"> tsc</span><span style="color:#79B8FF"> --init</span></span>
+<span class="line"></span></code></pre>
+<p>It will generate <code>tsconfig.json</code> file. Some React dependency types are required to be installed.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> @types/react@17.0.39</span><span style="color:#9ECBFF"> @types/react-dom@17.0.11</span></span>
+<span class="line"></span></code></pre>
+<h3 id="typescript--eslint">TypeScript &#x26; ESLint</h3>
+<p>There is a project called <code>typescript-eslint</code> to replace TSLint (deprecated) that can be used to lint TypeScript code using ESLint.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> eslint-import-resolver-typescript@2.5.0</span><span style="color:#9ECBFF"> @typescript-eslint/eslint-plugin@5.13.0</span><span style="color:#9ECBFF"> @typescript-eslint/parser@5.13.0</span></span>
+<span class="line"></span></code></pre>
+<p>Change <code>package.json</code> “lint” entry to</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#9ECBFF">"scrips"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span></span>
+<span class="line"><span style="color:#79B8FF">	"lint"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"eslint </span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF">src/**/*.{js,jsx,ts,tsx}</span><span style="color:#79B8FF">\"</span><span style="color:#9ECBFF"> --quiet"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Modify <code>.eslintrc.json</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">	"extends"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">		...</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">		"plugin:@typescript-eslint/recommended"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">		"plugin:@typescript-eslint/recommended-requiring-type-checking"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">		"prettier"</span></span>
+<span class="line"><span style="color:#E1E4E8">	],</span></span>
+<span class="line"><span style="color:#79B8FF">	"rules"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">		...,</span></span>
+<span class="line"><span style="color:#79B8FF">		"@typescript-eslint/no-empty-function"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span></span>
+<span class="line"><span style="color:#E1E4E8">	},</span></span>
+<span class="line"><span style="color:#79B8FF">	"plugins"</span><span style="color:#E1E4E8">: [</span><span style="color:#FDAEB7;font-style:italic">...</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"@typescript-eslint"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">	"parserOptions"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">		...,</span></span>
+<span class="line"><span style="color:#79B8FF">		"project"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"./tsconfig.json"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">		...</span></span>
+<span class="line"><span style="color:#E1E4E8">	}</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">	"settings"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">		...,</span></span>
+<span class="line"><span style="color:#79B8FF">		"import/parsers"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">			"@typescript-eslint/parser"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">".ts"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">".tsx"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">		},</span></span>
+<span class="line"><span style="color:#79B8FF">		"import/resolver"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">			"typescript"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">				"alwaysTryTypes"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line"><span style="color:#E1E4E8">			}</span></span>
+<span class="line"><span style="color:#E1E4E8">		}</span></span>
+<span class="line"><span style="color:#E1E4E8">	}</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="typescript-basic-notes">TypeScript Basic Notes</h3>
+<ol>
+<li>
+<p>We can have a strict ordering of string and function which will be enforced to make other file easier to type.</p>
+</li>
+<li>
+<p><code>interface</code> is a way to define a object-like type that can be used in other file. Use interfaces unless you need type aliases.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#6A737D">// by export it, we can use it in other file</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> interface</span><span style="color:#B392F0"> Pet</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">	id</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	name</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> string</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> interface</span><span style="color:#B392F0"> PetAPIResponse</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">	numberOfResults</span><span style="color:#F97583">:</span><span style="color:#79B8FF"> number</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+</li>
+<li>
+<p>We can make a custom, more-strict type alias that just allows a few different values by declare it with <code>type</code>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> type</span><span style="color:#B392F0"> Animal</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "dog"</span><span style="color:#F97583"> |</span><span style="color:#9ECBFF"> "cat"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span></code></pre>
+</li>
+<li>
+<p>The type of a value can be enforced with <code>... as ...</code> syntax.</p>
+</li>
+<li>
+<p>If the param can be undefined, we can use <code>?</code> to make it optional.</p>
+</li>
+</ol>
+<p>Add type check to <code>package.json</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#9ECBFF">"scripts"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...,</span></span>
+<span class="line"><span style="color:#79B8FF">	"typecheck"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"tsc --noEmit"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="redux">Redux</h2>
+<p>Redux is a library that does state management. Back then, Redux was made to replace Context that used to be worse in React. One feature of Redux is that it is testable.</p>
+<p>Install Redux</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> redux@4.1.2</span><span style="color:#9ECBFF"> react-redux@7.2.6</span></span>
+<span class="line"></span></code></pre>
+<p>Including Redux middleware</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { createStore } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "redux"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> reducer </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./reducers"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> store</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> createStore</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">	reducer,</span></span>
+<span class="line"><span style="color:#F97583">	typeof</span><span style="color:#E1E4E8"> window </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> "object"</span><span style="color:#F97583"> &#x26;&#x26;</span></span>
+<span class="line"><span style="color:#F97583">		typeof</span><span style="color:#E1E4E8"> window.__REDUX_DEVTOOLS_EXTENSION__ </span><span style="color:#F97583">!==</span><span style="color:#9ECBFF"> "undefined"</span></span>
+<span class="line"><span style="color:#F97583">		?</span><span style="color:#E1E4E8"> window.</span><span style="color:#B392F0">__REDUX_DEVTOOLS_EXTENSION__</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#F97583">		:</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">f</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> f</span></span>
+<span class="line"><span style="color:#E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#E1E4E8"> store;</span></span>
+<span class="line"></span></code></pre>
+<h3 id="reducers">Reducers</h3>
+<p>combineReducers is a function that takes an object of reducers and returns a reducer function.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { combineReducers } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "redux"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> location </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./location"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#B392F0"> combineReducers</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  location,</span></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span></code></pre>
+<p>Reducer takes an old state, an action, and combines those things to make a state. A reducer must have a default state. Reducer are synchronous.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> location</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">state</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "Seattle, WA"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">action</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  switch</span><span style="color:#E1E4E8"> (action.type) {</span></span>
+<span class="line"><span style="color:#F97583">    case</span><span style="color:#9ECBFF"> "CHANGE_LOCATION"</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">      return</span><span style="color:#E1E4E8"> action.payload;</span></span>
+<span class="line"><span style="color:#F97583">    default</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">      return</span><span style="color:#E1E4E8"> state;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="action-creators">Action Creators</h3>
+<p>Action Creators are functions that return action objects.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> changeTheme</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">theme</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> { type: </span><span style="color:#9ECBFF">"CHANGE_THEME"</span><span style="color:#E1E4E8">, payload: theme };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="providers--dispatching-actions">Providers &#x26; Dispatching Actions</h3>
+<p>Provider is a component that wraps the app and provides the store to the app.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { Provider } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react-redux"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> store </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./store"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> App</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">	return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#E1E4E8">		&#x3C;</span><span style="color:#79B8FF">Provider</span><span style="color:#B392F0"> store</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{store}></span></span>
+<span class="line"><span style="color:#E1E4E8">			&#x3C;</span><span style="color:#79B8FF">App</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">		&#x3C;/</span><span style="color:#79B8FF">Provider</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">	);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Now we can use Redux in component.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="jsx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useSelector, useDispatch } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react-redux"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> changeLocation </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./actionCreators/changeLocation"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> location</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> useSelector</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">state</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> state.location);</span></span>
+<span class="line"><span style="color:#F97583">...</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> dispatch</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> useDispatch</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#B392F0"> SearchParams</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">	return</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#F97583">		...</span></span>
+<span class="line"><span style="color:#E1E4E8">		&#x3C;</span><span style="color:#85E89D">input</span></span>
+<span class="line"><span style="color:#B392F0">			id</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"location"</span></span>
+<span class="line"><span style="color:#B392F0">			value</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{location}</span></span>
+<span class="line"><span style="color:#B392F0">			placeholder</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"Location"</span></span>
+<span class="line"><span style="color:#B392F0">			onChange</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{(</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#B392F0"> dispatch</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">changeLocation</span><span style="color:#E1E4E8">(e.target.value))}</span></span>
+<span class="line"><span style="color:#E1E4E8">		/></span></span>
+<span class="line"><span style="color:#F97583">		...</span></span>
+<span class="line"><span style="color:#E1E4E8">	)</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="redux-dev-tools">Redux Dev Tools</h3>
+<p>Redux Dev Tools is a browser extension that allows us to see the state of the store.</p>
+<h2 id="testing">Testing</h2>
+<p>Jest is a testing library that allows us to write tests in JavaScript. It is built on top of Jasmine.</p>
+<p>Install Jest</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> jest@27.5.1</span><span style="color:#9ECBFF"> @testing-library/react@12.1.3</span></span>
+<span class="line"></span></code></pre>
+<p>Replace <code>.babelrc</code> with</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "presets"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    [</span></span>
+<span class="line"><span style="color:#9ECBFF">      "@babel/preset-react"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        "runtime"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"automatic"</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ],</span></span>
+<span class="line"><span style="color:#9ECBFF">    "@babel/preset-env"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ],</span></span>
+<span class="line"><span style="color:#79B8FF">  "plugins"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"@babel/plugin-proposal-class-properties"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "env"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "test"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "presets"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">        [</span></span>
+<span class="line"><span style="color:#9ECBFF">          "@babel/preset-env"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">          {</span></span>
+<span class="line"><span style="color:#79B8FF">            "targets"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">              "node"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"current"</span></span>
+<span class="line"><span style="color:#E1E4E8">            }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        ]</span></span>
+<span class="line"><span style="color:#E1E4E8">      ]</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Add <code>test</code> script to <code>package.json</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#9ECBFF">"scripts"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...,</span></span>
+<span class="line"><span style="color:#79B8FF">	"test"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"jest"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">	"test:watch"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"jest --watch"</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="basic-react-testing">Basic React Testing</h3>
+<ul>
+<li>Try to test functionality, not implementation</li>
+<li>Don’t test UI or something that likely to change, test the action to the UI instead</li>
+<li>Test the important part to the user</li>
+<li>Delete test on a regular basis</li>
+<li>Fix/delete bad test</li>
+</ul>
+<p>Basic test file has extension <code>.test.js</code> or <code>.spec.js</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { expect, test } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "@jest/globals"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { render } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "@testing-library/react"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Pet </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "../Pet.js"</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// the component</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">test</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"displays a default thumbnail"</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> { </span><span style="color:#6A737D">// test case</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> pet</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> render</span><span style="color:#E1E4E8">(&#x3C;</span><span style="color:#79B8FF">Pet</span><span style="color:#E1E4E8"> />);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> petThumbnail</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> pet.</span><span style="color:#B392F0">findByTestId</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"thumbnail"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">  expect</span><span style="color:#E1E4E8">(petThumbnail.src).</span><span style="color:#B392F0">toContain</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"none.jpg"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span></code></pre>
+<p><code>findByTestId</code> is a function that finds a component by its test id. To catch a specific component for testing, we can add a <code>data-testid</code> attribute to the component.</p>
+<p>For testing custom hooks, we can make a fake component, or using <code>@testing-library/react-hooks</code>, then we can use <code>renderHook</code> to render a component.</p>
+<h3 id="mocks">Mocks</h3>
+<p>To test a component that uses a library that is not available in the browser, we can mock the library. A mock is a fake implementation.</p>
+<p>Install</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> jest-fetch-mock@3.0.3</span></span>
+<span class="line"></span></code></pre>
+<p>Add to <code>package.json</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "jest"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "automock"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    "setupFiles"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"./src/setupJest.js"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>Create <code>setupJest.js</code> in root.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { enableFetchMocks } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "jest-fetch-mock"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">enableFetchMocks</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"></span></code></pre>
+<p>Implement in testing</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#B392F0">test</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"..."</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">	const</span><span style="color:#79B8FF"> breeds</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#F97583">		...</span></span>
+<span class="line"><span style="color:#E1E4E8">	];</span></span>
+<span class="line"><span style="color:#E1E4E8">	fetch.</span><span style="color:#B392F0">mockResponseOnce</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#79B8FF">		JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">		animal: </span><span style="color:#9ECBFF">"..."</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">		breeds,</span></span>
+<span class="line"><span style="color:#E1E4E8">		})</span></span>
+<span class="line"><span style="color:#E1E4E8">	);</span></span>
+<span class="line"><span style="color:#F97583">	const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">result</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">waitForNextUpdate</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#B392F0"> renderHook</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#B392F0"> useBreedList</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"dog"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#F97583">	await</span><span style="color:#B392F0"> waitForNextUpdate</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span></code></pre>
+<h3 id="snapshots">Snapshots</h3>
+<p>Snapshot tests are a low-cost way to write tests.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -D</span><span style="color:#9ECBFF"> react-test-renderer@17.0.2.</span></span>
+<span class="line"></span></code></pre>
+<p>Add</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">/**</span></span>
+<span class="line"><span style="color:#6A737D"> * @jest-environment jsdom</span></span>
+<span class="line"><span style="color:#6A737D"> */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { expect, test } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "@jest/globals"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { create } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "react-test-renderer"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Results </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "../Results"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">test</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"renders correctly with no pets"</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> tree</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> create</span><span style="color:#E1E4E8">(&#x3C;</span><span style="color:#79B8FF">Results</span><span style="color:#B392F0"> pets</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{[]} />).</span><span style="color:#B392F0">toJSON</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#B392F0">  expect</span><span style="color:#E1E4E8">(tree).</span><span style="color:#B392F0">toMatchSnapshot</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span></code></pre>
+<p>The snapshot will show on the CLI and create a <code>__snapshots__</code> folder.</p>
+<h3 id="test-coverage-with-istanbul">Test Coverage with Istanbul</h3>
+<p>Add command to <code>package.json</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#9ECBFF">"scripts"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...,</span></span>
+<span class="line"><span style="color:#79B8FF">	"test:coverage"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"jest --coverage"</span></span>
+<span class="line"><span style="color:#FDAEB7;font-style:italic">	...</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>The script will generate a report of things that are covered and not coveredd with tests. It will also generate a <code>index.html</code> file open in the browser by running</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">open</span><span style="color:#9ECBFF"> coverage/lcov-report/index.html</span></span>
+<span class="line"></span></code></pre>
+<p>Add <code>coverage</code> to <code>.gitignore</code></p> </div> <!-- Post footer --> <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700"> <a href="/blog" class="inline-flex items-center gap-2 font-semibold hover:underline underline-offset-4"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"> <line x1="19" y1="12" x2="5" y2="12"></line> <polyline points="12 19 5 12 12 5"></polyline> </svg>
+All Posts
+</a> </footer> </article>  </main> <footer class="my-5 text-center text-base text-gray-600 dark:text-gray-400">
+&copy; 2026 Alifia Rahmah
+</footer> </body></html>
