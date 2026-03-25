@@ -124,7 +124,7 @@ const formatDate = (dateStr: string) =>
 				<div id="post-list" class="flex flex-col divide-y divide-gray-200 dark:divide-gray-700">
 					{allPosts.map((post) => (
 						<article
-							class="py-10 transition-opacity duration-200"
+							class="py-4 transition-opacity duration-200"
 							data-post-source={post.source}
 						>
 							<!-- Title row -->
@@ -203,7 +203,7 @@ const formatDate = (dateStr: string) =>
 								href={post.href}
 								target={post.isExternal ? '_blank' : undefined}
 								rel={post.isExternal ? 'noopener noreferrer' : undefined}
-								class="inline-block font-bold text-sm mt-4 hover:underline underline-offset-4"
+								class="inline-block font-bold text-sm mt-2 hover:underline underline-offset-4"
 							>
 								{post.isExternal ? 'Read on Medium' : 'Read more'} &rarr;
 							</a>

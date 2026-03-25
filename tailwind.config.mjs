@@ -7,7 +7,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Ubuntu', 'system-ui', 'sans-serif'],
+				sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
 			},
 			typography: {
 				DEFAULT: {
