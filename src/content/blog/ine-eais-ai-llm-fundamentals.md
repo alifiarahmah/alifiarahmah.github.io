@@ -1,7 +1,7 @@
 ---
 title: 'INE - AI & LLM Fundamentals Course Notes'
-excerpt: 'Hello, world! This is my first post on my built-in blog using markdown.'
-date: '2020-08-12'
+excerpt: 'The note I take as I watch the Explore AI/LLM Systems & Security Architecture course on INE'
+date: '2026-07-08'
 slug: 'ine-ai-llm-fundamentals'
 ---
 
