@@ -3,6 +3,7 @@ title: 'Intermediate React, v4 - Notes'
 excerpt: 'A simple study note written as I take "Intermediate React, v4" course in FrontendMasters'
 date: '2020-08-11'
 slug: 'intermediate-react-v4-notes'
+tags: ['software','course-notes']
 ---
 
 This is the note I take as I watch this course 

@@ -3,6 +3,7 @@ title: 'Complete Intro to React, v7 - Notes'
 excerpt: 'A simple study note written as I take "Complete Intro to React, v7" course in FrontendMasters'
 date: '2020-08-06'
 slug: 'complete-intro-to-react-v7-notes'
+tags: ['software','course-notes']
 ---
 
 This is the note I take as I watch this course 

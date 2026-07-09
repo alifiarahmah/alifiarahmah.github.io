@@ -3,6 +3,7 @@ title: 'Testing React with Jest and React Testing Library (RTL)'
 excerpt: 'A simple study note written as I take "Testing React with Jest and React Testing Library (RTL)" course in Udemy'
 date: '2020-08-12'
 slug: 'testing-react-with-jest-and-react-testing-library-rtl'
+tags: ['software','course-notes']
 ---
 
 This is the note I take as I watch this course 
@@ -266,4 +267,3 @@ test(..., async () => {
 	...
 }
 ```
-

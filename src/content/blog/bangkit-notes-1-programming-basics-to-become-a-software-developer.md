@@ -3,6 +3,7 @@ title: 'Bangkit Notes #1 - Programming Basics to become a Software Developer'
 excerpt: 'My notes on Bangkit self-paced courses, part 1'
 date: '2023-08-15'
 slug: 'bangkit-notes-1-programming-basics-to-become-a-software-developer'
+tags: ['software','course-notes']
 ---
 
 This is the note I take as I learn from this course

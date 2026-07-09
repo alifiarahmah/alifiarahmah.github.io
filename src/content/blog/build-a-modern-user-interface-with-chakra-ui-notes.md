@@ -3,6 +3,7 @@ title: 'Build a Modern User Interface with Chakra UI - Notes'
 excerpt: 'A simple study note written as I take "Build a Modern User Interface with Chakra UI" course in egghead.io'
 date: '2020-08-05'
 slug: 'build-a-modern-user-interface-with-chakra-ui-notes'
+tags: ['software','course-notes']
 ---
 
 This is the note I take as I watch this course 

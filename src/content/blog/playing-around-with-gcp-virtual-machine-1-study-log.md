@@ -3,6 +3,7 @@ title: 'Playing Around with GCP Virtual Machine #1 - Study Log'
 excerpt: 'Study log of me playing around with GCP Virtual Machine'
 date: '2023-07-26'
 slug: 'playing-around-with-gcp-virtual-machine-1-study-log'
+tags: ['cloud']
 ---
 
 So, to build a solution implementation for my industrial internship (Kerja Praktik/KP) course, we decided to create our own development environment as we don't have any access to the company's source code (yet) and the database access we have only have read-only access. I decided to use this opportunity to play around and use GCP Virtual Machine as I have some free credits from trying the free trial and got some more by using organization email. I also used Database Instance using Cloud SQL, for us to do the actual work while I tinker around with the virtual machine.

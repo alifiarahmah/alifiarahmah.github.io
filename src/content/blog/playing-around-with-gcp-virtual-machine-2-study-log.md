@@ -3,6 +3,7 @@ title: 'Playing Around with GCP Virtual Machine #2 - Study Log'
 excerpt: 'Next part of my study log playing around with GCP Virtual Machine.'
 date: '2023-07-26'
 slug: 'playing-around-with-gcp-virtual-machine-2-study-log'
+tags: ['cloud']
 ---
 
 It's nice to experience firsthand  the 'scalability' principle of a cloud service, as it's possible for me to change my machine configuration, either scaling-up or scaling-down, even after I created the instance. I can rename the instance, change the machine type , the boot disk, and the network interface. I can also add a GPU to my instance, which is pretty cool. I just have to stop the machine first before I can change the configuration.
