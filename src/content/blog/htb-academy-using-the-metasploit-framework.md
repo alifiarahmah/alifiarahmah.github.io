@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - Using the Metasploit Framework Course Notes'
 excerpt: 'A simple study note written as I take "Using the Metasploit Framework" course in HackTheBox Academy'
-date: '2026-03-26'
+date: '2025-09-26'
 slug: 'htb-academy-using-the-metasploit-framework'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---

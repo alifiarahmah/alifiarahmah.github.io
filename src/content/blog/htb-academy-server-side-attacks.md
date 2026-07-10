@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - Server-side Attacks'
 excerpt: 'A simple study note written as I take "Server-side Attacks" course in HackTheBox Academy'
-date: '2026-03-26'
+date: '2025-10-12'
 slug: 'htb-academy-server-side-attacks'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---

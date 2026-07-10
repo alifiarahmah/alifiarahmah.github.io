@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - Attacking Common Applications Course Notes'
 excerpt: 'A simple study note written as I take "Attacking Common Applications" course in HackTheBox Academy'
-date: '2026-03-26'
+date: '2025-10-12'
 slug: 'htb-academy-attacking-common-applications'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---

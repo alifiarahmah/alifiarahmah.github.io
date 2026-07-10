@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - API Attacks Course Notes'
 excerpt: 'A simple study note written as I take "API Attacks" course in HackTheBox Academy'
-date: '2026-03-26'
+date: '2025-10-12'
 slug: 'htb-academy-api-attacks'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---

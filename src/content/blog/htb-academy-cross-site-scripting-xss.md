@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - Cross-Site Scripting (XSS) Course Notes'
 excerpt: 'A simple study note written as I take "Cross-Site Scripting (XSS)" course in HackTheBox Academy'
-date: '2026-03-26'
+date: '2025-09-26'
 slug: 'htb-academy-cross-site-scripting-xss'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
