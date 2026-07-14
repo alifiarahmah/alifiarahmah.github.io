@@ -2,7 +2,6 @@
 title: 'HTB Academy - Information Gathering - Web Edition'
 excerpt: 'A simple study note written as I take "Information Gathering - Web Edition" course in HackTheBox Academy'
 date: '2025-09-26'
-slug: 'htb-academy-information-gathering-web-edition'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 

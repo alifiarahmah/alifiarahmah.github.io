@@ -2,7 +2,6 @@
 title: 'HTB Academy - Attacking GraphQL Course Notes'
 excerpt: 'A simple study note written as I take "Attacking GraphQL" course in HackTheBox Academy'
 date: '2025-09-26'
-slug: 'htb-academy-attacking-graphql'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 

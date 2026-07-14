@@ -2,7 +2,6 @@
 title: 'HTB Academy - File Inclusion Course Notes'
 excerpt: 'A simple study note written as I take "File Inclusion" course in HackTheBox Academy'
 date: '2025-10-12'
-slug: 'htb-academy-file-inclusion'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 

@@ -2,7 +2,6 @@
 title: 'HTB Academy - Hacking Wordpress Course Notes'
 excerpt: 'A simple study note written as I take "Hacking Wordpress" course in HackTheBox Academy'
 date: '2025-09-26'
-slug: 'htb-academy-hacking-wordpress'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 

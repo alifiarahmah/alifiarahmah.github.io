@@ -2,7 +2,6 @@
 title: 'Playing Around with GCP Virtual Machine #1 - Study Log'
 excerpt: 'Study log of me playing around with GCP Virtual Machine'
 date: '2023-07-26'
-slug: 'playing-around-with-gcp-virtual-machine-1-study-log'
 tags: ['cloud']
 ---
 

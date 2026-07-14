@@ -2,7 +2,6 @@
 title: 'HTB Academy - Broken Authentication Course Notes'
 excerpt: 'A simple study note written as I take "Broken Authentication" course in HackTheBox Academy'
 date: '2025-10-12'
-slug: 'htb-academy-broken-authentication'
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 
