@@ -77,6 +77,44 @@
 		background-color: rgba(255, 255, 255, 0.35);
 	}
 
+	/* Reusable thin scrollbar for theme-aware containers (e.g. filter tabs).
+	   Same minimal look as the code-block scrollbar, but adapts to light/dark
+	   page background via the .dark class on <html>. */
+	.thin-scrollbar {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+	}
+
+	.dark .thin-scrollbar {
+		scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+	}
+
+	.thin-scrollbar::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	.thin-scrollbar::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.thin-scrollbar::-webkit-scrollbar-thumb {
+		background-color: rgba(0, 0, 0, 0.2);
+		border-radius: 3px;
+	}
+
+	.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(0, 0, 0, 0.35);
+	}
+
+	.dark .thin-scrollbar::-webkit-scrollbar-thumb {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+
+	.dark .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(255, 255, 255, 0.35);
+	}
+
 	.code-wrap-toggle {
 		position: absolute;
 		top: 0.5rem;

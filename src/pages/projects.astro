@@ -35,7 +35,7 @@ const isGitlab = (url: string) => url.slice(8, 14) === 'gitlab';
 	<!-- Filter tabs -->
 	<div
 		id="filter-tabs"
-		class="flex gap-2 mb-8 overflow-x-auto pb-2 whitespace-nowrap"
+		class="thin-scrollbar flex gap-2 mb-8 pb-2 whitespace-nowrap overflow-x-scroll"
 		role="group"
 		aria-label="Filter projects by tag"
 	>
@@ -185,55 +185,6 @@ const isGitlab = (url: string) => url.slice(8, 14) === 'gitlab';
 		No projects found for this tag.
 	</p>
 </Layout>
-
-<style>
-	#filter-tabs {
-		/* Firefox - thin scrollbar */
-		scrollbar-width: thin;
-		scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.05);
-	}
-
-	/* Dark mode - Firefox scrollbar */
-	@media (prefers-color-scheme: dark) {
-		#filter-tabs {
-			scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
-		}
-	}
-
-	/* Webkit (Chrome, Safari, Edge) - thin scrollbar */
-	#filter-tabs::-webkit-scrollbar {
-		height: 6px;
-	}
-
-	#filter-tabs::-webkit-scrollbar-track {
-		background: rgba(0, 0, 0, 0.05);
-		border-radius: 3px;
-	}
-
-	#filter-tabs::-webkit-scrollbar-thumb {
-		background: rgba(0, 0, 0, 0.3);
-		border-radius: 3px;
-	}
-
-	#filter-tabs::-webkit-scrollbar-thumb:hover {
-		background: rgba(0, 0, 0, 0.5);
-	}
-
-	/* Dark mode - Webkit scrollbar */
-	@media (prefers-color-scheme: dark) {
-		#filter-tabs::-webkit-scrollbar-track {
-			background: rgba(255, 255, 255, 0.05);
-		}
-
-		#filter-tabs::-webkit-scrollbar-thumb {
-			background: rgba(255, 255, 255, 0.3);
-		}
-
-		#filter-tabs::-webkit-scrollbar-thumb:hover {
-			background: rgba(255, 255, 255, 0.5);
-		}
-	}
-</style>
 
 <script>
 	// ── Types ─────────────────────────────────────────────────────────
