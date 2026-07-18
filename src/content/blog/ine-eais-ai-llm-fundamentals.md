@@ -588,6 +588,19 @@ Defensive controls for AI App Logging
 
 ### Identify Components & Architecture
 
+- How many services defined in Docker Compose file, and what the role of each?
+- What LLM model is being used, where is it hosted?
+- What is the system prompt? Does it contain any sensitive data?
+- Are there any debug/admin endpoints publicly accessible? What data do they expose?
+
 ### Data Flow Tracing & Log Analysis
 
+- How does the app generate embeddings for RAG queries?
+- What collection name does it use in ChromaDB?
+- What fields are logged in to Elasticsearch on every interaction?
+
 ### Vector Store Inspection
+
+- Is authentication required to access ChromaDB?
+- How many documents are stored in ChromaDB, and what are their sensitivity labels?
+- Do any documents contain PII such as SSNs, salaries, address, or phone numbers?
