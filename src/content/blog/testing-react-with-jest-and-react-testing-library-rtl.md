@@ -1,7 +1,7 @@
 ---
 title: 'Testing React with Jest and React Testing Library (RTL)'
 excerpt: 'A simple study note written as I take "Testing React with Jest and React Testing Library (RTL)" course in Udemy'
-date: '2020-08-12'
+date: 2020-08-12
 tags: ['software','course-notes']
 ---
 

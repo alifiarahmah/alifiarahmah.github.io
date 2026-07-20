@@ -1,7 +1,7 @@
 ---
 title: 'Gandalf Lakera AI Solution'
 excerpt: 'My solution for Gandalf Lakera AI Challenge.'
-date: '2026-07-09'
+date: 2026-07-09
 tags: ['cybersecurity','challenges']
 ---
 

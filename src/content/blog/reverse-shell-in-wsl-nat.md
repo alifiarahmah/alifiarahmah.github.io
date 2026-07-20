@@ -1,7 +1,7 @@
 ---
 title: 'A Short Guide to Reverse Shell in WSL'
 excerpt: 'A simple writeup on solving WingData box on HTB Labs'
-date: '2025-06-19'
+date: 2025-06-19
 tags: ['cybersecurity', 'challenges']
 ---
 

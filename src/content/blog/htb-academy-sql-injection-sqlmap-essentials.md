@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - SQL Injection & SQLMap Essentials Course Notes'
 excerpt: 'A simple study note written as I take SQL Injection & SQLMap Essentials course in HackTheBox Academy'
-date: '2025-09-28'
+date: 2025-09-28
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - Footprinting Course Notes'
 excerpt: 'A simple study note written as I take "Footprinting" course in HackTheBox Academy'
-date: '2026-03-26'
+date: 2026-03-26
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 

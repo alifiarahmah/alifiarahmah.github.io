@@ -1,7 +1,7 @@
 ---
 title: 'Complete Intro to React, v7 - Notes'
 excerpt: 'A simple study note written as I take "Complete Intro to React, v7" course in FrontendMasters'
-date: '2020-08-06'
+date: 2020-08-06
 tags: ['software','course-notes']
 ---
 

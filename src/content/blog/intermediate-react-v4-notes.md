@@ -1,7 +1,7 @@
 ---
 title: 'Intermediate React, v4 - Notes'
 excerpt: 'A simple study note written as I take "Intermediate React, v4" course in FrontendMasters'
-date: '2020-08-11'
+date: 2020-08-11
 tags: ['software','course-notes']
 ---
 

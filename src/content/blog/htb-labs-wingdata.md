@@ -1,7 +1,7 @@
 ---
 title: 'HTB Labs - WingData Writeup'
 excerpt: 'A simple writeup on solving WingData box on HTB Labs'
-date: '2026-02-21'
+date: 2026-02-21
 tags: ['cybersecurity', 'htb-labs', 'challenges']
 ---
 

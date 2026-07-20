@@ -1,7 +1,7 @@
 ---
 title: 'HTB Labs - Soulmate Writeup'
 excerpt: 'A simple writeup on solving Soulmate box on HTB Labs'
-date: '2025-10-02'
+date: 2025-10-02
 tags: ['cybersecurity', 'htb-labs', 'challenges']
 ---
 

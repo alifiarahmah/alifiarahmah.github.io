@@ -1,7 +1,7 @@
 ---
 title: 'Bangkit Notes #1 - Programming Basics to become a Software Developer'
 excerpt: 'My notes on Bangkit self-paced courses, part 1'
-date: '2023-08-15'
+date: 2023-08-15
 tags: ['software','course-notes']
 ---
 

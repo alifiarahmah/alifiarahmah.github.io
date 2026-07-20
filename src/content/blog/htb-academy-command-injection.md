@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - Command Injections Course Notes'
 excerpt: 'A simple study note written as I take "Command Injections" course in HackTheBox Academy'
-date: '2025-10-12'
+date: 2025-10-12
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 

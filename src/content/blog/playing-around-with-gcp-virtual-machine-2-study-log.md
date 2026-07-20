@@ -1,7 +1,7 @@
 ---
 title: 'Playing Around with GCP Virtual Machine #2 - Study Log'
 excerpt: 'Next part of my study log playing around with GCP Virtual Machine.'
-date: '2023-07-26'
+date: 2023-07-26
 tags: ['cloud']
 ---
 

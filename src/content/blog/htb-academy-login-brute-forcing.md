@@ -1,7 +1,7 @@
 ---
 title: 'HTB Academy - Login Brute Forcing Course Notes'
 excerpt: 'A simple study note written as I take "Login Brute Forcing" course in HackTheBox Academy'
-date: '2025-09-28'
+date: 2025-09-28
 tags: ['cybersecurity', 'htb-academy', 'course-notes']
 ---
 
