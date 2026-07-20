@@ -1,8 +1,10 @@
 ---
-title: 'INE - AI & LLM Fundamentals Course Notes'
-excerpt: 'The note I take as I watch the Explore AI/LLM Systems & Security Architecture course on INE'
-date: '2026-07-08'
-tags: ['cybersecurity','course-notes']
+title: INE - AI/LLM Systems & Security Architecture Course Notes
+excerpt: The note I take as I watch the Explore AI/LLM Systems & Security Architecture course on INE
+date: 2026-07-08
+tags:
+  - cybersecurity
+  - course-notes
 ---
 
 This is the note I take as I watch this course [Explore AI/LLM Systems & Security Architecture | INE](https://my.ine.com/CyberSecurity/courses/2e110b7d/aillm-systems-security-architecture)
