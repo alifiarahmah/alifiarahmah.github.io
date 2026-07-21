@@ -179,4 +179,19 @@
 		hover:bg-black dark:hover:bg-white;
 	}
 
+	.pagination-btn {
+		@apply inline-flex items-center justify-center min-w-[2.25rem] h-9 px-2.5
+		text-sm font-medium border-2 border-black dark:border-white
+		rounded-sm cursor-pointer transition-colors duration-150
+		bg-transparent text-black dark:text-white
+		hover:bg-black/10 dark:hover:bg-white/10
+		disabled:opacity-40 disabled:cursor-not-allowed
+		disabled:hover:bg-transparent dark:disabled:hover:bg-transparent;
+	}
+
+	.pagination-btn[aria-current='page'] {
+		@apply bg-black text-white dark:bg-white dark:text-black
+		hover:bg-black dark:hover:bg-white;
+	}
+
 }

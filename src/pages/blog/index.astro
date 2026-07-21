@@ -169,7 +169,22 @@ const formatDate = (dateStr: string) =>
 					))}
 				</div>
 
-				<!-- Empty state (shown by JS when a filter has no results) -->
+				<!-- Pagination -->
+				<nav
+					id="pagination"
+					aria-label="Pagination"
+					class="hidden mt-10 flex-wrap items-center justify-center gap-2"
+				>
+					<button type="button" id="prev-page" class="pagination-btn" aria-label="Previous page">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 18 9 12 15 6"></polyline></svg>
+					</button>
+					<div id="page-numbers" class="flex items-center gap-1"></div>
+					<button type="button" id="next-page" class="pagination-btn" aria-label="Next page">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
+					</button>
+				</nav>
+
+				<!-- Empty state -->
 				<p
 					id="no-results"
 					class="hidden text-center text-gray-500 dark:text-gray-400 text-lg py-16"
@@ -182,21 +197,55 @@ const formatDate = (dateStr: string) =>
 </Layout>
 
 <script>
+	const PAGE_SIZE = 10;
+
 	const filterBtns = document.querySelectorAll<HTMLButtonElement>(
 		'#filter-tabs .filter-btn, #post-list .tag[data-filter]',
 	);
 	const posts =
 		document.querySelectorAll<HTMLElement>('#post-list article');
 	const noResults = document.getElementById('no-results');
+	const pagination = document.getElementById('pagination');
+	const prevBtn = document.getElementById('prev-page') as HTMLButtonElement | null;
+	const nextBtn = document.getElementById('next-page') as HTMLButtonElement | null;
+	const pageNumbers = document.getElementById('page-numbers');
+	const postList = document.getElementById('post-list');
 
-	function applyFilter(selected: string) {
-		let visible = 0;
+	let currentFilter = 'All';
+	let currentPage = 1;
+
+	// Read initial page from URL (?page=N) so refresh / shared links land on
+	// the right page.
+	const initialPage = parseInt(
+		new URLSearchParams(window.location.search).get('page') ?? '1',
+		10,
+	);
+	if (!Number.isNaN(initialPage) && initialPage >= 1) {
+		currentPage = initialPage;
+	}
+
+	function getMatchingPosts(filter: string): HTMLElement[] {
+		return Array.from(posts).filter((post) => {
+			const tags: string[] = JSON.parse(post.dataset.tags ?? '[]');
+			return filter === 'All' || tags.includes(filter);
+		});
+	}
+
+	function applyState() {
+		const matching = getMatchingPosts(currentFilter);
+		const totalPages = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
+
+		// Clamp current page into valid range (e.g. after switching filters)
+		if (currentPage > totalPages) currentPage = totalPages;
+		if (currentPage < 1) currentPage = 1;
+
+		const start = (currentPage - 1) * PAGE_SIZE;
+		const end = start + PAGE_SIZE;
+		const visibleSet = new Set(matching.slice(start, end));
 
 		posts.forEach((post) => {
-			const tags: string[] = JSON.parse(post.dataset.tags ?? '[]');
-			const matches = selected === 'All' || tags.includes(selected);
-
-			if (matches) {
+			if (visibleSet.has(post)) {
+				// Fade in
 				post.style.opacity = '0';
 				post.classList.remove('hidden');
 				requestAnimationFrame(() =>
@@ -204,8 +253,8 @@ const formatDate = (dateStr: string) =>
 						post.style.opacity = '1';
 					}),
 				);
-				visible++;
 			} else {
+				// Fade out then hide
 				post.style.opacity = '0';
 				post.addEventListener(
 					'transitionend',
@@ -217,7 +266,39 @@ const formatDate = (dateStr: string) =>
 			}
 		});
 
-		noResults?.classList.toggle('hidden', visible > 0);
+		noResults?.classList.toggle('hidden', matching.length > 0);
+		renderPagination(totalPages);
+		syncURL();
+	}
+
+	function renderPagination(totalPages: number) {
+		if (!pagination || !pageNumbers || !prevBtn || !nextBtn) return;
+
+		if (totalPages <= 1) {
+			pagination.classList.add('hidden');
+			pagination.classList.remove('flex');
+			return;
+		}
+		pagination.classList.remove('hidden');
+		pagination.classList.add('flex');
+
+		prevBtn.disabled = currentPage === 1;
+		nextBtn.disabled = currentPage === totalPages;
+
+		pageNumbers.innerHTML = '';
+		for (let i = 1; i <= totalPages; i++) {
+			const btn = document.createElement('button');
+			btn.type = 'button';
+			btn.className = 'pagination-btn';
+			btn.textContent = String(i);
+			btn.setAttribute('aria-label', `Page ${i}`);
+			if (i === currentPage) {
+				btn.setAttribute('aria-current', 'page');
+				btn.disabled = true;
+			}
+			btn.addEventListener('click', () => setPage(i));
+			pageNumbers.appendChild(btn);
+		}
 	}
 
 	function setActiveTab(selected: string) {
@@ -230,11 +311,56 @@ const formatDate = (dateStr: string) =>
 			});
 	}
 
+	function setFilter(filter: string) {
+		currentFilter = filter;
+		currentPage = 1; // Filter changes always reset to the first page
+		setActiveTab(filter);
+		applyState();
+	}
+
+	function setPage(page: number) {
+		if (page === currentPage) return;
+		currentPage = page;
+		applyState();
+		// Scroll the list into view rather than jumping to the very top of the page
+		postList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
+	function syncURL() {
+		const url = new URL(window.location.href);
+		if (currentPage > 1) {
+			url.searchParams.set('page', String(currentPage));
+		} else {
+			url.searchParams.delete('page');
+		}
+		// Avoid pushing duplicate history entries when the page doesn't change
+		const current = new URL(window.location.href);
+		if (current.searchParams.toString() === url.searchParams.toString()) return;
+		history.pushState({ page: currentPage }, '', url);
+	}
+
+	// Filter handlers (top tabs + inline tag chips on each post)
 	filterBtns.forEach((btn) => {
 		btn.addEventListener('click', () => {
 			const filter = btn.dataset.filter ?? 'All';
-			setActiveTab(filter);
-			applyFilter(filter);
+			setFilter(filter);
 		});
 	});
+
+	// Prev / Next handlers
+	prevBtn?.addEventListener('click', () => setPage(currentPage - 1));
+	nextBtn?.addEventListener('click', () => setPage(currentPage + 1));
+
+	// Browser back/forward — re-read page from URL and re-render
+	window.addEventListener('popstate', () => {
+		const page = parseInt(
+			new URLSearchParams(window.location.search).get('page') ?? '1',
+			10,
+		);
+		currentPage = Number.isNaN(page) || page < 1 ? 1 : page;
+		applyState();
+	});
+
+	// Initial render
+	applyState();
 </script>
