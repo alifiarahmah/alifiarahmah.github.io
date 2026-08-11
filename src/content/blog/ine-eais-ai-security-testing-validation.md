@@ -135,11 +135,49 @@ You walk through each component, data store, process, and trust boundary, and as
 
 ## Test Planning
 
-### Developing an AI Security Test Plan with STRIDE
+### Developing an AI Security Test Plan
 
+Developing AI Threat model with STRIDE:
+1. Identify critical assets
+2. Identify trust boundaries
+3. Apply STRIDE
+4. Perform risk assessment (risk = likelihood x impact)
+5. Calculate risk score
+6. Prioritize threats
 
+Developing an AI Security Test Plan
+1. Prioritize threats for testing
+2. Convert threats into security objectives
+3. Define test scenarios
+4. Define test cases
+5. Identify required evidence
+6. Define success criteria
+
+Example on how this leads to test cases:
+- Threat model: Prompt Injection
+	- TC-001 Direct Prompt Injection
+	- TC-002 Role Impersonation
+	- TC-003 System Prompt Extraction
+	- TC-004: Context Manipulation
 
 ### Writing Effective AI Security Test Cases
+
+Test case: Documented procedure used to validate whether a specific threat/security control can be exploited, bypassed, or abused
+
+A good security test case should clearly define:
+1. ID
+2. Test objective
+3. Threat
+4. Component
+5. Procedure
+6. Expected result
+7. Evidence
+
+Writing good test cases, should be:
+- Specific, clearly define what is being tested
+- Repeatable, another assessor should be able to execute the same test and achieve similar results
+- Threat-driven, every test case should map back to a threat identified during threat modeling
+- Measurable, clearly define what success/failure
 
 # End-To-End Security Assessment
 
